@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Email Review · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link">Formations</a>
+      <a href="../outils.html" class="nav-link active">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../outils.html">Outils</a><span class="sep">›</span><span class="current">Daily Email Review</span>
+  </div>
+</div>
+
+<div class="page">
+  <header class="hero">
+    <div class="eyebrow">Skill · M365 · Briefing matinal</div>
+    <h1><em>Daily</em> Email Review.</h1>
+    <p class="lede">Sweep complet des emails Outlook récents, organisation par mandat / deal / projet, points ouverts identifiés, to-do priorisé pour la journée. Le briefing matinal en une commande — typiquement 5 minutes pour traiter ce qui aurait pris 30.</p>
+  </header>
+
+  <div class="factsheet-meta">
+    <div class="factsheet-meta-item"><div class="factsheet-meta-label">Type</div><div class="factsheet-meta-value">Skill · Auto-trigger</div></div>
+    <div class="factsheet-meta-item"><div class="factsheet-meta-label">Environnement</div><div class="factsheet-meta-value">Chat (web, mobile, desktop)</div></div>
+    <div class="factsheet-meta-item"><div class="factsheet-meta-label">Connecteurs requis</div><div class="factsheet-meta-value">Microsoft 365 (Outlook)</div></div>
+    <div class="factsheet-meta-item"><div class="factsheet-meta-label">Modèle conseillé</div><div class="factsheet-meta-value">Sonnet 4.6</div></div>
+  </div>
+
+  <section class="chapter" style="padding-top:24px">
+    <div class="chapter-num">— Ce qu'il fait</div>
+    <h2 class="chapter-title">Briefing matinal en une commande</h2>
+    <p>Le Skill se connecte à votre Outlook, lit tous les emails reçus sur la fenêtre temporelle que vous indiquez (depuis hier 18h, depuis vendredi, derniers 3 jours, etc.), et produit un livrable structuré :</p>
+    <h3>Sortie produite</h3>
+    <ul>
+      <li><strong>Synthèse organisée par mandat / deal / projet</strong> — chaque thread regroupé par contexte</li>
+      <li><strong>Points ouverts identifiés</strong> — questions en attente, validations à fournir, livrables à produire</li>
+      <li><strong>Priorisation</strong> — ce qui doit être traité dans la journée vs ce qui peut attendre</li>
+      <li><strong>To-do actionnable</strong> — liste claire de ce que vous devez faire, dans quel ordre</li>
+      <li><strong>Items hors mandats</strong> regroupés à part (administratif, internes, notifications)</li>
+    </ul>
+    <h3>Pourquoi c'est plus efficace que de lire son Outlook</h3>
+    <p>Une heure d'emails reçus = typiquement 30-50 messages dont 80 % sont des CC, des notifications, ou des fils déjà avancés. Daily Email Review fait le tri en 2 minutes — vous obtenez la vue d'ensemble sans avoir à ouvrir 50 mails un par un.</p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-num">— Déclenchement</div>
+    <h2 class="chapter-title">Comment l'invoquer</h2>
+    <p>Le Skill se déclenche automatiquement dès qu'une demande de revue d'emails est détectée.</p>
+    <h3>Formulations qui déclenchent</h3>
+    <ul>
+      <li>« Lis mes emails »</li>
+      <li>« Qu'est-ce que j'ai reçu »</li>
+      <li>« Fais ma to-do »</li>
+      <li>« Points ouverts »</li>
+      <li>« Revue du matin »</li>
+      <li>« Open items »</li>
+      <li>« Daily briefing »</li>
+      <li>« Rattraper mes mails »</li>
+      <li>« Email recap »</li>
+    </ul>
+    <h3>Préciser la fenêtre temporelle</h3>
+    <p>Sans précision, le Skill prend les emails depuis votre dernière vérification (last 24h par défaut). Pour cadrer :</p>
+    <ul>
+      <li>« Lis mes emails depuis hier 18h »</li>
+      <li>« Sweep des 3 derniers jours »</li>
+      <li>« Que s'est-il passé pendant mon offsite lundi-mercredi »</li>
+    </ul>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-num">— Cas d'usage</div>
+    <h2 class="chapter-title">Quand l'utiliser</h2>
+    <div class="usecase-grid">
+      <div class="usecase"><div class="utag">Cas 1</div><h4>Briefing matinal quotidien</h4><p>Le rituel du matin : ouvrir Claude avant Outlook, lancer « revue du matin », démarrer la journée avec une vue claire des priorités.</p></div>
+      <div class="usecase"><div class="utag">Cas 2</div><h4>Retour de voyage ou d'offsite</h4><p>Après 3 jours hors ligne, le Skill traite les 200 emails accumulés en quelques minutes au lieu d'une matinée perdue.</p></div>
+      <div class="usecase"><div class="utag">Cas 3</div><h4>Suivi d'un mandat spécifique</h4><p>« Récupère tous les échanges sur le mandat X des 7 derniers jours et synthétise les décisions clés. »</p></div>
+      <div class="usecase"><div class="utag">Cas 4</div><h4>Préparation de point hebdo</h4><p>Avant un point d'équipe, sweep des emails des deals actifs pour avoir une vue consolidée de l'avancement.</p></div>
+    </div>
+    <h3>Chaînage avec Interactive To-Do</h3>
+    <p>Une fois la revue terminée, basculez vers le skill <a href="interactive-todo.html">Interactive To-Do</a> pour transformer les open items en checklist React visuelle — vous cochez au fur et à mesure de l'avancement de votre journée.</p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-num">— Pièges &amp; limites</div>
+    <h2 class="chapter-title">À garder en tête</h2>
+    <div class="warn">
+      <strong>Le connecteur Microsoft 365 doit être activé</strong>
+      <span>Avant la première utilisation, vérifiez dans Paramètres → Connectors que Microsoft 365 est connecté avec votre compte Clearwater. Sinon le Skill échoue silencieusement et vous renvoie une revue vide.</span>
+    </div>
+    <ul>
+      <li><strong>Pas d'action automatique</strong> — Le Skill lit, synthétise, priorise. Il <strong>ne</strong> répond pas, <strong>ne</strong> supprime pas, <strong>ne</strong> classe pas vos emails. Vous gardez le contrôle.</li>
+      <li><strong>Mode lecture par défaut</strong> — Si vous voulez activer la rédaction de brouillons (« drafte les réponses prioritaires »), il faut le demander explicitement, et le connecteur doit avoir la permission d'écriture activée.</li>
+      <li><strong>Confidentialité</strong> — Le Skill lit tous vos emails accessibles, y compris ceux liés à des mandats sensibles. Pour des sessions vraiment sensibles, ouvrir une conversation Incognito (la conversation ne s'inscrit pas en mémoire long terme).</li>
+      <li><strong>Mémoire</strong> — Le Skill ne se souvient pas des revues précédentes. Si vous voulez le suivi d'un sujet sur plusieurs jours, créez une note manuelle ou un Project.</li>
+    </ul>
+  </section>
+</div>
+
+<section class="related-tools">
+  <div class="page">
+    <div class="eyebrow">Pour aller plus loin</div>
+    <h2 class="chapter-title">Outils &amp; formations en lien</h2>
+    <div class="tools-grid">
+      <a href="interactive-todo.html" class="tool-card"><div class="tool-tag">Skill</div><h4>Interactive To-Do</h4><p>Suite naturelle : transformer les open items en checklist visuelle actionnable.</p></a>
+      <a href="meeting-finder.html" class="tool-card"><div class="tool-tag">Skill · M365</div><h4>Meeting Finder</h4><p>Compléter le briefing avec la recherche de créneaux pour les meetings à caler.</p></a>
+      <a href="../formations/connecteurs-mcp.html" class="tool-card"><div class="tool-tag">Formation 06</div><h4>Connecteurs &amp; MCP</h4><p>Configurer Microsoft 365 et les autres connecteurs nécessaires.</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Outil — Daily Email Review</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

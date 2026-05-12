@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation — Comprendre et utiliser les artifacts de Claude · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link active">Formations</a>
+      <a href="../outils.html" class="nav-link">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../formations.html">Formations</a><span class="sep">›</span><span class="current">Artifacts</span>
+  </div>
+</div>
+
+<div class="page-wide">
+  <header class="hero">
+    <div class="eyebrow">Module pédagogique · Formation 04</div>
+    <h1>Comprendre et utiliser<br>les <em>artifacts</em> de Claude.</h1>
+    <p class="lede">Le bon réflexe quand vous démarrez un livrable, et la formation complète pour comprendre les mécaniques. Chat, Cowork, partage, mises à jour, mini-apps avec IA embarquée — tout ce qu'il faut pour produire des artifacts qui tiennent la route.</p>
+  </header>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-view="view-wizard" role="tab"><span class="tab-num">01</span><span>Réflexe rapide</span></button>
+    <button class="tab" data-view="view-deep" role="tab"><span class="tab-num">02</span><span>Formation complète</span></button>
+  </nav>
+</div>
+
+<div class="view active" id="view-wizard">
+  <div class="page-wide">
+    <div class="wizard-wrap">
+      <div class="wizard-card">
+        <div class="wizard-flag">À consulter avant de démarrer un livrable</div>
+        <div class="wizard-header">
+          <h2>Quel <em>type d'artifact</em> pour mon livrable ?</h2>
+          <p>Décrivez ce que vous voulez produire. Vous obtiendrez l'environnement à utiliser (Chat ou Cowork), le format d'artifact recommandé, l'approche de partage et la méthode pour ne pas perdre de temps.</p>
+        </div>
+        <div class="wizard-breadcrumb" id="breadcrumb"><span class="step active"><span class="label">① Type de livrable</span></span></div>
+        <div class="wizard-body" id="wizardBody"></div>
+      </div>
+      <div class="nudge">
+        <strong>Pourquoi ce module existe</strong>
+        Les artifacts sont puissants mais mal utilisés font perdre du temps : on lance un Chat artifact alors qu'on voulait un fichier Word, on partage un lien sans réaliser que les pièces jointes du chat sont aussi exposées, on multiplie les versions au lieu de les éditer. Avant de démarrer un livrable, prenez 30 secondes ici. Pour comprendre les mécaniques sous-jacentes, allez voir l'onglet <em>Formation complète</em>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="view" id="view-deep">
+  <div class="page">
+    <nav class="toc" style="margin-top:48px">
+      <h2>Sommaire de la formation</h2>
+      <ol>
+        <li><a href="#ch1">Le concept — qu'est-ce qu'un artifact</a></li>
+        <li><a href="#ch2">Maîtriser les artifacts du Chat</a></li>
+        <li><a href="#ch3">Maîtriser les artifacts en Cowork</a></li>
+        <li><a href="#ch4">Partager et faire vivre un artifact</a></li>
+        <li><a href="#ch5">AI-powered artifacts — l'IA embarquée</a></li>
+        <li><a href="#ch6">Cas d'usage IB &amp; bonnes pratiques</a></li>
+        <li><a href="#cheats">Fiches mémo</a></li>
+      </ol>
+    </nav>
+
+    <section class="chapter" id="ch1">
+      <div class="chapter-num">— Chapitre 1</div>
+      <h2 class="chapter-title">Le concept — qu'est-ce qu'un artifact ?</h2>
+      <p class="intro">Un artifact, c'est un <strong>contenu autonome</strong> que Claude produit dans une fenêtre dédiée, séparée du fil de conversation. Pas un message dans le chat, mais un objet qui vit en parallèle, qu'on peut éditer, faire évoluer, partager, et réutiliser ailleurs.</p>
+      <h3>Quand Claude crée un artifact</h3>
+      <p>Claude bascule en mode artifact dès que ce qu'il produit remplit ces critères :</p>
+      <ul>
+        <li><strong>Substantiel et autonome</strong> — typiquement plus de 15 lignes, qui se tient sans le contexte de la conversation</li>
+        <li><strong>Vous allez vouloir le modifier ou itérer dessus</strong></li>
+        <li><strong>Vous allez vouloir le réutiliser hors du chat</strong> — l'envoyer, l'imprimer, le poster ailleurs</li>
+        <li><strong>Vous allez vouloir y revenir plus tard</strong></li>
+      </ul>
+      <p>En pratique : un mémo de 800 mots, un tableau comparatif, un schéma, une mini-app, un fichier Word généré pour un client — tous ces livrables sortent en artifact. Une réponse courte, une explication conversationnelle, une réponse à une question factuelle — ça reste inline.</p>
+      <div class="demo-split">
+        <div class="demo-chat">
+          <div class="demo-label">Fil de conversation</div>
+          <div class="demo-chat-msg">« Voici un comparatif des trois cibles que tu m'as demandé de regarder. Je l'ai mis dans l'artifact à droite — tu peux l'éditer ou me demander de le modifier. »</div>
+        </div>
+        <div class="demo-artifact">
+          <div class="demo-label">Fenêtre artifact</div>
+          <div class="demo-artifact-frame">[ Tableau comparatif interactif &mdash; Cibles A, B, C × CA, EBITDA, croissance, fit ]</div>
+        </div>
+      </div>
+      <h3>Chat ou Cowork — deux mécaniques très différentes</h3>
+      <p>Le terme « artifact » désigne en réalité deux choses presque sans rapport selon l'environnement :</p>
+      <ul>
+        <li><strong>Dans le Chat</strong> (claude.ai web et desktop) — l'artifact est un objet rendu en direct dans le navigateur. HTML, React, Markdown, code. Il vit dans Claude, pas sur votre machine. On peut le partager via lien, l'embarquer, lui ajouter du <em>persistent storage</em> ou des appels à des MCP.</li>
+        <li><strong>Dans Cowork</strong> (app desktop uniquement) — les « artifacts » sont en réalité des fichiers locaux générés sur votre disque dur, affichés dans un volet de prévisualisation. Ils vivent dans le dossier que vous avez donné en accès. Un fichier Excel généré par Cowork est un fichier Excel, point. Le volet Artifacts vous permet juste de le prévisualiser sans changer d'app. Depuis avril 2026, une nouveauté importante : les <em>Live Artifacts</em>, qui se rafraîchissent avec des données externes via les MCP.</li>
+      </ul>
+      <div class="warn">
+        <strong>Ne pas confondre</strong>
+        <span>Un artifact Chat partagé via lien reste sur les serveurs Claude — l'accès dépend du mode de partage choisi (voir Chapitre 4). Un fichier généré par Cowork reste sur votre disque dur, vous le partagez comme n'importe quel fichier. Ce sont deux régimes complètement différents en termes de sécurité et de partage.</span>
+      </div>
+      <div class="analogy">
+        <h3>L'inline, c'est le mail. L'artifact, c'est la pièce jointe vivante.</h3>
+        <p>Un mail bien écrit suffit pour transmettre une info ponctuelle, une réponse à une question, une réflexion. Mais quand le contenu est destiné à être <strong>édité, partagé, retravaillé</strong>, on l'isole en pièce jointe — un Word, un Excel, une pièce qui peut circuler indépendamment du fil de discussion.</p>
+        <p>Les artifacts jouent exactement ce rôle, en mieux : ils sont vivants. On peut demander à Claude de les modifier, ils gardent leur historique de versions, on peut les partager avec un lien, ils peuvent même être interactifs ou appeler de l'IA pour répondre à leurs utilisateurs. <strong>Pensez en livrable plutôt qu'en réponse.</strong> Si ce que vous demandez à Claude est destiné à exister hors de la conversation, ça doit être un artifact.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch2">
+      <div class="chapter-num">— Chapitre 2</div>
+      <h2 class="chapter-title">Maîtriser les artifacts du Chat</h2>
+      <p class="intro">Sept formats disponibles, chacun avec son terrain de jeu. Choisir le bon dès le départ vous évite les itérations inutiles.</p>
+      <h3>Les sept formats à connaître</h3>
+      <table class="types-table">
+        <thead><tr><th style="width:30%">Format</th><th>Quand l'utiliser</th></tr></thead>
+        <tbody>
+          <tr><td class="ttype">Markdown<small>.md</small></td><td>Notes, mémos, rapports formatés, documents structurés. Le format par défaut pour de la prose qui doit rester lisible et copiable.</td></tr>
+          <tr><td class="ttype">HTML<small>.html</small></td><td>Pages web autonomes : profil société interactif, formulaire, landing page, mini-site. Tout le CSS et JS dans un seul fichier.</td></tr>
+          <tr><td class="ttype">React<small>.jsx</small></td><td>Composants interactifs avec état : calculateurs, dashboards, jeux, formulaires multi-étapes. Bibliothèques disponibles (Recharts, lucide-react, lodash, d3, Tailwind).</td></tr>
+          <tr><td class="ttype">SVG<small>.svg</small></td><td>Schémas vectoriels précis : org chart, structure deal, illustration technique. Idéal quand vous voulez réimporter dans Illustrator ou PowerPoint.</td></tr>
+          <tr><td class="ttype">Mermaid<small>.mermaid</small></td><td>Flowcharts, diagrammes de séquence, gantt simples. Syntaxe textuelle légère — parfait pour itérer rapidement sur un schéma de process.</td></tr>
+          <tr><td class="ttype">Code<small>.py / .js / autres</small></td><td>Scripts Python, JS, ou autres langages, à copier et exécuter ailleurs. Pour le code de plus de 20 lignes — en deçà, ça reste inline.</td></tr>
+          <tr><td class="ttype">Office &amp; PDF<small>.docx, .pptx, .xlsx, .pdf</small></td><td>Livrables téléchargeables au format Office — typiquement pour un client ou un usage hors Claude. Plus fiable via Cowork pour des fichiers structurés (voir Chapitre 3).</td></tr>
+        </tbody>
+      </table>
+      <h3>Création, édition, itération</h3>
+      <p>Claude crée l'artifact automatiquement quand le contenu remplit les critères du Chapitre 1. Vous pouvez aussi forcer la création (« mets ça dans un artifact »).</p>
+      <ul>
+        <li><strong>Pour modifier un artifact existant</strong> : décrivez le changement dans le chat. « Ajoute une colonne EBITDA au tableau », « rends le bouton plus discret », « passe le titre en majuscules ». Claude met à jour l'artifact dans la même fenêtre.</li>
+        <li><strong>Si l'artifact génère une erreur</strong> (typique sur React) : un bouton <em>Try fixing with Claude</em> apparaît près de l'erreur. Cliquez — Claude reprend automatiquement avec le contexte de l'erreur.</li>
+        <li><strong>Édition de message antérieur</strong> : si vous éditez un de vos messages plus haut dans le chat, vous créez une nouvelle branche d'artifacts à partir de ce point. Les versions précédentes restent accessibles.</li>
+      </ul>
+      <h3>Versioning</h3>
+      <p>Toutes les versions d'un artifact sont sauvegardées automatiquement dans le chat. En haut du panneau artifact, un dropdown vous permet de naviguer entre versions, voir une version antérieure, repartir d'une version pour une nouvelle itération. Important : c'est par chat — un artifact n'existe pas indépendamment de la conversation qui l'a créé.</p>
+      <h3>Persistent storage — les artifacts qui retiennent des données</h3>
+      <p>Disponible sur les plans Pro, Max, Team et Enterprise. Un artifact peut stocker jusqu'à <strong>20 Mo de données par artifact</strong>, qui persistent entre sessions et entre utilisateurs. Deux modes :</p>
+      <ul>
+        <li><strong>Personnel</strong> — chaque utilisateur garde ses propres données. Cas d'usage : un journal, un tracker personnel, des préférences.</li>
+        <li><strong>Partagé</strong> — tous les utilisateurs voient et écrivent dans les mêmes données. Cas d'usage : un leaderboard, un suivi collectif, un wiki léger.</li>
+      </ul>
+      <p>Pour notre équipe, ça ouvre des cas d'usage concrets : un tracker de pipeline deal partagé, un suivi de Q&amp;A diligence consolidé, un journal de décisions sur un dossier — tout ça vivant dans un artifact, sans backend ni base de données.</p>
+      <h3>Connexions MCP — les artifacts qui parlent à des apps</h3>
+      <p>Disponible sur les plans Pro, Max, Team et Enterprise. Un artifact peut appeler des MCP servers (Microsoft 365, Google Drive, Asana, ou nos connecteurs Pappers, Grata, S&amp;P Global) pour lire ou écrire des données réelles. Chaque utilisateur s'authentifie indépendamment sur ses propres connecteurs — ce qui veut dire qu'un artifact partagé en équipe utilise les comptes de chacun, pas du créateur.</p>
+      <div class="tip">
+        <strong>À garder en tête</strong>
+        <span>Un artifact connecté à un MCP n'a pas accès aux données : c'est l'utilisateur qui ouvre l'artifact qui l'autorise (ou non) à lire son inbox, son drive, etc. Ça reste dans les rails de sécurité standard.</span>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch3">
+      <div class="chapter-num">— Chapitre 3</div>
+      <h2 class="chapter-title">Maîtriser les artifacts en Cowork</h2>
+      <p class="intro">Le mot « artifact » est trompeur en Cowork. Ce ne sont pas des objets vivants comme dans le Chat — ce sont des fichiers locaux sur votre machine, affichés dans un volet de prévisualisation pratique.</p>
+      <h3>Le bon modèle mental</h3>
+      <p>Quand Cowork génère un Excel, un PowerPoint, un PDF ou n'importe quel fichier, il l'écrit dans le dossier que vous lui avez donné en accès. C'est un fichier comme un autre dans votre Finder ou Explorateur Windows. Le volet Artifacts de Cowork vous permet de le prévisualiser directement dans l'app, sans avoir à ouvrir Excel ou PowerPoint à chaque vérification — c'est tout.</p>
+      <p>Conséquence pratique : pour partager un fichier généré par Cowork, vous le partagez comme n'importe quel fichier — par mail, par Drive, en glissant dans Teams. Pas de lien public, pas de mécanique propre à Claude.</p>
+      <h3>Workflow type</h3>
+      <ol>
+        <li>Vous décrivez la tâche à Claude dans Cowork</li>
+        <li>Claude planifie les étapes et exécute (lecture des fichiers d'entrée, traitement, génération du fichier de sortie)</li>
+        <li>Le ou les fichiers générés apparaissent dans le volet Artifacts <em>et</em> dans votre dossier local</li>
+        <li>Vous les ouvrez, les vérifiez, demandez des ajustements à Claude — qui réécrit le fichier</li>
+        <li>Le fichier final est dans le dossier, prêt à être partagé</li>
+      </ol>
+      <p>Pour un Excel multi-feuilles, un PowerPoint complet, un PDF formaté — Cowork est bien plus fiable qu'un artifact Chat, parce qu'il utilise nos skills internes (skills <code>xlsx</code>, <code>pptx</code>, <code>docx</code>, <code>pdf</code>) qui produisent des fichiers de qualité professionnelle.</p>
+      <h3>Live Artifacts — la nouveauté de 2026</h3>
+      <p>Depuis avril 2026, Cowork propose une fonctionnalité distincte appelée <strong>Live Artifacts</strong>, accessible depuis l'onglet du même nom dans la sidebar. Ce sont des artifacts qui se rafraîchissent automatiquement avec les données de vos apps connectées (Microsoft 365, Drive, MCPs) à chaque ouverture.</p>
+      <p>Cas d'usage : un dashboard de suivi de deal qui pulle automatiquement les emails récents et les meetings du calendrier, un tracker de mandats qui se met à jour à partir d'un Excel partagé. Vous le créez une fois — il reste à jour tout seul.</p>
+      <div class="warn">
+        <strong>Limites importantes des Live Artifacts</strong>
+        <span>(1) Ils vivent localement sur la machine — ils ne se synchronisent pas si vous changez d'ordinateur. (2) Ils ne sont pas partageables encore (sur la roadmap). (3) Ils utilisent les connecteurs sans demander permission à chaque appel — accordez votre confiance avant de mettre des connecteurs sensibles dans un Live Artifact.</span>
+      </div>
+      <h3>Limites de Cowork à connaître</h3>
+      <ul>
+        <li><strong>Desktop uniquement</strong> — macOS et Windows, pas de version web ni mobile native. L'app desktop doit rester ouverte pendant l'exécution.</li>
+        <li><strong>Disponible sur les plans Pro, Max, Team et Enterprise.</strong></li>
+        <li><strong>Pas de partage natif des sessions ni des artifacts</strong> — le partage se fait via les fichiers locaux générés.</li>
+        <li><strong>Mémoire limitée aux Projects Cowork</strong> — en session standalone, Claude n'a pas de mémoire persistante d'une session à l'autre.</li>
+        <li><strong>Mobile pour Pro/Max</strong> — possibilité de lancer une tâche depuis le mobile, à condition que l'app desktop reste ouverte côté machine.</li>
+      </ul>
+    </section>
+
+    <section class="chapter" id="ch4">
+      <div class="chapter-num">— Chapitre 4</div>
+      <h2 class="chapter-title">Partager et faire vivre un artifact</h2>
+      <p class="intro">Trois mécaniques de partage très différentes selon où vous êtes et quel plan vous avez. À bien comprendre, parce que chacune a des implications de sécurité différentes — particulièrement critiques sur des dossiers deal sensibles.</p>
+      <div class="share-cards">
+        <div class="share-card share-publish">
+          <div class="stag">Mode 1 — Publish</div><h4>Lien public</h4><div class="splans">Plans individuels (Pro, Max)</div>
+          <p>Vous générez un lien public. N'importe qui avec le lien peut voir et interagir avec l'artifact, sans compte Claude. Code source visible. Embeddable sur un site externe. Pour des artifacts <em>non confidentiels</em> uniquement. <strong>Non disponible sur Team/Enterprise</strong> — chez Clearwater, vous utiliserez plutôt le Mode 2.</p>
+        </div>
+        <div class="share-card share-team">
+          <div class="stag">Mode 2 — Share</div><h4>Partage organisation</h4><div class="splans">Plans Team et Enterprise</div>
+          <p>Le partage se restreint aux membres de l'organisation Clearwater. Les viewers doivent être loggés sur leur compte Team/Enterprise pour accéder. Si l'artifact est dans un Project, ils doivent aussi avoir accès au Project. <strong>C'est le mode pertinent pour la plupart de nos livrables internes.</strong></p>
+        </div>
+        <div class="share-card share-cowork">
+          <div class="stag">Mode 3 — Cowork</div><h4>Fichier local</h4><div class="splans">Tous plans avec Cowork</div>
+          <p>Pas de partage natif. Vous partagez le fichier comme n'importe quel fichier local — par mail, par Drive, par Teams. C'est le mode le plus simple pour des livrables clients (Word, Excel, PowerPoint).</p>
+        </div>
+      </div>
+      <div class="warn">
+        <strong>Avertissement critique pour les chats avec pièces jointes</strong>
+        <span>Quand vous partagez un artifact créé dans un chat, les viewers gagnent aussi accès aux pièces jointes et fichiers présents dans la conversation qui l'a créé. Si vous avez chargé un CIM, un term sheet ou des comptes pour analyser une cible, et que vous partagez ensuite un artifact issu de ce chat, le destinataire peut accéder à ces documents. <strong>À vérifier systématiquement avant tout partage d'artifact issu d'un chat avec des docs deal sensibles.</strong> Solution : faire l'analyse sensible dans un chat, puis recréer l'artifact dans un chat propre sans les pièces jointes.</span>
+      </div>
+      <h3>Mises à jour après partage</h3>
+      <p>Lorsqu'un artifact est partagé, le lien pointe vers une version précise au moment du partage. Si vous modifiez l'artifact ensuite, vous créez une nouvelle version. Le destinataire continue de voir la version partagée — sauf si vous re-partagez explicitement la nouvelle version. À l'inverse, vous pouvez à tout moment révoquer le partage (bouton <em>Unshare</em>).</p>
+      <h3>Embed sur un site externe</h3>
+      <p>Pour les artifacts publiés (Mode 1), un bouton <em>Get embed code</em> génère un snippet HTML à coller sur un site. Il faut configurer les <em>allowed domains</em> côté Claude. Cas d'usage potentiel pour Clearwater : intégrer un mini-outil ou un calculateur sur un éventuel microsite, sur Notion interne, etc. Le Mode 2 (Team/Enterprise) ne propose pas l'embed pour des raisons évidentes de sécurité.</p>
+    </section>
+
+    <section class="chapter" id="ch5">
+      <div class="chapter-num">— Chapitre 5</div>
+      <h2 class="chapter-title">AI-powered artifacts &mdash; l'IA embarquée</h2>
+      <p class="intro">La fonctionnalité la moins connue mais la plus puissante. Un artifact peut appeler Claude lui-même pendant son exécution, devenant une mini-application intelligente — sans clé API, sans backend, sans coût additionnel pour le créateur.</p>
+      <h3>Le principe</h3>
+      <p>Vous demandez à Claude de coder un artifact qui, à un moment, appelle l'API Claude pour analyser, résumer, classer, ou répondre à une question. Le code écrit par Claude embarque cet appel. Quand un autre utilisateur ouvre l'artifact :</p>
+      <ul>
+        <li>Il s'authentifie automatiquement avec son propre compte Claude</li>
+        <li>L'appel à l'IA tourne sur l'infra Anthropic — pas de clé API à gérer</li>
+        <li>L'usage compte sur son propre quota, pas sur celui du créateur</li>
+        <li>Pour Team/Enterprise, c'est sans coût additionnel en usage interne (pas de surcoût pour le créateur, l'usage rentre dans les abonnements de chacun)</li>
+      </ul>
+      <h3>Cas d'usage concrets pour l'IB</h3>
+      <div class="usecase-grid">
+        <div class="usecase"><div class="utag">Cas 1</div><h4>Analyseur de term sheet</h4><p>L'utilisateur colle un term sheet en texte brut. L'artifact appelle Claude pour extraire les clauses clés (prix, conditions suspensives, garanties, earn-out, lock-up) et les structure dans un tableau standardisé. Réutilisable par toute l'équipe.</p></div>
+        <div class="usecase"><div class="utag">Cas 2</div><h4>Mini-screener de cibles</h4><p>L'utilisateur saisit une description de cible idéale (secteur, taille, géo, signaux M&amp;A). L'artifact appelle Claude pour générer une short-list candidate, scorée et justifiée. Idéal pour les premières passes rapides en amont d'un mandat.</p></div>
+        <div class="usecase"><div class="utag">Cas 3</div><h4>Polish de pitch text au format Clearwater</h4><p>L'utilisateur colle un brouillon de tagline ou de bullet de slide. L'artifact appelle Claude (avec les règles Clearwater encodées dans le prompt) pour le réécrire au format attendu. Démocratise les standards d'écriture sans avoir à former chacun individuellement.</p></div>
+        <div class="usecase"><div class="utag">Cas 4</div><h4>Q&amp;A sur un document de référence</h4><p>L'utilisateur charge un document (CIM, charte interne, guide). L'artifact appelle Claude pour répondre à des questions sur le contenu. Avec persistent storage, l'historique des questions reste pour les utilisateurs suivants.</p></div>
+      </div>
+      <h3>Quand utiliser ça vs un workflow API direct</h3>
+      <p>Un AI-powered artifact est parfait pour des outils <strong>distribués à l'équipe</strong> avec un usage ponctuel (quelques fois par semaine, par utilisateur). Pour des workflows à très haut volume, à très basse latence, ou qui demandent du caching de prompt sophistiqué, mieux vaut passer par l'API directe — avec les leviers de coût discutés dans la formation tokens.</p>
+      <div class="tip">
+        <strong>Le bon test</strong>
+        <span>Si l'outil est appelé moins de 50 fois par jour au total dans l'équipe, et que la latence n'est pas critique : AI-powered artifact. Au-delà, ou si vous voulez intégrer l'outil dans un workflow plus large (Cowork, script), passez par l'API directe.</span>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch6">
+      <div class="chapter-num">— Chapitre 6</div>
+      <h2 class="chapter-title">Cas d'usage IB &amp; bonnes pratiques</h2>
+      <p class="intro">Synthèse des cas où les artifacts apportent une vraie valeur, et des pièges à éviter pour ne pas perdre du temps ou exposer ce qui ne doit pas l'être.</p>
+      <h3>Six cas d'usage IB qui marchent particulièrement bien</h3>
+      <div class="usecase-grid">
+        <div class="usecase"><div class="utag">Use case 1</div><h4>Tableaux comparatifs interactifs</h4><p>Peers, cibles, deals. Format React avec tri et filtres, ou Markdown si statique. Pour l'équipe, le format React permet de manipuler les données live sans rouvrir Excel.</p></div>
+        <div class="usecase"><div class="utag">Use case 2</div><h4>One-pagers profil société</h4><p>Format HTML autonome, qu'on peut ouvrir dans n'importe quel navigateur, qu'on peut imprimer en PDF, qu'on peut partager via lien interne. Plus rapide à itérer qu'un PowerPoint.</p></div>
+        <div class="usecase"><div class="utag">Use case 3</div><h4>Dashboards de suivi de mandat</h4><p>Format React avec persistent storage. Pipeline deal, suivi Q&amp;A, capacité équipe. Avec connexion MCP à Microsoft 365, les données restent à jour sans intervention manuelle.</p></div>
+        <div class="usecase"><div class="utag">Use case 4</div><h4>Mini-outils intelligents</h4><p>Calculateurs (LBO simple, multiple implicite), analyseurs (term sheet, comptes annuels), formatters (pitch text, profil). Format React + AI-powered. Distribués à l'équipe via Share.</p></div>
+        <div class="usecase"><div class="utag">Use case 5</div><h4>Schémas et structures de deal</h4><p>Format SVG ou Mermaid. Pour les structures de financement, org charts post-deal, chronologies de process. Plus rapide à itérer qu'un schéma PowerPoint, exportable vers PowerPoint pour le livrable final.</p></div>
+        <div class="usecase"><div class="utag">Use case 6</div><h4>Livrables Office pour client</h4><p>Format Office via Cowork (skills xlsx, pptx, docx, pdf). C'est ici que Cowork brille — pour produire un Word formaté, un Excel multi-feuilles, un PowerPoint Clearwater, mieux vaut Cowork qu'un artifact Chat.</p></div>
+      </div>
+      <h3>Six pièges classiques à éviter</h3>
+      <div class="practice"><div class="num">1.</div><div><h4>Demander un artifact pour 5 lignes</h4><p>Si la réponse tient dans un message, gardez-la inline. Les artifacts pour des contenus courts saturent la fenêtre, polluent l'historique du chat, et n'apportent rien.</p></div></div>
+      <div class="practice"><div class="num">2.</div><div><h4>Itérer sans fin dans le chat au lieu d'éditer le prompt</h4><p>Si la première version d'un artifact rate la cible, ne dites pas « non, plutôt comme ceci… ». Éditez votre prompt initial, soyez plus précis, et regénérez. L'artifact sera plus propre et le contexte plus léger. (Voir formation tokens, Chapitre 5.)</p></div></div>
+      <div class="practice"><div class="num">3.</div><div><h4>Multiplier les artifacts dans un même chat</h4><p>Un chat avec 8 artifacts différents est lourd à charger, lent à itérer, et difficile à retrouver. Idéalement : un artifact principal par chat. Si vous avez besoin d'un autre artifact, ouvrez un nouveau chat.</p></div></div>
+      <div class="practice"><div class="num">4.</div><div><h4>Partager sans vérifier les pièces jointes du chat</h4><p>Le partage d'un artifact issu d'un chat expose les pièces jointes du chat. Avant de partager : vérifier ce qui a été chargé. Si docs sensibles, recréer l'artifact dans un chat propre.</p></div></div>
+      <div class="practice"><div class="num">5.</div><div><h4>Confondre Chat artifacts et Cowork outputs</h4><p>Un Excel généré dans un Chat artifact n'aura pas la même qualité qu'un Excel généré par Cowork (qui utilise les skills internes). Pour des fichiers Office structurés à destination client : Cowork.</p></div></div>
+      <div class="practice"><div class="num">6.</div><div><h4>Oublier que les artifacts mobile ne s'éditent pas pareil</h4><p>Sur l'app mobile, vous pouvez voir les artifacts et demander des modifications, mais l'expérience est dégradée par rapport au web/desktop. Les artifacts complexes (React interactifs, dashboards) gagnent à être créés et édités sur ordinateur.</p></div></div>
+      <h3>Hygiène à généraliser dans l'équipe</h3>
+      <ul>
+        <li><strong>Nommer ses artifacts</strong> dès la création — sinon ils se retrouvent dans la sidebar avec des noms génériques difficiles à retrouver.</li>
+        <li><strong>Stocker les artifacts récurrents dans un Projet</strong> — un dashboard de suivi, un calculateur partagé, un formatter — pour qu'ils soient retrouvables et partageables au sein de l'équipe.</li>
+        <li><strong>Réutiliser plutôt que recréer</strong> — un artifact existant qui marche peut être pointé vers de nouvelles données ou adapté à un nouveau besoin. Repartir de zéro à chaque fois est inefficace.</li>
+        <li><strong>Documenter les artifacts importants</strong> — un AI-powered artifact distribué à l'équipe mérite une note d'utilisation (que fait-il, qui l'utilise, comment l'appeler).</li>
+      </ul>
+      <blockquote class="pull">Un artifact est un livrable, pas un brouillon. Il mérite la même rigueur que ce qu'on déposerait dans un dossier deal — parce que c'est exactement ce qu'il deviendra.</blockquote>
+    </section>
+  </div>
+
+  <section class="cheats" id="cheats">
+    <div class="page">
+      <div class="eyebrow">Annexes pratiques</div>
+      <h2 class="chapter-title" style="margin-bottom:8px">Fiches mémo</h2>
+      <p class="intro" style="margin-bottom:0">Pensées pour être imprimées ou affichées à côté de l'écran.</p>
+      <div class="cheat-grid">
+        <div class="cheat-card"><div class="num">FICHE 01</div><h3>Quel format d'artifact pour quoi ?</h3><ul><li><strong>Markdown</strong> — note, mémo, rapport texte structuré</li><li><strong>HTML</strong> — page autonome, profil société, formulaire, mini-site</li><li><strong>React</strong> — interactif avec état : calculateur, dashboard, jeu</li><li><strong>SVG</strong> — schéma vectoriel précis, exportable PowerPoint</li><li><strong>Mermaid</strong> — flowchart, séquence, diagramme rapide</li><li><strong>Code</strong> — script Python, JS de plus de 20 lignes</li><li><strong>Office (Cowork)</strong> — Word, Excel, PowerPoint, PDF formatés</li></ul><div class="quick-rule">Si c'est destiné à un client en format Office, passez par Cowork.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 02</div><h3>Chat vs Cowork — qui partage quoi ?</h3><ul><li><strong>Chat artifact</strong> — vit sur les serveurs Claude, partage via lien Share (Team/Enterprise)</li><li><strong>Cowork output</strong> — fichier local sur votre disque, partage manuel par mail / Drive / Teams</li><li><strong>Live Artifact (Cowork)</strong> — local uniquement, pas partageable encore</li><li><strong>AI-powered artifact (Chat)</strong> — partageable, chacun consomme son propre quota Claude</li></ul><div class="quick-rule">Le partage natif n'existe que dans le Chat. Cowork, c'est du fichier local.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 03</div><h3>Modes de partage</h3><ul><li><strong>Publish</strong> (Pro, Max) — lien public, anyone peut voir, code source visible. <em>Non disponible Team/Enterprise.</em></li><li><strong>Share</strong> (Team, Enterprise) — restreint à l'organisation, viewers doivent être loggés. <em>Le mode Clearwater par défaut.</em></li><li><strong>Embed</strong> — disponible en mode Publish uniquement, avec configuration des allowed domains.</li><li><strong>Unshare</strong> — possible à tout moment, désactive le lien.</li></ul><div class="quick-rule">Quand vous partagez, les pièces jointes du chat partent avec. Vérifier avant.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 04</div><h3>Versioning</h3><ul><li>Toutes les versions d'un artifact sont sauvegardées automatiquement dans le chat</li><li>Dropdown en haut du panneau pour naviguer entre versions</li><li>Éditer un message antérieur crée une nouvelle branche d'artifacts</li><li>Un lien partagé pointe vers la version au moment du partage — modifier après ne met pas à jour le lien</li><li>L'historique de version vit dans le chat — pas d'export possible vers un autre chat</li></ul><div class="quick-rule">Si vous voulez réutiliser un artifact ailleurs : copier le code, ouvrir nouveau chat, repartir de là.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 05</div><h3>AI-powered artifacts (Claudeception)</h3><ul><li>Artifact qui appelle Claude pendant son exécution</li><li>Pas de clé API à gérer, pas de backend à monter</li><li>Chaque utilisateur consomme son propre quota</li><li>Idéal pour outils distribués à l'équipe à usage modéré</li><li>Cas d'usage IB : analyseur term sheet, screener, polish pitch text, Q&amp;A doc référence</li></ul><div class="quick-rule">Au-delà de 50 appels par jour cumulés dans l'équipe : passer par l'API directe.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 06</div><h3>Pièges &amp; anti-patterns</h3><ul><li>Un artifact pour 5 lignes → garder inline</li><li>Itérer en boucle dans le chat → éditer le prompt initial</li><li>Plus de 2-3 artifacts par chat → chat saturé, ouvrir nouveau</li><li>Partager sans vérifier les pièces jointes du chat</li><li>Fichier Office structuré dans le Chat → préférer Cowork</li><li>Mobile pour artifacts complexes → préférer desktop</li></ul><div class="quick-rule">L'artifact est un livrable. Il mérite la même rigueur qu'un dossier deal.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-tools">
+    <div class="page">
+      <div class="eyebrow">Outils en lien avec cette formation</div>
+      <h2 class="chapter-title">Pour aller plus loin</h2>
+      <p class="subtitle">Les outils Clearwater qui utilisent ou produisent des artifacts.</p>
+      <div class="tools-grid">
+        <a href="../outils/clearwater-profile.html" class="tool-card"><div class="tool-tag">Skill · Cowork</div><h4>Clearwater Profile</h4><p>Génère un profil de société au format Clearwater (PowerPoint), via Cowork.</p></a>
+        <a href="../outils/slide-text-enhancer.html" class="tool-card"><div class="tool-tag">Skill · Chat</div><h4>Slide Text Enhancer</h4><p>Corrige et améliore le texte d'un slide avant intégration dans un artifact ou un PowerPoint.</p></a>
+        <a href="../outils/profile-text-maker.html" class="tool-card"><div class="tool-tag">Skill · Chat</div><h4>Profile Text Maker</h4><p>Rédige des profils de société en format banque d'affaires, à intégrer dans un artifact HTML ou Word.</p></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Module 04 — Artifacts</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../formations.html">Toutes les formations</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/wizard-artifacts.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

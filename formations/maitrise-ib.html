@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation — Maîtrise complète Claude pour l'investment banking · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link active">Formations</a>
+      <a href="../outils.html" class="nav-link">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../formations.html">Formations</a><span class="sep">›</span><span class="current">Maîtrise IB</span>
+  </div>
+</div>
+
+<div class="page-wide">
+  <header class="hero">
+    <div class="eyebrow">Module pédagogique · Formation 01</div>
+    <h1>Maîtrise complète Claude<br>pour l'<em>investment banking</em>.</h1>
+    <p class="lede">Une formation de A à Z pour les professionnels du M&amp;A — VPs, associates, analystes — qui veulent passer de l'usage occasionnel de Claude à une utilisation structurée, structurante et compétitive. Sept modules couvrant l'architecture, la mécanique, les modes avancés et les workflows multi-couches.</p>
+  </header>
+</div>
+
+<div class="page">
+  <nav class="toc" style="margin-top:48px">
+    <h2>Sommaire de la formation</h2>
+    <ol>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#m1">Module 1 — Panorama Claude</a></li>
+      <li><a href="#m2">Module 2 — Mécanique interne</a></li>
+      <li><a href="#m3">Module 3 — Chat vs Cowork</a></li>
+      <li><a href="#m4">Module 4 — Artifacts</a></li>
+      <li><a href="#m5">Module 5 — Skills</a></li>
+      <li><a href="#m6">Module 6 — Projects (solo &amp; collaboratif)</a></li>
+      <li><a href="#m7">Module 7 — Workflows</a></li>
+      <li><a href="#conclusion">Conclusion &amp; mise en pratique</a></li>
+    </ol>
+  </nav>
+
+  <section class="chapter" id="intro">
+    <div class="chapter-num">— Introduction</div>
+    <h2 class="chapter-title">Formation Claude pour l'investment banking</h2>
+    <p class="intro">Une formation de A à Z pour les professionnels du M&amp;A — VPs, associates, analystes — qui veulent passer de l'usage occasionnel de Claude à une utilisation structurée, structurante et compétitive.</p>
+    <h3>Pourquoi cette formation</h3>
+    <p>Beaucoup de professionnels du conseil financier utilisent Claude une à deux fois par jour, en mode chat ponctuel, pour reformuler un email ou résumer un document. C'est utile, mais ça ne représente pas plus de 20 % de la valeur disponible.</p>
+    <p>Cette formation couvre les 80 % restants : architecture des modèles, mécanique interne, modes d'interaction avancés (chat vs Cowork), Artifacts interactifs avec stockage persistant, conception et optimisation de Skills, structuration de Projects collaboratifs, et workflows multi-couches qui transforment Claude en levier de productivité durable sur les mandats M&amp;A.</p>
+    <h3>À qui s'adresse cette formation</h3>
+    <ul>
+      <li><strong>VPs et Directors</strong> — pour structurer leur usage personnel et celui de leur équipe deal</li>
+      <li><strong>Associates</strong> — pour passer du « j'utilise Claude » au « je le maîtrise »</li>
+      <li><strong>Analystes</strong> — pour intégrer Claude dans les workflows production (CIM, screening, longlist, profils)</li>
+      <li><strong>Partners</strong> — pour comprendre les leviers à pousser dans le déploiement firme</li>
+    </ul>
+    <h3>Comment naviguer</h3>
+    <p>La formation est découpée en 7 modules plus une introduction et une conclusion. Chaque module est autonome mais l'ordre est conçu pour une montée en compétences progressive. Le sommaire en haut de page te permet d'accéder directement à n'importe quel module.</p>
+    <div class="tip">
+      <strong>Avant de commencer</strong>
+      <span>Cette formation suppose que tu as déjà un compte Claude actif (claude.ai). Si ce n'est pas le cas, crée-le d'abord. Idéalement, ouvre Claude dans un onglet voisin pour appliquer les concepts au fur et à mesure.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="m1">
+    <div class="chapter-num">— Module 1</div>
+    <h2 class="chapter-title">Panorama Claude</h2>
+    <p class="intro">Comprendre la famille de modèles, les surfaces où Claude existe, et savoir quel modèle utiliser pour quelle tâche.</p>
+    <h3>La famille de modèles</h3>
+    <p>Quatre modèles principaux sont actuellement actifs, hiérarchisés par capacité et latence.</p>
+    <h4>Claude Opus 4.7</h4>
+    <p>Le modèle le plus avancé. Raisonnement profond, meilleure performance sur tâches complexes — analyse multi-documents, synthèse longue, code architectural, valorisation multi-méthodes. C'est le modèle à utiliser quand la qualité prime sur la vitesse : rédaction d'une section de CIM, construction d'un univers d'acquéreurs avec scoring, screening complexe où la précision du jugement compte.</p>
+    <h4>Claude Opus 4.6</h4>
+    <p>La génération précédente d'Opus, toujours disponible. Performance proche d'Opus 4.7 sur la plupart des tâches mais légèrement en dessous sur le raisonnement long.</p>
+    <h4>Claude Sonnet 4.6</h4>
+    <p>Le cheval de trait. Très bon ratio qualité/vitesse, idéal pour 80 % des tâches quotidiennes : extraction d'info de transcripts, reformulation, comparaisons rapides, drafting d'emails, recherches ciblées. C'est aussi celui qui tourne dans la plupart des intégrations (Excel, Chrome) parce qu'il est plus rapide.</p>
+    <h4>Claude Haiku 4.5</h4>
+    <p>Le plus rapide et le plus léger. Pertinent pour des micro-tâches répétitives à grande échelle : qualifier 500 lignes de longlist, classer des emails, taguer des documents. Utilisé surtout via API ou MCP automation, peu en chat direct.</p>
+    <h3>Grille de décision</h3>
+    <p>Sur claude.ai, par défaut <strong>Opus 4.7</strong>. Tu n'as pas à arbitrer sur le coût comme en API, et la différence de vitesse est marginale en chat. Tu ne descends à Sonnet que dans deux cas : (i) tu lances un workflow long avec beaucoup d'aller-retours rapides où Opus serait lent, (ii) tu travailles dans Cowork sur une tâche répétitive où Opus consommerait trop de contexte.</p>
+    <p>Le sélecteur de modèle est en haut de l'interface chat. Tu peux switcher en cours de conversation — utile pour faire une première passe Sonnet rapide puis demander une revue Opus du résultat.</p>
+    <h3>Les surfaces où Claude existe</h3>
+    <h4>claude.ai (web/mobile/desktop)</h4>
+    <p>Ton terrain principal. Chat, Projects, Artifacts, Skills, connecteurs MCP. Tout ce qu'on couvrira dans cette formation tourne ici.</p>
+    <h4>Claude Code</h4>
+    <p>Outil en ligne de commande pour développement agentique. Pertinent si tu fais du scripting Python pour des screenings ou de l'automatisation de production.</p>
+    <h4>Claude in Chrome</h4>
+    <p>Extension navigateur où Claude peut agir dans tes onglets : remplir des formulaires, naviguer, extraire de l'info structurée. Cas d'usage M&amp;A typique : extraction d'info corporate depuis des sites cibles ou data rooms simples (attention aux droits d'accès).</p>
+    <h4>Claude in Excel</h4>
+    <p>Agent intégré dans Excel. Utile sur des nettoyages de longlist, formules complexes, lookup multi-feuilles. À tester sur un cas concret avant déploiement équipe.</p>
+    <h4>Cowork</h4>
+    <p>Agent desktop pour automatisation fichiers/tâches. Couvert en détail au module 3.</p>
+    <h4>API et Claude Platform</h4>
+    <p>Pour intégrations custom. Hors périmètre quotidien d'un VP, mais pertinent si tu pilotes des projets de déploiement firme.</p>
+  </section>
+
+  <section class="chapter" id="m2">
+    <div class="chapter-num">— Module 2</div>
+    <h2 class="chapter-title">Mécanique interne</h2>
+    <p class="intro">Comprendre comment Claude « pense » change radicalement ta façon de prompter. Quatre concepts à intégrer.</p>
+    <h3>La context window</h3>
+    <p>Claude lit et raisonne dans une fenêtre de contexte limitée — un buffer où s'empilent ton message système, tes messages, ses réponses, les fichiers attachés, et les résultats des outils. Sur Opus 4.7 elle est large (plusieurs centaines de milliers de tokens, soit ~200-300 pages de texte) mais finie.</p>
+    <h4>Implications concrètes</h4>
+    <ul>
+      <li>Sur un long chat (revue de CIM de 80 pages + 30 messages d'itération + recherches en parallèle), tu peux saturer. Symptôme : Claude « oublie » des consignes données 20 messages plus tôt, ou perd la cohérence de format.</li>
+      <li>Quand ça arrive : repars d'un nouveau chat avec un résumé concis de l'état + les artefacts utiles.</li>
+      <li>Pour les très gros documents (VDD complète, IM de 150 pages), évite de tout coller en une fois. Préfère : (i) Project avec le doc en knowledge base, (ii) découpage par section avec consignes ciblées.</li>
+      <li>Astuce : un Project « porte » sa knowledge base hors context window principale jusqu'à ce que Claude la consulte. C'est plus efficace qu'une pièce jointe à chaque message.</li>
+    </ul>
+    <h3>Le knowledge cutoff</h3>
+    <p>Les connaissances factuelles de Claude s'arrêtent à une date précise (cutoff). Pour tout fait postérieur — actualité corporate, levées de fonds récentes, transactions M&amp;A annoncées, prix d'actifs, dirigeants en poste — Claude doit chercher sur le web.</p>
+    <h4>Implications M&amp;A</h4>
+    <ul>
+      <li>Quand tu demandes « qui possède X » ou « X a-t-elle été acquise », Claude doit systématiquement vérifier. Si la réponse arrive sans recherche apparente, défie-la.</li>
+      <li>Les données de bases corporate (Pappers, S&amp;P Global, Grata) sont accessibles via les MCP connectés et sont, elles, à jour. Privilégie ces sources sur du screening.</li>
+      <li>Pour le contexte sectoriel ancien (concepts, réglementation stable, méthodes de valorisation), pas besoin de recherche.</li>
+    </ul>
+    <h3>Les outils intégrés</h3>
+    <p>Claude n'est pas qu'un chatbot — il dispose d'outils qu'il invoque automatiquement selon la tâche.</p>
+    <ul>
+      <li><strong>Web search</strong> — recherche Google-like, retourne 10 résultats. Activable/désactivable dans les paramètres. À garder activé par défaut.</li>
+      <li><strong>Web fetch</strong> — récupération du contenu complet d'une URL précise. Utile quand tu donnes un lien (rapport annuel, communiqué de presse).</li>
+      <li><strong>Code execution</strong> — environnement Python/bash sandboxé. Permet de manipuler des Excel, lancer un screening programmatique, parser un JSON, faire de l'analyse statistique.</li>
+      <li><strong>File creation</strong> — création de .docx, .pptx, .xlsx, .pdf téléchargeables. Lié aux Skills publiques (docx, pptx, xlsx, pdf) qui contiennent les bonnes pratiques de génération propre.</li>
+      <li><strong>Artifacts</strong> — contenus rendus dans le panneau latéral (HTML, React, markdown long, diagrammes). Différent de file creation : ça vit dans le chat, pas en fichier téléchargeable.</li>
+      <li><strong>MCP connectors</strong> — la couche qui connecte Claude à tes outils externes : Microsoft 365, Pappers, S&amp;P Global, Notion, Linear, Box, Canva, Atlassian, Asana, Grata, etc.</li>
+    </ul>
+    <h3>La mémoire inter-conversations</h3>
+    <p>Probablement le concept le plus mal compris. Trois couches distinctes.</p>
+    <h4>Memory (mémoire long terme)</h4>
+    <p>Un résumé évolutif que Claude construit de toi à partir de tes conversations passées. Régénérée périodiquement en background, donc une conversation d'aujourd'hui n'apparaît pas instantanément. Désactivée dans les chats Incognito.</p>
+    <h4>Conversation search</h4>
+    <p>Outil qui permet à Claude de chercher dans tes anciens chats par mot-clé ou par fenêtre temporelle. Différent de la mémoire : c'est de la recherche à la demande dans tes archives. Quand tu dis « reprends ce qu'on avait fait sur le dossier X », c'est cet outil qui est utilisé.</p>
+    <h4>Scope par Project</h4>
+    <p>Point critique : la mémoire et la recherche sont <strong>segmentées par Project</strong>. Un chat dans le Project A ne voit pas les memories des chats du Project B et inversement. Hors Project, les chats voient les autres chats hors Project. C'est volontaire : ça permet d'isoler les mandats. Mais ça veut aussi dire qu'il faut bien choisir où tu travailles.</p>
+    <h4>Memory edits</h4>
+    <p>Tu peux directement éditer ce que Claude retient via une commande explicite (« n'oublie pas que », « oublie », « mets à jour »). Claude dispose d'un outil dédié pour ça.</p>
+    <div class="tip">
+      <strong>Implications pratiques</strong>
+      <span>Démarre tes mandats sensibles dans un Project dédié dès le début. Sinon les infos se mélangent. Pour une session sans pollution mémoire (test d'un prompt, query confidentiel), utilise Incognito. Si Claude se trompe sur un fait te concernant (ancien titre, ancien rôle), corrige explicitement et la mémoire est mise à jour.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="m3">
+    <div class="chapter-num">— Module 3</div>
+    <h2 class="chapter-title">Chat vs Cowork</h2>
+    <p class="intro">Deux modes d'interaction très différents. Le bon réflexe, c'est de savoir lequel tu ouvres avant de commencer une tâche.</p>
+    <h3>Chat — le mode conversationnel</h3>
+    <p>C'est le mode classique. Tu écris, Claude répond, tu itères. Caractéristiques :</p>
+    <ul>
+      <li><strong>Stateless dans la session</strong> : Claude voit tout l'historique du chat, mais une fois le chat fermé, le state vit dans la mémoire/Project knowledge — pas dans un système de fichiers persistant.</li>
+      <li><strong>Outils invoqués à la demande</strong> : recherche, MCP, code execution, etc. selon le besoin.</li>
+      <li><strong>Sortie principale = texte + artifacts</strong>. Les fichiers Office sont possibles via la file creation tool, mais le chat reste centré sur la conversation.</li>
+      <li><strong>Tu pilotes chaque étape</strong>. Pas d'autonomie de 20 minutes — tu valides à chaque palier.</li>
+    </ul>
+    <h4>Cas d'usage M&amp;A typiques pour le chat</h4>
+    <ul>
+      <li>Drafting d'un email partner ou client</li>
+      <li>Reformulation d'une section de teaser</li>
+      <li>Recherche ciblée sur 5-10 sociétés avec discussion des résultats</li>
+      <li>Brainstorm sur un univers d'acquéreurs</li>
+      <li>Revue critique d'un slide ou d'un mémo</li>
+      <li>Q&amp;A sur un VDD chargé en knowledge base</li>
+    </ul>
+    <h3>Cowork — l'agent autonome</h3>
+    <p>Cowork est un produit distinct, accessible en application desktop. Conceptuellement, c'est Claude qui prend le contrôle d'un environnement de travail (fichiers, navigateur, applis) pour exécuter une tâche multi-étapes en autonomie, sur plusieurs minutes voire heures, avec ses propres décisions intermédiaires.</p>
+    <h4>Ce qui change vs chat</h4>
+    <ul>
+      <li><strong>Persistance des fichiers</strong> : Cowork a un workspace local où il dépose, modifie, lit ses fichiers entre les étapes.</li>
+      <li><strong>Boucle longue</strong> : il enchaîne des dizaines d'actions sans repasser la main à chaque coup.</li>
+      <li><strong>Décisions autonomes</strong> : il choisit quel outil utiliser, quand chercher, quand s'arrêter. Tu lui donnes un objectif, pas un script.</li>
+      <li><strong>Validation par lots</strong> : tu valides à des paliers définis (au début, à mi-parcours, à la fin) plutôt qu'à chaque action.</li>
+    </ul>
+    <h4>Cas d'usage M&amp;A typiques pour Cowork</h4>
+    <ul>
+      <li>Screening de 200+ sociétés avec enrichissement multi-sources et output Excel structuré</li>
+      <li>Construction d'une longlist par croisement de plusieurs bases corporate</li>
+      <li>Préparation d'un dossier complet : profils de 30 acquéreurs au format firme + tableau de synthèse + email d'envoi</li>
+      <li>Revue systématique de 50 emails avec catégorisation par mandat et to-do consolidée</li>
+      <li>Mise à jour d'une base de tracking investisseurs sur plusieurs semaines</li>
+    </ul>
+    <h3>La règle de décision</h3>
+    <table class="matrix">
+      <thead><tr><th>Critère</th><th>Chat</th><th>Cowork</th></tr></thead>
+      <tbody>
+        <tr><td>Durée tâche</td><td>&lt; 10 min</td><td>&gt; 30 min</td></tr>
+        <tr><td>Nb d'étapes</td><td>1-5</td><td>10+</td></tr>
+        <tr><td>Output principal</td><td>Texte / discussion</td><td>Fichiers</td></tr>
+        <tr><td>Itération en cours de route</td><td>Oui</td><td>Non</td></tr>
+        <tr><td>Tâche définie précisément</td><td>Pas forcément</td><td>Oui, impérativement</td></tr>
+        <tr><td>Tu peux laisser tourner</td><td>Non, tu pilotes</td><td>Oui</td></tr>
+      </tbody>
+    </table>
+    <div class="tip">
+      <strong>Heuristique simple</strong>
+      <span>Si tu te dis « je vais faire ça pendant 1h en backgroundant autre chose », c'est Cowork. Si tu te dis « j'ai besoin d'un coup de main là maintenant », c'est chat.</span>
+    </div>
+    <h3>Le piège classique</h3>
+    <p>Beaucoup d'utilisateurs essaient de faire en chat ce qui devrait être en Cowork — typiquement, lancer un screening de 200 sociétés en chat finit par saturer la context window, perdre la cohérence, et nécessiter trois reprises. Inversement, ouvrir Cowork pour reformuler trois bullets est un sur-investissement.</p>
+    <h3>Cas pratique : relecture d'un IM</h3>
+    <p>Bon exemple parce que la réponse n'est pas évidente. Relire un IM de 80-150 pages et produire des commentaires, c'est en apparence une longue tâche autonome (donc Cowork). Mais en pratique, elle est composée de micro-décisions qualitatives où ton jugement est central : ce paragraphe est-il crédible vis-à-vis d'un PE ? Cette projection est-elle défendable en management presentation ?</p>
+    <p>C'est exactement le type de tâche où l'autonomie de Cowork devient un défaut : il va produire 200 commentaires homogènes, dont 60 % non-prioritaires, et tu vas passer plus de temps à trier qu'à relire toi-même.</p>
+    <h4>Verdict : chat, mais avec un setup spécifique</h4>
+    <ol>
+      <li><strong>Project dédié</strong> avec l'IM en knowledge base + tes documents de contexte</li>
+      <li><strong>Custom instructions</strong> qui fixent le cadre : registre cible, critères de priorisation, format de commentaire attendu</li>
+      <li><strong>Découpage par section</strong> — jamais « relis l'IM », toujours « relis la section X en challengant Y »</li>
+      <li><strong>Mode contradictoire</strong> en deux passes : œil PE / œil sell-side</li>
+      <li><strong>Consolidation finale</strong> en tableau structuré exporté en Word ou Excel</li>
+    </ol>
+    <p>Cowork redevient pertinent pour les <em>livrables mécaniques</em> sur le même IM : checks de cohérence chiffres, sourcing systématique, comparaison version N vs N+1. Le pattern pro = les deux en parallèle.</p>
+  </section>
+
+  <section class="chapter" id="m4">
+    <div class="chapter-num">— Module 4</div>
+    <h2 class="chapter-title">Artifacts</h2>
+    <p class="intro">Les Artifacts sont les contenus que Claude génère dans un panneau séparé du chat — pas dans le fil de conversation lui-même. Une distinction qui paraît cosmétique mais qui change la façon de travailler.</p>
+    <h3>Pourquoi un panneau séparé</h3>
+    <p>Quand tu demandes « écris-moi 3 lignes pour mon email », ça vit dans le chat. Quand tu demandes « rédige le profil investisseur de cette société », ça vit dans un Artifact. La règle implicite : un Artifact est un livrable que tu vas réutiliser, éditer, partager, ou itérer dessus — pas une réponse conversationnelle.</p>
+    <h4>Avantages concrets</h4>
+    <ul>
+      <li>Tu peux revenir éditer un Artifact sans relire 30 messages</li>
+      <li>Les versions sont conservées — tu peux revenir à une version antérieure</li>
+      <li>Tu peux le télécharger, le copier propre, le partager via lien</li>
+      <li>Il ne pollue pas le scroll du chat</li>
+    </ul>
+    <h3>Les types d'Artifacts</h3>
+    <ul>
+      <li><strong>Markdown (.md)</strong> — pour les contenus écrits longs : mémos, rapports, briefings, comptes rendus.</li>
+      <li><strong>HTML (.html)</strong> — pages web autonomes, single-file. Utile pour des dashboards interactifs, des présentations web, des prototypes d'outils.</li>
+      <li><strong>React (.jsx)</strong> — composants interactifs avec state, hooks, librairies (Recharts, Tailwind). C'est ce qui permet d'avoir des trackers, des outils de scoring, des dashboards de mandat.</li>
+      <li><strong>SVG (.svg)</strong> — graphiques vectoriels. Diagrammes, schémas, illustrations.</li>
+      <li><strong>Mermaid</strong> — diagrammes générés depuis du texte. Org charts, process flows, gantts simples.</li>
+      <li><strong>PDF (.pdf)</strong> — documents PDF générés. Plus rare en chat, plus fréquent en file creation.</li>
+      <li><strong>Code</strong> — extraits de code en langage divers.</li>
+    </ul>
+    <h3>Artifacts vs File Creation : la confusion classique</h3>
+    <p>Distinction importante.</p>
+    <p><strong>Artifact</strong> = vit dans l'interface de chat, panneau latéral, éditable en chat, format léger (markdown, HTML, code). Pas de fichier Office natif.</p>
+    <p><strong>File Creation</strong> = production d'un vrai fichier .docx, .pptx, .xlsx, .pdf que tu télécharges. Activé via la fonctionnalité « Code Execution and File Creation » dans les paramètres. C'est ce qui te permet d'avoir un PowerPoint au format firme natif, pas un dump.</p>
+    <h4>Règle pratique</h4>
+    <ul>
+      <li>Mémo interne, brouillon, version provisoire → Artifact markdown</li>
+      <li>Livrable client, document final, format firme → File creation Office</li>
+      <li>Outil interactif (tracker, simulateur) → Artifact React/HTML</li>
+      <li>Schéma à intégrer → Artifact SVG/Mermaid</li>
+    </ul>
+    <h3>Artifacts interactifs et stockage persistant</h3>
+    <p>Capacité moins connue mais puissante : un Artifact React peut <strong>stocker des données entre tes sessions</strong> via une API de storage clé-valeur. Concrètement, Claude peut construire un outil qui mémorise ton state — un investor tracker où tu coches qui est contacté, un scoring tool où tu rentres tes notes deal par deal — et qui retrouve tes données à la prochaine ouverture.</p>
+    <h4>Cas d'usage M&amp;A pertinents</h4>
+    <ul>
+      <li>Tracker d'investisseurs sur un mandat (état contact / NDA / IM envoyé / Q&amp;A / offre)</li>
+      <li>Scoring grid d'acquéreurs avec pondération paramétrable</li>
+      <li>Pipeline de screening avec status par target</li>
+      <li>Checklist diligence avec progression</li>
+      <li>Outil de comparaison rapide entre 2-3 schémas de structuration</li>
+    </ul>
+    <p>C'est probablement la fonctionnalité la plus sous-exploitée. Beaucoup ne pensent pas à demander « construis-moi un mini-outil pour ce besoin » — alors qu'en 2 minutes tu as un livrable réutilisable.</p>
+    <h3>Artifacts AI-powered (« Claudeception »)</h3>
+    <p>Encore plus avancé : un Artifact peut faire des appels API vers Claude lui-même. Tu peux donc construire un outil qui te génère à la volée un commentaire sur une target que tu rentres, ou qualifie automatiquement la fit stratégique d'un acquéreur que tu ajoutes au tracker.</p>
+    <p>Pour une firme c'est un game-changer potentiel : tu peux distribuer à ton équipe un tracker mandat qui contient sa propre intelligence, sans qu'ils aient à ouvrir une nouvelle conversation Claude pour chaque ligne.</p>
+    <h3>Bonnes pratiques</h3>
+    <ul>
+      <li><strong>Demande explicitement le bon format.</strong> Si tu veux un Word, dis « crée un document Word ». Si tu veux un mémo Artifact rapide, dis « fais-moi un Artifact markdown ».</li>
+      <li><strong>Itère dans l'Artifact.</strong> Quand tu reviens corriger, sois précis : « dans la section X, change Y en Z ». Claude édite par diff plutôt que de tout réécrire.</li>
+      <li><strong>Ne mets pas de longs documents en Artifact si l'objectif final est un .docx.</strong> Travaille la structure en chat (markdown léger) puis demande la conversion finale.</li>
+      <li><strong>Pour les outils React, démarre simple.</strong> Demande la version V1 minimale, teste, puis enrichis. Plus tu pré-spécifies, plus tu risques un outil bancal.</li>
+    </ul>
+  </section>
+
+  <section class="chapter" id="m5">
+    <div class="chapter-num">— Module 5</div>
+    <h2 class="chapter-title">Skills</h2>
+    <p class="intro">Les Skills sont des modules réutilisables qui encodent tes routines de production. Bien conçues, elles transforment Claude en exécutant fiable de tes standards firme.</p>
+    <h3>Rappel structurel</h3>
+    <p>Une Skill, c'est un dossier avec un fichier <code>SKILL.md</code> à la racine, et optionnellement des ressources annexes (templates, scripts, références). Le SKILL.md a deux parties :</p>
+    <p><strong>Le frontmatter YAML</strong> — <code>name</code> et surtout <code>description</code>. La description est ce que Claude lit à chaque conversation pour décider si la skill est pertinente. C'est <strong>le levier critique</strong> : une bonne skill mal décrite ne se déclenche jamais.</p>
+    <p><strong>Le corps en markdown</strong> — les instructions opérationnelles. Format, ton, contraintes, exemples, anti-exemples. C'est ce qui est chargé en context quand la skill se déclenche.</p>
+    <h3>Les 5 erreurs classiques</h3>
+    <h4>Erreur 1 — Description trop générique</h4>
+    <p>Une description qui dit « use when the user wants to write something » se déclenche tout le temps et perd sa valeur. Une bonne description est <strong>dense en triggers spécifiques</strong> : phrases trigger exactes, langues couvertes, contextes typiques.</p>
+    <h4>Erreur 2 — Description en mode notice plutôt que trigger</h4>
+    <p>Beaucoup de SKILL.md commencent par décrire <em>ce que la skill fait</em> (« This skill creates… »). Ça n'aide pas Claude à décider quand l'utiliser. Ce qui aide, c'est <strong>les conditions de déclenchement</strong>. Pattern qui fonctionne : « [Une phrase sur ce que produit la skill]. Use this skill whenever [trigger 1], [trigger 2], [trigger 3]. Triggers also on: "[exact phrase 1]", "[exact phrase 2]". Use this skill even if the user just says [casual phrase] — any request to [intent] should use this skill. »</p>
+    <h4>Erreur 3 — Pas de signaux négatifs</h4>
+    <p>Une skill mature inclut <strong>ce qu'elle n'est PAS</strong>. Sans ça, tu as des faux positifs — la skill se déclenche sur des requêtes qui ressemblent mais ne sont pas pertinentes. Ajoute toujours une ligne « Do NOT use when… ».</p>
+    <h4>Erreur 4 — Corps de skill trop bavard</h4>
+    <p>Le corps du SKILL.md doit être <strong>opérationnel, pas pédagogique</strong>. Si Claude doit l'invoquer pour produire un livrable, il a besoin de :</p>
+    <ul>
+      <li>La structure exacte attendue</li>
+      <li>Les conventions de format (tons, registres, longueurs)</li>
+      <li>Les sections obligatoires vs optionnelles</li>
+      <li>Des exemples positifs courts et un anti-exemple</li>
+      <li>Les ressources externes éventuelles</li>
+    </ul>
+    <p>Pas besoin de l'historique de la skill, du « pourquoi » elle existe, ou de motivation générale. Heuristique : si le SKILL.md fait plus de 200 lignes pour une skill de drafting, il y a probablement 30-40 % de gras à couper.</p>
+    <h4>Erreur 5 — Pas de séparation skill / ressources</h4>
+    <p>Pour les skills qui ont besoin de templates, scripts, ou références, le pattern propre c'est une arborescence claire : <code>SKILL.md</code> à la racine, et des sous-dossiers <code>templates/</code>, <code>references/</code>, <code>scripts/</code>. Le SKILL.md fait <strong>référence</strong> à ces fichiers plutôt que de les inliner. Ça garde le SKILL.md lisible et permet de mettre à jour les ressources sans toucher la logique principale.</p>
+    <h3>Le test décisif d'une skill</h3>
+    <h4>Test 1 — Le test du trigger</h4>
+    <p>Lis 10 phrases que tu pourrais taper dans Claude. Combien devraient déclencher ta skill ? Combien sont effectivement couvertes par la description ? Si le ratio est faible, enrichis les triggers.</p>
+    <h4>Test 2 — Le test du collègue junior</h4>
+    <p>Si un analyste qui ne connaît pas la skill lisait juste le SKILL.md, est-ce qu'il pourrait produire le même livrable que toi ? Si non, tu as des conventions implicites à expliciter.</p>
+    <h4>Test 3 — Le test de la dérive</h4>
+    <p>Lance la skill 3 fois sur des inputs proches mais différents. Est-ce que les outputs sont <strong>cohérents</strong> dans le format et le ton ? Si la variance est forte, tes contraintes sont trop floues.</p>
+    <h3>Le levier sous-exploité : skills de process</h3>
+    <p>La plupart des firmes commencent par des skills de <strong>production</strong> (email enhancer, slide enhancer, profile maker). C'est précieux mais limité.</p>
+    <p>Les skills de <strong>process</strong> — qui orchestrent un workflow multi-étape avec des checkpoints — ont un ROI bien supérieur. Exemples :</p>
+    <ul>
+      <li><strong>Skill « Sell-side mandate kickoff »</strong> : à chaque nouveau mandat, déclenche une checklist structurée (NDA signé, IM brief, calendrier process, univers initial, kickoff team), produit les templates initiaux, met en place le Project Claude.</li>
+      <li><strong>Skill « Q&amp;A consolidation »</strong> : agrège des questions de plusieurs investisseurs, dédupliquer, classer par thème, prioriser, drafter les réponses dans le ton attendu.</li>
+      <li><strong>Skill « Buyer outreach drafting »</strong> : pour un univers d'acquéreurs, produire les emails first-touch dans la bonne langue, le bon registre, avec la bonne mention du process et des prochaines étapes.</li>
+    </ul>
+    <p>Ces skills capturent des routines complexes que tu refais à chaque mandat — leur ROI est massif comparé aux skills atomiques.</p>
+  </section>
+
+  <section class="chapter" id="m6">
+    <div class="chapter-num">— Module 6</div>
+    <h2 class="chapter-title">Projects (solo &amp; collaboratif)</h2>
+    <p class="intro">Les Projects transforment Claude d'un chatbot ponctuel en espace de travail structuré par mandat. C'est aussi la couche qui rend l'usage collaboratif possible.</p>
+    <h3>Ce qu'est un Project</h3>
+    <p>Un Project est un conteneur qui regroupe trois choses :</p>
+    <ul>
+      <li><strong>Une knowledge base</strong> — documents que tu uploades (PDF, Word, Excel, txt) accessibles à toutes les conversations du Project.</li>
+      <li><strong>Des custom instructions</strong> — un prompt système spécifique au Project. Tu y mets le contexte du mandat, le registre attendu, les conventions de format, les do/don't.</li>
+      <li><strong>Un fil de conversations</strong> — toutes les conversations que tu démarres dans ce Project sont regroupées et <strong>isolées</strong> des autres Projects.</li>
+    </ul>
+    <h3>Différence concrète vs un chat hors Project</h3>
+    <p>Hors Project, tu démarres chaque conversation avec un context plat. Tu dois recontextualiser à chaque fois.</p>
+    <p>Dans un Project mandat, tu ouvres une conversation et tu peux dire directement « rédige-moi un draft d'email pour X » — Claude sait déjà tout ce qui est dans la knowledge base et les instructions. Ça change le coût d'entrée d'une session de 3 minutes à 0.</p>
+    <h3>Les trois niveaux de maturité</h3>
+    <h4>Niveau 1 — Project comme dossier</h4>
+    <p>Beaucoup d'utilisateurs s'arrêtent là : ils créent un Project, uploadent quelques docs, et l'utilisent comme un dossier de chats. Bénéfice : les conversations ne se mélangent plus. C'est utile mais ça rate 80 % de la valeur.</p>
+    <h4>Niveau 2 — Project comme contexte permanent</h4>
+    <p>Tu ajoutes des custom instructions structurées qui agissent comme un brief permanent. Sur un mandat sell-side, elles devraient contenir :</p>
+    <ul>
+      <li><strong>Identité du deal</strong> : nom de code, side, client, secteur, géographie, taille EV indicative</li>
+      <li><strong>Stade du process</strong> : pre-launch, IM en cours, Q&amp;A active, NBO reçues, etc.</li>
+      <li><strong>Conventions de langue et registre</strong></li>
+      <li><strong>Conventions de format</strong> : c. au lieu de ~, m vs million, sentence case, etc.</li>
+      <li><strong>Stakeholders</strong> : qui sont les autres bankers, le client side, les conseils</li>
+      <li><strong>Sensibilités</strong> : confidentialité, sujets à manier prudemment</li>
+      <li><strong>Do / don't</strong> spécifiques au mandat</li>
+    </ul>
+    <p>À ce niveau, chaque conversation démarre déjà calibrée. Tu gagnes un facteur 3-5 en qualité du premier output.</p>
+    <h4>Niveau 3 — Project comme système de travail</h4>
+    <p><strong>Knowledge base curée et maintenue.</strong> Pas un dump de tout ce qui traîne. Tu choisis : le BP final, l'IM committed, la Q&amp;A consolidée, l'univers d'acquéreurs en version Excel propre, les transcripts de management calls, et une note de synthèse maintenue à jour. Tu jettes activement les vieilles versions.</p>
+    <p><strong>Workflows récurrents documentés.</strong> Dans les custom instructions, tu listes les routines à exécuter de façon homogène : « Pour chaque update investisseur, génère un suivi au format X », « Pour chaque draft email partner, applique le format Y ».</p>
+    <h3>Mémoire et scope</h3>
+    <ul>
+      <li>La <strong>mémoire utilisateur</strong> est globale (te concerne, toi) ET segmentée par Project</li>
+      <li>La <strong>conversation search</strong> est scopée au Project actif</li>
+      <li>Hors Project, Claude voit les conversations hors Project mais <strong>pas</strong> celles à l'intérieur des Projects</li>
+      <li>Le mode <strong>Incognito</strong> désactive la mémoire complètement, même dans un Project</li>
+    </ul>
+    <h3>Skills et MCP dans les Projects</h3>
+    <p>Tes skills sont disponibles dans tes Projects. Tu peux aussi avoir des skills <strong>spécifiques à un Project</strong> — utile quand le mandat a des conventions très particulières.</p>
+    <p>Tes connecteurs MCP (Microsoft 365, Pappers, S&amp;P Global, etc.) fonctionnent dans les Projects. Tu peux scoper leur usage via les custom instructions : « Pour ce mandat, utilise systématiquement Pappers en source primaire pour toute info corporate française ».</p>
+    <h3>Anti-patterns solo</h3>
+    <ul>
+      <li><strong>Trop de Projects.</strong> Si tu en as 30, tu ne sais plus lequel ouvrir. Limite-toi aux mandats actifs.</li>
+      <li><strong>Knowledge base obèse.</strong> Plus tu uploades, plus le risque de mélange de versions. Discipline : 10-15 documents vivants max.</li>
+      <li><strong>Custom instructions floues.</strong> « Sois professionnel » ne sert à rien. Soit tu mets des règles concrètes, soit tu n'en mets pas.</li>
+      <li><strong>Project pour des sujets transverses.</strong> Les Projects sont pour les mandats / projets bornés dans le temps, pas pour les sujets permanents.</li>
+    </ul>
+    <h3>Projects collaboratifs</h3>
+    <p>Le passage du Project solo au Project partagé est ce qui transforme Claude d'un outil personnel en infrastructure de mandat.</p>
+    <h4>Ce qui devient commun, ce qui reste personnel</h4>
+    <p><strong>Commun</strong> entre tous les membres : la knowledge base, les custom instructions, les skills attachées, l'accès aux mêmes connecteurs MCP scopés au Project.</p>
+    <p><strong>Personnel</strong> : les conversations elles-mêmes, la mémoire utilisateur, les Artifacts générés (sauf stockage shared explicite), l'historique de recherche.</p>
+    <h4>Les rôles</h4>
+    <ul>
+      <li><strong>Owner</strong> — toi par défaut. Peut tout faire, y compris supprimer le Project et changer les permissions.</li>
+      <li><strong>Editor</strong> — peut modifier la knowledge base, les custom instructions, ajouter/retirer des skills. Bon niveau pour un co-VP ou un associate qui co-pilote le mandat.</li>
+      <li><strong>Viewer</strong> — peut ouvrir le Project, démarrer des conversations, mais pas modifier. Bon niveau pour un analyste junior, ou un partner qui doit pouvoir consulter sans dérégler ton setup.</li>
+    </ul>
+    <h4>Architecture-type d'un mandat</h4>
+    <p>Owner unique (le VP en charge), 1-2 Editors maximum (associate principal, ou co-VP), reste en Viewer (analystes, autres bankers, partner sponsor). Knowledge base organisée en 4 catégories explicites par naming : <code>01_brief/</code> (IM committed, BP, executive summary), <code>02_data/</code> (chiffres, benchmarks, comparable transactions), <code>03_process/</code> (calendrier, univers acquéreurs, Q&amp;A consolidée), <code>04_outputs/</code> (drafts récents, version courante des livrables).</p>
+    <div class="warn">
+      <strong>Règle de confidentialité</strong>
+      <span>Si une info ne devrait pas être dans un email envoyé à tous les membres du Project, elle ne devrait pas être dans la knowledge base ni les custom instructions du Project.</span>
+    </div>
+    <h4>Quatre patterns collaboratifs</h4>
+    <ul>
+      <li><strong>Pattern 1 — Le Project mandat.</strong> Un Project par mandat actif. Vie courte (3-9 mois). Setup au kickoff, mis à jour aux moments clés, archivé à la signature.</li>
+      <li><strong>Pattern 2 — Le Project sectoriel persistant.</strong> Un Project par secteur sur lequel ton équipe travaille régulièrement. Vie longue. On y maintient une base de transactions, une cartographie des acteurs, des comparable trading actualisés, des notes thématiques.</li>
+      <li><strong>Pattern 3 — Le Project firme.</strong> Templates, slide library, conventions firm-wide. Tout le monde en Viewer, 2-3 admins en Editors. Source of truth des conventions de production.</li>
+      <li><strong>Pattern 4 — Le Project knowledge management.</strong> Veille M&amp;A / Market intelligence. Briefings hebdomadaires, transactions notables, changements de dirigeants. Maintenu par un junior dédié, consulté par toute l'équipe.</li>
+    </ul>
+    <h4>Anti-patterns collaboratifs</h4>
+    <ul>
+      <li>Le Project « catch-all équipe » où tout le monde peut écrire</li>
+      <li>Les Projects partagés avec trop de membres (au-delà de 10-12)</li>
+      <li>Les knowledge bases laissées en libre-édition</li>
+      <li>Les Projects qui survivent au mandat</li>
+    </ul>
+    <h4>Pyramide de gouvernance pour un déploiement firme</h4>
+    <p><strong>Niveau 1 — Standards firme</strong> (1 Project) : owner = toi + un partner sponsor, viewers = tout le monde, knowledge base = conventions, templates, do/don't. <strong>Niveau 2 — Projects sectoriels</strong> (4-6 Projects) : un VP par secteur en owner, autres VPs/associates du secteur en editors, reste en viewers. <strong>Niveau 3 — Projects mandats</strong> (autant que de mandats actifs) : VP en charge en owner, associate principal en editor, équipe deal en viewers.</p>
+    <div class="tip">
+      <strong>Approche d'adoption</strong>
+      <span>Démarre <strong>ouvert pendant 2-3 mois</strong> pour laisser émerger les usages, puis introduis la gouvernance sur les zones où tu as vu des dérives. Pas l'inverse.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="m7">
+    <div class="chapter-num">— Module 7</div>
+    <h2 class="chapter-title">Workflows pour maximiser Claude</h2>
+    <p class="intro">Module de synthèse. Tout ce qu'on a vu — modèles, mécanique, chat/Cowork, Artifacts, Skills, Projects — ne vaut que si tu l'orchestres bien dans ton quotidien.</p>
+    <h3>Le réflexe central : choisir la bonne couche</h3>
+    <p>Avant chaque tâche, trois questions dans cet ordre.</p>
+    <h4>Question 1 — Où je travaille ?</h4>
+    <ul>
+      <li>Mandat actif → Project dédié</li>
+      <li>Sujet transverse / exploratoire → chat hors Project</li>
+      <li>Sujet sensible non lié à un mandat → Incognito</li>
+    </ul>
+    <h4>Question 2 — Quelle est l'ampleur ?</h4>
+    <ul>
+      <li>Tâche &lt; 10 min, qualitative, itérative → chat</li>
+      <li>Tâche &gt; 30 min, mécanique, produit des fichiers → Cowork</li>
+    </ul>
+    <h4>Question 3 — Qu'est-ce qui peut accélérer ?</h4>
+    <ul>
+      <li>Une skill existe pour ça ? Je la déclenche par mes mots</li>
+      <li>Un connecteur MCP est pertinent ? Je le cite explicitement</li>
+      <li>Un Artifact persistant ferait gagner du temps cumulé ? Je le construis une fois</li>
+    </ul>
+    <p>Trois questions, 15 secondes. C'est la différence entre Claude utilisé à 30 % et à 80 %.</p>
+    <h3>Patterns multi-couches</h3>
+    <h4>Pattern 1 — Le triple-stack pour une tâche M&amp;A</h4>
+    <p><strong>Project mandat</strong> + <strong>Skill format firme</strong> + <strong>MCP base corporate</strong> + <strong>MCP messagerie</strong>. Tu écris : « profil société sur [target] pour le sourcing en cours ». Le Project donne le contexte mandat, la base corporate sort les données fraîches, la skill formate selon le standard firme, la messagerie permet de cross-checker les contacts antérieurs. Résultat : un livrable cohérent en 90 secondes, là où sans stack il faudrait 30-45 minutes.</p>
+    <h4>Pattern 2 — Le screening industriel</h4>
+    <p><strong>Cowork</strong> + <strong>plusieurs MCP corporate</strong> + <strong>Skill profile maker</strong> + <strong>Excel output</strong>. Cowork orchestre : interrogation des bases, application des filtres sectoriels et financiers, génération profile-text pour les top 30, output consolidé en Excel propre. Tu reviens 1h plus tard avec un livrable que tu n'aurais pas pu produire à la main en 3 jours.</p>
+    <h4>Pattern 3 — La revue d'IM augmentée</h4>
+    <p><strong>Project IM Review</strong> + <strong>chat Opus pour la revue qualitative</strong> + <strong>Cowork en parallèle pour les checks mécaniques</strong> + <strong>Artifact tracker des commentaires</strong>. À la fin, export Excel pour partager avec l'équipe deal.</p>
+    <h4>Pattern 4 — Le briefing matinal</h4>
+    <p><strong>Skill daily-email-review</strong> + <strong>MCP messagerie</strong> + <strong>Skill todo</strong> + <strong>MCP calendrier</strong>. Sweep des emails reçus depuis hier, catégorisation par mandat, identification des items qui demandent action, cross-check avec ton agenda du jour, output en to-do interactive triable.</p>
+    <h3>Techniques de prompting avancées</h3>
+    <h4>Technique 1 — Le contradictoire structurel</h4>
+    <p>Sur n'importe quelle production stratégique, demande systématiquement la pass contradictoire : <em>« Maintenant relis ce que tu viens de produire et joue l'avocat du diable. Quelles sont les 3-5 fragilités les plus exploitables par un contre-argumentateur ? »</em> Ça transforme un draft en draft robuste, sans devoir ouvrir une seconde session.</p>
+    <h4>Technique 2 — Le découpage explicite</h4>
+    <p>Ne demande jamais « rédige le CIM ». Demande section par section, avec un brief par section. Ça force la qualité par section et évite la régression de cohérence sur les longs livrables.</p>
+    <h4>Technique 3 — Le calibrage par exemple</h4>
+    <p>Au lieu de décrire le ton voulu, donne un exemple. Pour un draft d'email partner : <em>« Voici un email que j'ai produit la semaine dernière pour un sujet similaire : […]. Réplique le même registre, la même longueur, la même structure pour le sujet suivant : […] »</em> Marche 5× mieux que « écris dans un ton professionnel ».</p>
+    <h4>Technique 4 — Le pré-prompting de contexte</h4>
+    <p><em>« Avant qu'on travaille, lis attentivement [doc 1], [doc 2], [doc 3] et résume-moi en 10 lignes ta compréhension du contexte. Je veux valider qu'on est alignés avant qu'on commence. »</em> Ça coûte 30 secondes et évite 10 minutes de corrections en aval.</p>
+    <h4>Technique 5 — Le checkpoint explicite</h4>
+    <p>Sur les tâches longues : <em>« Travaille sur ça, mais arrête-toi après chaque étape majeure et demande-moi si tu peux continuer. Je veux pouvoir corriger la trajectoire avant que tu ailles trop loin. »</em></p>
+    <h3>Pièges classiques en environnement IB</h3>
+    <h4>Piège 1 — La confiance excessive sur les chiffres</h4>
+    <p>Claude se trompe parfois sur des chiffres précis (calculs multiples, conversions de devises, dates de transactions). <strong>Règle absolue</strong> : tout chiffre qui finit dans un livrable client doit être re-vérifié. Soit tu fais re-vérifier explicitement, soit tu cross-checks avec ta source.</p>
+    <h4>Piège 2 — La hallucination sur des transactions ou des cibles</h4>
+    <p>Claude peut inventer une transaction qui n'a pas eu lieu, ou attribuer un acquéreur à une cible erronée. Surtout en l'absence de recherche web ou de connecteur corporate. <strong>Règle</strong> : tout fait corporate factuel passe par recherche, pas par mémoire générale.</p>
+    <h4>Piège 3 — La dérive de format</h4>
+    <p>Sur les longs documents, le format peut dériver. <strong>Règle</strong> : segmente les longs livrables en plusieurs conversations courtes plutôt qu'une seule conversation longue.</p>
+    <h4>Piège 4 — La perte de scope confidentialité</h4>
+    <p>Quand tu travailles dans un Project mandat avec NDA strict, attention aux questions qui activeraient une recherche web ou citeraient un cas comparable. <strong>Règle</strong> : pour les sujets vraiment sensibles, désactive la recherche web pour la session, ou pose la question en mode explicitement borné.</p>
+    <h4>Piège 5 — La compétition entre sources</h4>
+    <p>Si deux bases corporate donnent des chiffres divergents pour la même société, Claude peut les présenter sans flag. <strong>Règle</strong> : pour les chiffres clé, demande explicitement de comparer les sources et de signaler les divergences.</p>
+    <h4>Piège 6 — Le syndrome de l'oubli en fin de session</h4>
+    <p>Sur des conversations très longues, Claude peut « oublier » des consignes données 30 messages plus tôt. <strong>Règle</strong> : si tu es au-delà de 20 échanges, repars d'un nouveau chat avec un brief résumé.</p>
+    <h3>Le rituel hebdomadaire recommandé</h3>
+    <h4>Rituel 1 — Lundi matin, 10 minutes : briefing semaine</h4>
+    <p>Sweep des emails du week-end, revue des Projects mandats, identification des points clés de la semaine, agenda du jour.</p>
+    <h4>Rituel 2 — Vendredi après-midi, 15 minutes : revue des Projects</h4>
+    <p>Pour chaque Project mandat : la knowledge base est-elle à jour ? Les custom instructions reflètent-elles le stade actuel ? Tu archives ce qui doit l'être.</p>
+    <h4>Rituel 3 — Une fois par mois, 30 minutes : revue des skills</h4>
+    <p>Tu identifies les skills que tu n'utilises plus (à archiver), celles qui se déclenchent mal (à corriger), et les nouvelles routines que tu as répétées 3+ fois et qui mériteraient d'être packagées en skill.</p>
+    <h3>Le cadre mental à garder</h3>
+    <h4>Principe 1 — Claude est un collègue brillant mais nouveau</h4>
+    <p>Brillant parce que rapide et large. Nouveau parce qu'il ne connaît pas les conventions implicites de la firme. Donc tu le brieffes comme tu brieffes un nouvel arrivant : explicitement, avec des exemples, avec des do/don't.</p>
+    <h4>Principe 2 — La qualité monte avec l'investissement structurant</h4>
+    <p>Une question posée à froid donne une réponse OK. La même question posée dans un Project bien structuré, avec une skill bien packagée, donne une réponse excellente.</p>
+    <h4>Principe 3 — Tu restes le décideur</h4>
+    <p>Claude accélère mais ne décide pas. Sur tout ce qui a un enjeu — choix d'acquéreurs, structuration, valorisation, lettre client — c'est ton jugement qui tranche. Le rôle de Claude est de te donner plus d'options, plus vite, mieux structurées. Pas de te dispenser du jugement.</p>
+  </section>
+
+  <section class="chapter" id="conclusion">
+    <div class="chapter-num">— Conclusion</div>
+    <h2 class="chapter-title">Et maintenant ?</h2>
+    <p class="intro">Tu as maintenant la cartographie complète. Le travail qui reste, c'est l'application sur tes mandats réels.</p>
+    <h3>Ce que tu sais faire à la sortie de cette formation</h3>
+    <ul>
+      <li>Choisir le bon modèle Claude selon la tâche</li>
+      <li>Comprendre la mécanique interne (context window, mémoire, knowledge cutoff) et prompter en conséquence</li>
+      <li>Arbitrer entre chat et Cowork</li>
+      <li>Construire des Artifacts utiles, y compris avec stockage persistant</li>
+      <li>Diagnostiquer et améliorer une Skill</li>
+      <li>Mettre en place un Project solo ou collaboratif structuré</li>
+      <li>Orchestrer des workflows multi-couches sur tes mandats</li>
+      <li>Éviter les pièges classiques en environnement IB</li>
+    </ul>
+    <h3>Les trois étapes après cette formation</h3>
+    <h4>Étape 1 — Application immédiate (cette semaine)</h4>
+    <p>Choisis <strong>un</strong> mandat actif. Crée le Project. Charge la knowledge base minimale (3-5 documents). Écris les custom instructions. Lance ta première conversation dedans. Tu vas immédiatement voir la différence.</p>
+    <h4>Étape 2 — Capitalisation (les 2-3 semaines suivantes)</h4>
+    <p>Repère les routines que tu refais à l'identique (drafts d'emails, revues de slides, profils de sociétés). Pour chacune, pose-toi la question : <em>est-ce qu'une skill ferait gagner du temps cumulé sur les 3 prochains mois ?</em> Si oui, package-la.</p>
+    <h4>Étape 3 — Diffusion équipe (mois 2-3)</h4>
+    <p>Une fois ton setup personnel mature, partage tes Projects mandats avec ton équipe deal. Crée un Project « Standards firme » accessible à tous. Forme tes analystes et associates en 30 minutes sur la base de cette formation.</p>
+    <h3>Ressources pour continuer</h3>
+    <ul>
+      <li><a href="https://docs.claude.com" target="_blank" rel="noopener">docs.claude.com</a> — documentation officielle Anthropic</li>
+      <li><a href="https://support.claude.com" target="_blank" rel="noopener">support.claude.com</a> — centre d'aide</li>
+      <li><a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">Guide de prompt engineering</a> — pour aller plus loin sur la formulation</li>
+    </ul>
+    <h3>Le mot final</h3>
+    <p>Claude n'est pas un gadget de productivité. Bien utilisé, c'est un changement de catégorie dans ce qu'un VP ou un associate peut produire en une journée. Mais il y a une condition : il faut le structurer, l'apprivoiser, le packager. C'est exactement ce que cette formation t'a donné. L'équipe qui maîtrisera ces patterns aura un avantage durable sur celles qui restent à l'usage de surface.</p>
+    <blockquote class="pull">Claude n'est pas un gadget de productivité. Bien utilisé, c'est un changement de catégorie dans ce qu'un VP ou un associate peut produire en une journée.</blockquote>
+  </section>
+</div>
+
+<section class="related-tools">
+  <div class="page">
+    <div class="eyebrow">Outils en lien avec cette formation</div>
+    <h2 class="chapter-title">Pour aller plus loin</h2>
+    <p class="subtitle">Les outils Clearwater qui mettent en pratique les concepts vus dans cette formation.</p>
+    <div class="tools-grid">
+      <a href="../outils/ib-prompt-enhancer.html" class="tool-card"><div class="tool-tag">Skill · Auto-trigger</div><h4>IB Prompt Enhancer</h4><p>Améliore automatiquement vos prompts IB pour produire des outputs deal-ready en un seul échange.</p></a>
+      <a href="../outils/ib-prompt-architect.html" class="tool-card"><div class="tool-tag">Skill · @architect</div><h4>IB Prompt Architect</h4><p>Structure un prompt rigoureux paste-ready pour les tâches IB complexes (5 sections : diagnostic, questions, setup, prompt, runbook).</p></a>
+      <a href="../outils/clearwater-research-sources.html" class="tool-card"><div class="tool-tag">Skill · Auto-trigger</div><h4>Clearwater Research Sources</h4><p>Oriente Claude vers les sources curées Clearwater pour toute recherche M&A / IB.</p></a>
+      <a href="../outils/clearwater-profile.html" class="tool-card"><div class="tool-tag">Skill · Cowork</div><h4>Clearwater Profile</h4><p>Génère un profil société au format Clearwater (PowerPoint) via Cowork.</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Module 01 — Maîtrise complète IB</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../formations.html">Toutes les formations</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation — Confidentialité &amp; data handling · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link active">Formations</a>
+      <a href="../outils.html" class="nav-link">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../formations.html">Formations</a><span class="sep">›</span><span class="current">Confidentialité</span>
+  </div>
+</div>
+
+<div class="page-wide">
+  <header class="hero">
+    <div class="eyebrow">Module pédagogique · Formation 07</div>
+    <h1>Confidentialité<br>&amp; <em>data handling</em>.</h1>
+    <p class="lede">Les règles à connaître pour utiliser Claude sur des dossiers M&amp;A sensibles sans exposer ce qui ne doit pas l'être. Module destiné à toute l'équipe — particulièrement pour les Partners avant un déploiement systématique.</p>
+  </header>
+</div>
+
+<div class="page">
+  <nav class="toc" style="margin-top:48px">
+    <h2>Sommaire de la formation</h2>
+    <ol>
+      <li><a href="#ch1">Le contexte — pourquoi ça compte chez Clearwater</a></li>
+      <li><a href="#ch2">Ce qui se passe avec vos données chez Anthropic</a></li>
+      <li><a href="#ch3">Ce qui est OK et ce qui ne l'est pas</a></li>
+      <li><a href="#ch4">Mode Incognito &amp; segmentation par Project</a></li>
+      <li><a href="#ch5">Les pièges spécifiques au partage</a></li>
+      <li><a href="#ch6">Règles pour les Partners</a></li>
+    </ol>
+  </nav>
+
+  <section class="chapter" id="ch1">
+    <div class="chapter-num">— Chapitre 1</div>
+    <h2 class="chapter-title">Le contexte — pourquoi ça compte chez Clearwater</h2>
+    <p class="intro">Clearwater travaille essentiellement sur des dossiers M&amp;A sous NDA — sell-side, buy-side, capital advisory. La confidentialité n'est pas une préférence, c'est une obligation contractuelle vis-à-vis du client.</p>
+    <h3>Ce qui est typiquement sensible</h3>
+    <ul>
+      <li><strong>Identité du client cédé / cible</strong> tant que l'opération n'est pas publique</li>
+      <li><strong>Données financières non publiées</strong> (BP, comptes pré-publication, marges détaillées par segment)</li>
+      <li><strong>Documents transactionnels</strong> — term sheets, NBOs, contrats SPA en négociation</li>
+      <li><strong>Liste des acquéreurs contactés</strong> et leur statut dans le process</li>
+      <li><strong>Échanges avec management</strong> sur les sujets sensibles (restructurations, départs, litiges)</li>
+      <li><strong>Stratégie de prix</strong> et plancher de négociation côté client</li>
+    </ul>
+    <h3>Pourquoi Claude introduit des enjeux nouveaux</h3>
+    <p>Avant Claude, le risque de fuite de données passait essentiellement par l'email, le partage de fichiers, ou les conversations physiques. Avec Claude, deux nouveaux vecteurs apparaissent :</p>
+    <ul>
+      <li><strong>L'upload</strong> — un document chargé dans un chat est traité par l'infrastructure Anthropic</li>
+      <li><strong>Le partage d'artifacts ou de Projects</strong> — qui peut, mal géré, donner accès à plus que ce qu'on pense</li>
+    </ul>
+    <p>Les deux nécessitent une vigilance spécifique. Ce module en couvre les règles.</p>
+    <div class="warn">
+      <strong>Principe directeur</strong>
+      <span>La bonne question n'est pas « est-ce que c'est confidentiel ? » mais « si cette information se retrouvait dans les mains d'un concurrent ou d'un autre acquéreur, est-ce que ce serait un problème ? ». Si oui, applique les règles strictes de ce module.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch2">
+    <div class="chapter-num">— Chapitre 2</div>
+    <h2 class="chapter-title">Ce qui se passe avec vos données chez Anthropic</h2>
+    <p class="intro">Comprendre où vont vos données, qui les voit, et comment elles sont traitées. Spoiler : c'est rassurant, mais des règles s'appliquent.</p>
+    <h3>Le plan compte</h3>
+    <p>Clearwater est sur un plan <strong>Team ou Enterprise</strong>. C'est important parce que le traitement des données diffère selon le plan :</p>
+    <ul>
+      <li><strong>Plans Pro et Free (individuels)</strong> — les données peuvent, par défaut, être utilisées par Anthropic pour améliorer les modèles. L'utilisateur peut le désactiver dans les paramètres, mais ce n'est pas par défaut.</li>
+      <li><strong>Plans Team et Enterprise</strong> — les données <strong>ne sont pas</strong> utilisées pour l'entraînement des modèles. Rétention limitée et configurable. C'est le cadre dans lequel Clearwater opère.</li>
+    </ul>
+    <h3>Le trajet d'une requête</h3>
+    <p>Quand vous envoyez un message à Claude :</p>
+    <ol>
+      <li>Le message + l'historique pertinent + les fichiers joints sont transmis aux serveurs Anthropic (chiffrement TLS pendant le transit)</li>
+      <li>Le modèle traite la requête et produit une réponse</li>
+      <li>La conversation est stockée sur les serveurs Anthropic pour que vous puissiez y revenir</li>
+      <li>Elle reste dans votre compte Clearwater, pas dans une base partagée</li>
+    </ol>
+    <h3>Ce qu'Anthropic ne fait pas</h3>
+    <ul>
+      <li>Ne vend pas vos données à des tiers</li>
+      <li>Ne les utilise pas pour entraîner les modèles (sur plans Team / Enterprise)</li>
+      <li>Ne croise pas les données entre clients (un autre cabinet ne voit pas vos conversations)</li>
+      <li>N'affiche pas de publicité dans Claude</li>
+    </ul>
+    <h3>Limites du cloud</h3>
+    <p>Cela dit, vos données <em>sont</em> traitées sur les serveurs d'un tiers (Anthropic). Pour les dossiers où le client interdit explicitement tout traitement cloud — par exemple certaines opérations Defense / Gov, ou des dossiers où la NDA mentionne la non-utilisation d'IA externe — Claude ne devrait pas être utilisé. À vérifier au cas par cas avec le client en début de mandat.</p>
+  </section>
+
+  <section class="chapter" id="ch3">
+    <div class="chapter-num">— Chapitre 3</div>
+    <h2 class="chapter-title">Ce qui est OK et ce qui ne l'est pas</h2>
+    <p class="intro">Liste concrète des pratiques à adopter et à éviter, organisée par type de contenu.</p>
+    <h3>Documents financiers d'une cible / client</h3>
+    <p><strong>OK</strong> de charger dans un Project Clearwater dédié au mandat : IM committed, comptes annuels publics, BP, présentations management. Ces documents sont déjà partagés avec des acquéreurs via la dataroom — leur présence dans Claude ne crée pas d'exposition nouvelle.</p>
+    <p><strong>Vigilance</strong> sur les documents <em>non encore partagés</em> ou en version pré-IM. Charger un BP qui circulera dans 3 semaines, c'est OK. Charger un BP « inflated » utilisé uniquement en interne pour calibrer la cession, c'est plus délicat.</p>
+    <h3>Documents stratégiques internes Clearwater</h3>
+    <p><strong>OK</strong> : notes de positionnement sur un mandat, analyses internes, pitchs envoyés, post-mortem.</p>
+    <p><strong>OK avec discipline de Project</strong> : analyses de pricing, structure de fees, plancher de négociation. À mettre dans un Project Clearwater avec accès limité aux personnes du mandat.</p>
+    <h3>Informations sur les acquéreurs / investisseurs</h3>
+    <p><strong>OK</strong> : noms publics, profils corporate, données financières publiques (Pappers, S&amp;P), théories sur leur stratégie d'acquisition.</p>
+    <p><strong>Vigilance</strong> : si un acquéreur vous a communiqué en confidence son ticket plancher, sa stratégie d'enchère, ou son intérêt pour une cible, ne le saisissez pas verbatim dans un chat sans cloisonnement de Project. Information à traiter comme un term sheet.</p>
+    <h3>Personnel / management de la cible</h3>
+    <p><strong>OK</strong> : noms, fonctions, parcours public, déclarations publiques.</p>
+    <p><strong>Pas OK</strong> : évaluations personnelles, jugements de performance, informations RH sensibles, situations personnelles. Ces sujets ne devraient jamais finir dans un chat — ils relèvent de la communication orale et de notes papier.</p>
+    <h3>Term sheets et documents en négociation</h3>
+    <p><strong>OK avec cloisonnement</strong> : analyse d'un term sheet, comparaison entre plusieurs NBOs reçues, draft de réponse — à condition d'être dans un Project dédié, avec accès strictement limité aux personnes du mandat.</p>
+    <p><strong>Pas OK</strong> : copier-coller dans un chat non-Project ou dans un Project partagé avec des personnes hors mandat. Une fois la conversation indexée dans la mémoire, l'information « fuit » dans le contexte de Claude pour cet utilisateur.</p>
+    <div class="warn">
+      <strong>Le test rapide</strong>
+      <span>Avant de charger ou de coller quelque chose dans Claude, demandez-vous : « si ce contenu était envoyé en clair par email à tous les membres du Project, est-ce que ce serait OK ? » Si non, n'y mettez pas. Tout ce qui est dans un Project est accessible à tous ses membres.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch4">
+    <div class="chapter-num">— Chapitre 4</div>
+    <h2 class="chapter-title">Mode Incognito &amp; segmentation par Project</h2>
+    <p class="intro">Deux mécaniques pour isoler activement ce qui doit l'être.</p>
+    <h3>Le mode Incognito</h3>
+    <p>Disponible depuis le menu chat. Une conversation Incognito :</p>
+    <ul>
+      <li>N'est <strong>pas sauvegardée</strong> dans votre historique</li>
+      <li>N'alimente <strong>pas la mémoire</strong> long terme de Claude sur vous</li>
+      <li>N'est <strong>pas indexée</strong> pour la recherche de conversations passées</li>
+      <li>N'est <strong>pas accessible</strong> via les outils de recherche dans d'autres chats</li>
+    </ul>
+    <p>Cas d'usage typiques :</p>
+    <ul>
+      <li>Une réflexion stratégique vraiment confidentielle (positionnement sur un pitch concurrent)</li>
+      <li>Un test de prompt sur un cas qui ne doit pas alimenter la mémoire</li>
+      <li>Une question sensible sans rapport avec un mandat précis</li>
+    </ul>
+    <h3>Limites du mode Incognito</h3>
+    <ul>
+      <li>La conversation est <strong>quand même traitée</strong> sur les serveurs Anthropic — Incognito n'est pas du chiffrement de bout en bout</li>
+      <li>Vous <strong>perdez</strong> la conversation à la fermeture — pas de récupération possible</li>
+      <li>Les <strong>connecteurs MCP</strong> fonctionnent quand même — leurs propres logs s'appliquent (Outlook conserve l'accès même si la conversation est Incognito)</li>
+    </ul>
+    <h3>Segmentation par Project</h3>
+    <p>Les Projects sont des silos étanches : un chat dans le Project A ne voit pas les memories ni les conversations du Project B. C'est la <strong>principale ligne de défense</strong> pour cloisonner les mandats sensibles.</p>
+    <p>Règles d'application :</p>
+    <ol>
+      <li>Tout mandat avec NDA strict → Project dédié <strong>dès le kickoff</strong></li>
+      <li>Accès au Project limité aux membres du deal — pas le partner sponsor s'il n'y est pas opérationnel</li>
+      <li>Pour les mandats les plus sensibles, créer un <strong>compte d'utilisateur partagé</strong> n'est pas une solution — chaque membre opère sous son propre compte avec ses propres permissions</li>
+      <li>À la clôture du mandat, le Project est archivé (et peut être purgé sur décision)</li>
+    </ol>
+    <div class="tip">
+      <strong>Combiner Project + Incognito</strong>
+      <span>Pour les réflexions ultra-sensibles à l'intérieur d'un mandat actif, ouvrir une conversation Incognito <em>depuis le Project</em> : Claude a accès à la knowledge base et aux custom instructions, mais la conversation n'est pas sauvegardée. Idéal pour les analyses « brouillon stratégique » que vous ne voulez pas voir réapparaître dans un futur chat.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch5">
+    <div class="chapter-num">— Chapitre 5</div>
+    <h2 class="chapter-title">Les pièges spécifiques au partage</h2>
+    <p class="intro">C'est ici que beaucoup d'équipes se trompent. Le partage d'un artifact, d'un Project, ou même d'un lien de conversation peut exposer plus que prévu.</p>
+    <h3>Piège 1 — Le partage d'artifact embarque les pièces jointes du chat</h3>
+    <p>Le piège le plus dangereux. Quand vous partagez un artifact (lien Share), <strong>les viewers gagnent aussi accès aux pièces jointes</strong> et fichiers présents dans la conversation qui l'a créé.</p>
+    <p>Exemple concret : vous chargez un CIM confidentiel dans un chat, vous demandez à Claude de produire un mini-tracker React de Q&amp;A à partir du CIM, vous partagez le tracker à toute l'équipe pour qu'ils l'utilisent. <strong>Toute l'équipe gagne accès au CIM</strong>, même si certains membres n'auraient pas dû y avoir accès.</p>
+    <p>Réflexe à généraliser : avant tout partage d'artifact, vérifier les pièces jointes du chat. Si présence de docs sensibles, recréer l'artifact dans un chat propre sans les pièces jointes.</p>
+    <h3>Piège 2 — Le Project partagé trop largement</h3>
+    <p>Ajouter un viewer à un Project lui donne accès à <strong>toute la knowledge base, toutes les custom instructions, tous les connecteurs MCP scopés au Project</strong>. Pour un partner sponsor qui ne fait que jeter un œil, c'est trop d'accès si la knowledge base contient des analyses sensibles.</p>
+    <p>Réflexe : pour les Projects mandat, limiter strictement aux personnes <strong>opérationnellement</strong> impliquées. Le partner sponsor peut être briefé hors Project.</p>
+    <h3>Piège 3 — Le lien public Publish</h3>
+    <p>Sur les plans individuels (Pro / Max), un artifact peut être « publié » via lien public — <strong>anyone with the link</strong> peut le voir, sans authentification. Mode disponible uniquement sur les plans individuels.</p>
+    <p>Chez Clearwater (Team / Enterprise), ce mode n'est pas activable. Le seul mode de partage est le mode Share organisation — restreint aux membres Clearwater authentifiés. Bien.</p>
+    <h3>Piège 4 — La mémoire long terme qui « fuit » entre conversations hors Project</h3>
+    <p>Hors Project, toutes vos conversations partagent la même mémoire long terme. Si vous avez analysé un term sheet sensible hors Project lundi, mardi votre conversation sur un sujet sans rapport peut avoir Claude qui « se souvient » du term sheet. Ce n'est pas une fuite externe, mais une pollution de contexte interne.</p>
+    <p>Réflexe : tout sujet sensible va dans un Project. Hors Project = sujets non-sensibles uniquement.</p>
+    <h3>Piège 5 — La conversation longue qui agrège trop d'infos</h3>
+    <p>Une conversation qui s'étale sur 50 messages sur un même mandat peut concentrer une quantité d'informations sensibles disproportionnée. Si quelqu'un gagne accès à cette conversation (partage maladroit, compte compromis), l'exposition est massive.</p>
+    <p>Réflexe : segmenter les conversations par sujet. Démarrer un nouveau chat à chaque nouveau sujet. Limiter naturellement la concentration d'informations.</p>
+  </section>
+
+  <section class="chapter" id="ch6">
+    <div class="chapter-num">— Chapitre 6</div>
+    <h2 class="chapter-title">Règles pour les Partners</h2>
+    <p class="intro">Pour les Partners qui consultent occasionnellement Claude ou pilotent l'adoption au niveau firme, voici les règles à retenir.</p>
+    <h3>Trois choses à savoir absolument</h3>
+    <ol>
+      <li><strong>Clearwater est sur Team / Enterprise.</strong> Vos données ne servent pas à l'entraînement d'Anthropic et restent confidentielles. Vous pouvez utiliser Claude sur du contenu mandat sans crainte première.</li>
+      <li><strong>Les Projects sont des silos.</strong> Un mandat sous NDA strict doit avoir son propre Project, avec accès limité. Pas de « catch-all » avec tous les mandats mélangés.</li>
+      <li><strong>Avant de partager un artifact ou un Project, vérifiez ce qu'il contient.</strong> Surtout les pièces jointes — qui « voyagent » avec le partage.</li>
+    </ol>
+    <h3>Cinq do</h3>
+    <ul>
+      <li><strong>Utiliser le mode Incognito</strong> pour les réflexions sensibles qui ne doivent pas s'inscrire dans la mémoire long terme</li>
+      <li><strong>Démarrer chaque mandat dans un Project dédié</strong> dès le kickoff, pas après quelques semaines d'usage informel</li>
+      <li><strong>Vérifier la liste des membres d'un Project</strong> avant d'y déposer de nouveaux documents sensibles</li>
+      <li><strong>Préférer la citation orale</strong> aux uploads pour les informations vraiment sensibles (la conversation orale n'est pas indexée)</li>
+      <li><strong>En cas de doute, consulter</strong> le VP responsable du déploiement Claude chez Clearwater avant un usage à risque</li>
+    </ul>
+    <h3>Cinq don't</h3>
+    <ul>
+      <li><strong>Ne pas charger</strong> de documents sensibles dans un chat hors Project</li>
+      <li><strong>Ne pas partager</strong> un artifact sans avoir vérifié les pièces jointes du chat qui l'a créé</li>
+      <li><strong>Ne pas ajouter</strong> de membres à un Project sans réfléchir à ce qu'ils gagnent comme accès</li>
+      <li><strong>Ne pas activer</strong> de connecteurs MCP sur un compte personnel utilisé pour Clearwater (rester strictement dans le compte Team / Enterprise)</li>
+      <li><strong>Ne pas réutiliser</strong> un Project mandat pour un autre mandat — créer un nouveau Project propre</li>
+    </ul>
+    <h3>En cas de doute</h3>
+    <p>Le réflexe le plus sûr : <strong>ne pas charger</strong> et demander à un collègue plus expérimenté. La perte de temps est négligeable comparée au risque de fuite.</p>
+    <blockquote class="pull">Claude est puissant parce qu'il a accès à beaucoup de contexte. Le revers, c'est qu'il a aussi accès à beaucoup de contexte. La discipline de cloisonnement n'est pas un frein — c'est le prix à payer pour utiliser sereinement l'outil dans un environnement IB.</blockquote>
+  </section>
+</div>
+
+<section class="related-tools">
+  <div class="page">
+    <div class="eyebrow">Formations en lien</div>
+    <h2 class="chapter-title">Pour aller plus loin</h2>
+    <p class="subtitle">Les modules qui complètent la formation confidentialité.</p>
+    <div class="tools-grid">
+      <a href="projects.html" class="tool-card"><div class="tool-tag">Formation 05</div><h4>Projects</h4><p>Comment structurer un Project mandat pour isoler proprement un dossier sensible.</p></a>
+      <a href="connecteurs-mcp.html" class="tool-card"><div class="tool-tag">Formation 06</div><h4>Connecteurs &amp; MCP</h4><p>Permissions et bonnes pratiques des connecteurs externes (Outlook, Pappers, etc.).</p></a>
+      <a href="artifacts.html" class="tool-card"><div class="tool-tag">Formation 04</div><h4>Artifacts</h4><p>Les pièges spécifiques du partage d'artifact (pièces jointes du chat).</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Module 07 — Confidentialité &amp; data handling</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../formations.html">Toutes les formations</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

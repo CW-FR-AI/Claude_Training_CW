@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation — Comprendre et gérer les tokens de Claude · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link active">Formations</a>
+      <a href="../outils.html" class="nav-link">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../formations.html">Formations</a><span class="sep">›</span><span class="current">Tokens</span>
+  </div>
+</div>
+
+<div class="page-wide">
+  <header class="hero">
+    <div class="eyebrow">Module pédagogique · Formation 02</div>
+    <h1>Comprendre et gérer<br>les <em>tokens</em> de Claude.</h1>
+    <p class="lede">Réflexe rapide quand vous démarrez une tâche, et formation complète pour comprendre ce qui se joue sous le capot. Choisissez ce qui vous est utile maintenant.</p>
+  </header>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-view="view-wizard" role="tab"><span class="tab-num">01</span><span>Réflexe rapide</span></button>
+    <button class="tab" data-view="view-deep" role="tab"><span class="tab-num">02</span><span>Formation complète</span></button>
+  </nav>
+</div>
+
+<div class="view active" id="view-wizard">
+  <div class="page-wide">
+    <div class="wizard-wrap">
+      <div class="wizard-card">
+        <div class="wizard-flag">À consulter avant de prompter</div>
+        <div class="wizard-header">
+          <h2>Quelle <em>méthode</em> pour ma tâche ?</h2>
+          <p>Décrivez votre besoin en deux clics. Vous obtiendrez le bon modèle, les bons outils, et la méthode à suivre pour maximiser la qualité tout en économisant les tokens.</p>
+        </div>
+        <div class="wizard-breadcrumb" id="breadcrumb"><span class="step active"><span class="label">① Famille de tâche</span></span></div>
+        <div class="wizard-body" id="wizardBody"></div>
+      </div>
+      <div class="nudge">
+        <strong>Pourquoi ce module existe</strong>
+        Les bons réflexes se construisent en se posant les bonnes questions. Avant chaque tâche, prenez 30 secondes ici — vous gagnerez en qualité d'output et en quota disponible. Pour comprendre la mécanique sous-jacente, allez voir l'onglet <em>Formation complète</em>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="view" id="view-deep">
+  <div class="page">
+    <nav class="toc" style="margin-top:48px">
+      <h2>Sommaire de la formation</h2>
+      <ol>
+        <li><a href="#ch1">Qu'est-ce qu'un token ?</a></li>
+        <li><a href="#ch2">Pourquoi apprendre à les gérer</a></li>
+        <li><a href="#ch3">Comprendre la facturation</a></li>
+        <li><a href="#ch4">Consommation par tâche et par modèle</a></li>
+        <li><a href="#ch5">Comment optimiser sa consommation</a></li>
+        <li><a href="#ch6">Bonnes pratiques au quotidien</a></li>
+        <li><a href="#cheats">Fiches mémo</a></li>
+      </ol>
+    </nav>
+
+    <section class="chapter" id="ch1">
+      <div class="chapter-num">— Chapitre 1</div>
+      <h2 class="chapter-title">Qu'est-ce qu'un token ?</h2>
+      <p class="intro">Un token est l'unité de base que Claude lit et écrit. Ce n'est pas un caractère, ni tout à fait un mot — c'est un <strong>fragment de texte</strong> que le modèle traite comme une brique élémentaire.</p>
+      <p>Claude utilise un tokenizer (un découpeur) qui transforme votre message en une suite de tokens avant de pouvoir le « comprendre ». Les mots fréquents deviennent un seul token. Les mots rares, techniques, ou les mots français accentués sont souvent découpés en plusieurs morceaux. Un texte en français consomme typiquement plus de tokens qu'un texte équivalent en anglais.</p>
+      <div class="token-demo">
+        <div class="label">Exemple visuel — découpage approximatif</div>
+        <div class="sentence">
+          <span class="tok">Bon</span><span class="tok">jour</span> <span class="tok"> Antonin</span><span class="tok">,</span> <span class="tok"> rédige</span><span class="tok">-moi</span> <span class="tok">une</span> <span class="tok"> note</span> <span class="tok">M&amp;A</span><span class="tok">.</span>
+        </div>
+        <div class="stat">9 tokens pour 8 mots — soit <strong>~1,1 token par mot</strong> sur un texte simple en français. Sur de la prose technique ou anglo-saxonne, on tombe plutôt vers 0,75 token par mot.</div>
+      </div>
+      <h3>Input vs Output</h3>
+      <p>Deux flux à distinguer, parce qu'ils ne coûtent <strong>pas</strong> la même chose :</p>
+      <ul>
+        <li><strong>Input</strong> — tout ce que Claude reçoit : votre message, l'historique de la conversation, les fichiers joints, les instructions du projet, le contenu retourné par les outils (recherche web, MCP, lecture de PDF…).</li>
+        <li><strong>Output</strong> — tout ce que Claude génère : sa réponse, le code, les documents produits, et le « raisonnement étendu » (extended thinking) lorsqu'il est activé.</li>
+      </ul>
+      <div class="tip">
+        <strong>À retenir</strong>
+        <span>Sur l'API, l'output coûte environ <strong>5 fois plus cher</strong> que l'input. Demander une réponse longue alors qu'on a uniquement besoin d'un résumé d'une ligne, c'est multiplier la facture sans gain.</span>
+      </div>
+      <h3>Ordres de grandeur utiles</h3>
+      <ul>
+        <li>1 page de texte (≈ 500 mots) ≈ <strong>650 à 750 tokens</strong></li>
+        <li>1 PDF de 20 pages ≈ <strong>15 000 tokens</strong> (plus si tableaux, schémas, OCR)</li>
+        <li>1 fichier Excel moyen ≈ <strong>5 000 à 30 000 tokens</strong> selon le nombre de feuilles</li>
+        <li>La fenêtre de contexte standard de Claude.ai = <strong>200 000 tokens</strong> (≈ 500 pages)</li>
+        <li>La fenêtre étendue de Claude Opus 4.7 sur l'API = <strong>1 000 000 tokens</strong></li>
+      </ul>
+    </section>
+
+    <section class="chapter" id="ch2">
+      <div class="chapter-num">— Chapitre 2</div>
+      <h2 class="chapter-title">Pourquoi apprendre à les gérer ?</h2>
+      <p class="intro">Réduire la consommation de tokens, ce n'est pas qu'une question de coût. C'est avant tout une question de <strong>qualité de réponse, de vitesse et de fluidité d'usage</strong> — et accessoirement, de coût.</p>
+      <div class="analogy">
+        <h3>Comme un modèle Excel sur une machine à RAM limitée</h3>
+        <p>Excel doit garder l'intégralité du classeur en mémoire pour recalculer les formules. Plus le modèle gonfle — onglets, RECHERCHEV en cascade, liens externes, mises en forme conditionnelles —, plus chaque action devient lourde, parce qu'à chaque modification Excel doit relire et recalculer tout ce qui dépend du contexte chargé. Au-delà d'un certain seuil, la machine sature : tout ralentit, des cellules figent, des formules retournent des erreurs erratiques.</p>
+        <p><strong>Claude fonctionne exactement sur ce principe.</strong> À chaque message, il relit l'intégralité de la conversation, des fichiers joints et des outils activés pour produire sa réponse. Plus ce contexte gonfle, plus chaque message coûte de tokens, ralentit la réponse, et dilue l'attention du modèle sur ce qui compte vraiment. La discipline ne se voit pas quand elle est en place — elle saute aux yeux dès qu'elle manque.</p>
+      </div>
+      <h3>Trois raisons concrètes de s'en soucier</h3>
+      <div class="practice"><div class="num">i.</div><div><h4>Qualité des réponses</h4><p>Les modèles ont un effet documenté de <em>« lost in the middle »</em> : sur des contextes très longs, l'information située au milieu de la conversation ou du document est moins bien retrouvée. Garder le contexte propre = garder Claude précis.</p></div></div>
+      <div class="practice"><div class="num">ii.</div><div><h4>Vitesse et limites de message</h4><p>Sur Claude.ai, plus une conversation est lourde, plus chaque message « coûte » dans le quota de la fenêtre glissante de 5 heures. Un utilisateur Pro qui enchaîne 20 messages dans un long thread peut épuiser sa limite alors qu'un autre, en démarrant des conversations courtes ciblées, en envoie 60 sans difficulté.</p></div></div>
+      <div class="practice"><div class="num">iii.</div><div><h4>Coût direct sur les workflows automatisés</h4><p>Pour les workflows qui passent par l'API (Cowork, scripts internes, pipelines de génération de slides), chaque token est facturé. Un prompt mal calibré ou une recherche web déclenchée inutilement peut multiplier par 10 le coût d'un workflow récurrent.</p></div></div>
+      <blockquote class="pull">Bien gérer ses tokens, c'est l'équivalent moderne de bien construire son modèle Excel : une discipline qui ne se voit pas quand elle est en place — mais qui saute aux yeux dès qu'elle manque.</blockquote>
+    </section>
+
+    <section class="chapter" id="ch3">
+      <div class="chapter-num">— Chapitre 3</div>
+      <h2 class="chapter-title">Comprendre la facturation</h2>
+      <p class="intro">Deux régimes coexistent chez Clearwater. Celui de Claude.ai (interface chat, abonnement) ne facture pas au token mais limite les messages dans une fenêtre glissante. Celui de l'API (workflows automatisés type Cowork) facture explicitement à l'usage.</p>
+      <h3>Sur Claude.ai — modèle « usage limit »</h3>
+      <p>Pas de facturation à la requête. À la place, un quota dynamique : <strong>une fenêtre glissante de 5 heures</strong>, qui se vide d'autant plus vite que vos conversations sont lourdes. Le décompte exact dépend de l'historique, des fichiers joints, du modèle choisi, et des outils activés (recherche web, MCP, extended thinking…).</p>
+      <ul>
+        <li><strong>Pro</strong> — environ 45 messages par fenêtre de 5 h, plus en conversations courtes</li>
+        <li><strong>Max</strong> — 5× ou 20× le quota Pro selon le palier</li>
+        <li><strong>Team / Enterprise</strong> — quotas adaptés et fenêtre de contexte étendue jusqu'à 500 000 tokens en Enterprise</li>
+      </ul>
+      <div class="tip">
+        <strong>Ce qui ronge votre quota</strong>
+        <span>Une conversation longue avec un PDF de 50 pages joint, en Opus, avec extended thinking activé, peut consommer en un seul échange ce que d'autres font en 8 messages séparés.</span>
+      </div>
+      <h3>Sur l'API — modèle au token</h3>
+      <p>Tarifs publics au million de tokens (1 MTok = ~750 000 mots), valides à mai 2026. L'output coûte systématiquement 5× l'input.</p>
+      <table class="pricing-table">
+        <thead><tr><th>Modèle</th><th>Input / 1 MTok</th><th>Output / 1 MTok</th><th>Contexte</th></tr></thead>
+        <tbody>
+          <tr class="row-haiku"><td class="model">Claude Haiku 4.5<small>Le plus rapide, le moins cher</small></td><td class="num">1 $</td><td class="num">5 $</td><td class="num">200 K</td></tr>
+          <tr><td class="model">Claude Sonnet 4.6<small>L'équilibre — défaut recommandé</small></td><td class="num">3 $</td><td class="num">15 $</td><td class="num">1 M</td></tr>
+          <tr class="row-opus"><td class="model">Claude Opus 4.7<small>Le plus capable — raisonnement, agents</small></td><td class="num">5 $</td><td class="num">25 $</td><td class="num">1 M</td></tr>
+        </tbody>
+      </table>
+      <h3>Deux leviers de réduction sur l'API</h3>
+      <div class="cost-compare">
+        <div class="cost-card"><h4>Tarif standard</h4><div class="price">100 $<small>par million de tokens output sur Opus 4.7</small></div><p style="font-size:13px;color:var(--text-muted);margin:0">Référence sans optimisation.</p></div>
+        <div class="cost-card discount"><h4>Avec cache + batch</h4><div class="price">~10 $<small>même volume, contexte mis en cache + batch processing</small></div><p style="font-size:13px;color:var(--text-muted);margin:0">Jusqu'à <strong>−90 %</strong> sur les tokens en cache, <strong>−50 %</strong> sur batch.</p></div>
+      </div>
+      <ul>
+        <li><strong>Prompt caching</strong> — tout contexte stable répété entre requêtes (instructions de projet, document de référence, exemples) est lu en cache à 10 % du tarif input. Idéal pour les workflows qui rappellent les mêmes prompts toute la journée.</li>
+        <li><strong>Batch API</strong> — pour les traitements asynchrones (générations en lot, traitements nocturnes) : 50 % de remise sur input et output, contre une latence accrue (minutes à heures).</li>
+      </ul>
+      <div class="warn">
+        <strong>Attention — Opus 4.7</strong>
+        <span>Opus 4.7 utilise un nouveau tokenizer qui peut générer jusqu'à 35 % de tokens en plus que Opus 4.6 pour le même texte. Le tarif au token est inchangé, mais la facture par requête peut grimper. À surveiller si vous migrez des workflows.</span>
+      </div>
+    </section>
+
+    <section class="chapter" id="ch4">
+      <div class="chapter-num">— Chapitre 4</div>
+      <h2 class="chapter-title">Consommation par tâche et par modèle</h2>
+      <p class="intro">Toutes les requêtes ne se valent pas. Certaines tâches consomment 50× plus de tokens qu'un simple échange. Voici une grille de lecture pour anticiper.</p>
+      <div class="consumption">
+        <h4>Coût relatif par type de tâche</h4>
+        <div class="bar-row"><span class="task">Q&amp;A simple, reformulation</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="level">Très bas</span></div>
+        <div class="bar-row"><span class="task">Traduction courte, polish d'email</span><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><span class="level">Bas</span></div>
+        <div class="bar-row"><span class="task">Rédaction structurée (note, mémo)</span><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div><span class="level">Modéré</span></div>
+        <div class="bar-row"><span class="task">Analyse de document joint (PDF, Excel)</span><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><span class="level">Élevé</span></div>
+        <div class="bar-row"><span class="task">Recherche web multi-sources</span><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="level">Élevé</span></div>
+        <div class="bar-row"><span class="task">Génération de slides / docs structurés</span><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div><span class="level">Élevé</span></div>
+        <div class="bar-row"><span class="task">Workflow agent multi-étapes (Cowork, MCP)</span><div class="bar-track"><div class="bar-fill" style="width:90%"></div></div><span class="level">Très élevé</span></div>
+        <div class="bar-row"><span class="task">Extended thinking sur tâche complexe</span><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div><span class="level">Maximum</span></div>
+      </div>
+      <h3>Le bon modèle pour la bonne tâche</h3>
+      <p>Le réflexe le plus rentable : ne pas lancer Opus quand Sonnet suffit, et ne pas lancer Sonnet quand Haiku suffit. Opus consomme typiquement 1,5 à 2× plus que Sonnet par message sur Claude.ai, et près de 2× le tarif au token sur l'API.</p>
+      <table class="matrix">
+        <thead><tr><th>Type de tâche</th><th>Modèle conseillé</th><th>Pourquoi</th></tr></thead>
+        <tbody>
+          <tr><td>Reformulation, traduction, classification, extraction simple</td><td><span class="pill pill-haiku">Haiku</span></td><td>Tâche cadrée, gain en vitesse et économie</td></tr>
+          <tr><td>Rédaction de note, recherche cadrée, analyse de doc, codage standard</td><td><span class="pill pill-sonnet">Sonnet</span></td><td>Le défaut. 80 % des cas tombent ici</td></tr>
+          <tr><td>Analyse stratégique, raisonnement complexe, workflow agent long-horizon</td><td><span class="pill pill-opus">Opus</span></td><td>Quand la qualité du raisonnement prime sur tout</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>Règle pratique 70 / 20 / 10</strong>
+        <span>Sur un workload typique de banque d'affaires, viser ~70 % Haiku/Sonnet, ~20 % Sonnet, ~10 % Opus permet de couper la facture de moitié sans perte de qualité perceptible — par rapport à un usage 100 % Opus.</span>
+      </div>
+      <h3>Les amplificateurs cachés</h3>
+      <p>Au-delà du modèle, certains réglages multiplient la consommation sans qu'on le remarque :</p>
+      <ul>
+        <li><strong>Outils activés en parallèle</strong> — chaque connecteur MCP, chaque recherche web, chaque connector ajoute du contexte. Désactivez ce qui n'est pas utile pour la conversation en cours.</li>
+        <li><strong>Pièces jointes</strong> — un PDF lourd reste dans le contexte de toute la conversation. Une fois le travail fait dessus, il continue de « peser » à chaque message suivant.</li>
+        <li><strong>Extended thinking</strong> — désactivé par défaut suffit largement pour 80 % des tâches de l'équipe. Activez-le seulement quand vous avez une vraie question de raisonnement.</li>
+        <li><strong>Historique de conversation</strong> — Claude relit l'intégralité de la conversation à chaque message. Au tour 30, vous payez le tour 1, 2, 3… 29 à nouveau.</li>
+      </ul>
+    </section>
+
+    <section class="chapter" id="ch5">
+      <div class="chapter-num">— Chapitre 5</div>
+      <h2 class="chapter-title">Comment optimiser sa consommation</h2>
+      <p class="intro">Six leviers concrets, par ordre d'impact. Les trois premiers couvrent à eux seuls 80 % du gain réalisable.</p>
+      <div class="practice"><div class="num">1.</div><div><h4>Démarrez une nouvelle conversation toutes les 15-20 interactions</h4><p>Le plus gros gain disponible. Une conversation longue se relit en intégralité à chaque tour : au 30ᵉ message, un simple « peux-tu reformuler ce paragraphe » coûte autant que 30 prompts indépendants. Quand vous changez de sujet, ouvrez un nouveau chat. Si vous avez besoin du contexte précédent, demandez d'abord à Claude un résumé, puis collez-le dans le nouveau chat.</p></div></div>
+      <div class="practice"><div class="num">2.</div><div><h4>Éditez votre prompt plutôt que d'enchaîner des messages correctifs</h4><p>Si la première réponse rate la cible, ne dites pas « non, plutôt comme ceci… ». Cliquez sur l'icône d'édition de votre prompt initial, reformulez-le, et regénérez. L'échange raté disparaît au lieu de s'accumuler dans l'historique. Réflexe à généraliser dans toute l'équipe.</p></div></div>
+      <div class="practice"><div class="num">3.</div><div><h4>Utilisez les Projets pour le contexte récurrent</h4><p>Les fichiers déposés dans un Projet Clearwater (ex. : <em>Outils &amp; Personnalisation Claude — Clearwater</em>) sont indexés via RAG : Claude ne charge que les passages pertinents à chaque message. Un document de référence dans un projet pèse beaucoup moins qu'un PDF joint dans chaque conversation.</p></div></div>
+      <div class="practice"><div class="num">4.</div><div><h4>Choisissez le modèle adapté</h4><p>Démarrez par défaut sur Sonnet. Passez à Opus uniquement quand vous attaquez une question complexe (analyse stratégique, raisonnement long, agent multi-étapes). Pour les tâches répétitives à faible valeur ajoutée — reformulation, classification — Haiku fait le travail à un cinquième du coût.</p></div></div>
+      <div class="practice"><div class="num">5.</div><div><h4>Désactivez les outils non utilisés</h4><p>Recherche web, connecteurs MCP, extended thinking, code execution : chacun consomme du contexte même quand il n'est pas appelé, parce que sa description est chargée dans le prompt système. Pour une simple reformulation d'email, gardez tout désactivé.</p></div></div>
+      <div class="practice"><div class="num">6.</div><div><h4>Demandez des sorties concises et batchez les questions</h4><p>Output = 5× le tarif input. Préfixez vos prompts de « réponse en 3 points » ou « 200 mots maximum » quand vous n'avez pas besoin d'un développement. Et au lieu de poser trois questions séparées, regroupez-les dans un seul message — Claude relira moins l'historique pour vous répondre.</p></div></div>
+    </section>
+
+    <section class="chapter" id="ch6">
+      <div class="chapter-num">— Chapitre 6</div>
+      <h2 class="chapter-title">Bonnes pratiques au quotidien</h2>
+      <p class="intro">Synthèse des réflexes à intégrer. Pas de bouleversement de méthode — juste de l'hygiène qui se cumule au fil des semaines.</p>
+      <h3>Avant de poser la question</h3>
+      <ul>
+        <li><strong>Soyez spécifique d'emblée.</strong> Un prompt précis évite les allers-retours. Nommez les fichiers, le format attendu, le ton, la longueur.</li>
+        <li><strong>Demandez à Claude de planifier avant d'exécuter</strong> sur les tâches longues. « Avant de rédiger, propose-moi un plan en 5 puces » consomme moins qu'une rédaction qui part dans la mauvaise direction.</li>
+        <li><strong>Évitez les uploads inutiles.</strong> Si une note de 2 pages suffit, ne joignez pas le pack de 80 pages.</li>
+      </ul>
+      <h3>Pendant la conversation</h3>
+      <ul>
+        <li><strong>Nouveau sujet = nouveau chat.</strong> Pas d'exception.</li>
+        <li><strong>Éditez plutôt que répondre</strong> dès que la sortie n'est pas satisfaisante.</li>
+        <li><strong>Surveillez la longueur de l'historique.</strong> Au-delà de ~20 échanges sur un même sujet, demandez un résumé et redémarrez.</li>
+      </ul>
+      <h3>Au niveau de l'équipe</h3>
+      <ul>
+        <li><strong>Capitalisez via les Skills internes</strong> (Email Enhancer, Slide Text Enhancer, IB Prompt Enhancer, IB Prompt Architect). Une compétence packagée évite que dix personnes reconstruisent dix fois le même prompt.</li>
+        <li><strong>Stockez les prompts récurrents dans les Projets</strong> plutôt que de les ré-écrire à chaque conversation.</li>
+        <li><strong>Pour les workflows automatisés (Cowork, scripts)</strong>, activez systématiquement le prompt caching et le batch API quand la latence le permet.</li>
+      </ul>
+      <blockquote class="pull">Chaque token doit gagner sa place. Pas par avarice — mais parce qu'un contexte propre produit toujours un Claude plus net.</blockquote>
+    </section>
+  </div>
+
+  <section class="cheats" id="cheats">
+    <div class="page">
+      <div class="eyebrow">Annexes pratiques</div>
+      <h2 class="chapter-title" style="margin-bottom:8px">Fiches mémo</h2>
+      <p class="intro" style="margin-bottom:0">Pensées pour être imprimées ou affichées à côté de l'écran.</p>
+      <div class="cheat-grid">
+        <div class="cheat-card"><div class="num">FICHE 01</div><h3>Quel modèle pour quelle tâche ?</h3><ul><li><strong>Haiku</strong> — reformulation, traduction, extraction, classification, Q&amp;A factuel</li><li><strong>Sonnet</strong> — défaut pour 80 % des tâches : rédaction, analyse, recherche cadrée, codage</li><li><strong>Opus</strong> — raisonnement complexe, analyse stratégique, agents long-horizon, diligence approfondie</li></ul><div class="quick-rule">Démarrer sur Sonnet. Monter en Opus uniquement si la qualité plafonne.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 02</div><h3>Réflexes anti-gaspillage</h3><ul><li>Nouveau sujet → nouveau chat</li><li>Mauvaise réponse → éditer le prompt initial, ne pas répondre</li><li>Au-delà de 20 messages → demander un résumé puis nouveau chat</li><li>Outils activés → ne garder que ceux nécessaires à la conversation</li><li>Demander explicitement des réponses concises quand approprié</li></ul><div class="quick-rule">L'output coûte 5× l'input. Ne demandez pas 3 pages quand 5 lignes suffisent.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 03</div><h3>Pièces jointes &amp; contextes lourds</h3><ul><li>Document récurrent → le déposer dans un Projet (RAG), pas en pièce jointe à chaque chat</li><li>PDF lourd → ne joindre que les pages pertinentes quand possible</li><li>Excel volumineux → demander à Claude de créer une vue résumée d'abord</li><li>Une fois l'analyse faite, ne pas relancer 10 questions dans le même chat — ouvrir un nouveau chat</li></ul><div class="quick-rule">Un fichier joint pèse à chaque message suivant, pas seulement au moment de l'upload.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 04</div><h3>Claude.ai vs API — qui est concerné par quoi ?</h3><ul><li><strong>Claude.ai</strong> (chat web/desktop) — pas de facturation au token, mais quota de messages dans une fenêtre glissante de 5 h. Plus le contexte est lourd, plus chaque message coûte de quota.</li><li><strong>API</strong> (Cowork, scripts internes, automatisations) — facturation au token, input et output séparés, output 5× plus cher que l'input.</li></ul><div class="quick-rule">L'utilisateur quotidien gère un quota. Le développeur de workflow gère une facture.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 05</div><h3>Leviers de réduction sur l'API</h3><ul><li><strong>Prompt caching</strong> — tokens en cache à 10 % du tarif (jusqu'à −90 %). À activer dès qu'un contexte se répète entre requêtes.</li><li><strong>Batch API</strong> — −50 % sur input + output pour les traitements asynchrones (latence acceptable de quelques minutes à heures).</li><li><strong>Modèle adapté</strong> — viser un mix 70 / 20 / 10 entre Haiku, Sonnet, Opus selon les tâches.</li><li><strong>Sortie structurée</strong> — JSON contraint plutôt que prose libre quand le format est connu.</li></ul><div class="quick-rule">Empilés, ces leviers peuvent réduire le coût d'un workflow récurrent de 80 à 95 %.</div></div>
+        <div class="cheat-card"><div class="num">FICHE 06</div><h3>Ordres de grandeur en tokens</h3><ul><li>1 mot français ≈ <strong>1,1 à 1,3 token</strong></li><li>1 page de texte (~500 mots) ≈ <strong>~700 tokens</strong></li><li>1 PDF de 20 pages ≈ <strong>~15 000 tokens</strong></li><li>1 Excel moyen ≈ <strong>5 000 à 30 000 tokens</strong></li><li>Fenêtre de contexte standard ≈ <strong>200 000 tokens</strong> (≈ 500 pages)</li><li>Fenêtre étendue (Opus 4.7 / Sonnet 4.6 sur API) ≈ <strong>1 000 000 tokens</strong></li></ul><div class="quick-rule">Si vous joignez plus que ce que vous liriez vous-même, vous gaspillez probablement.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-tools">
+    <div class="page">
+      <div class="eyebrow">Outils en lien avec cette formation</div>
+      <h2 class="chapter-title">Pour aller plus loin</h2>
+      <p class="subtitle">Skill et bonnes pratiques qui s'appuient sur la gestion des tokens.</p>
+      <div class="tools-grid">
+        <a href="../outils/token-budget-optimizer.html" class="tool-card"><div class="tool-tag">Skill · Chat</div><h4>Token Budget Optimizer</h4><p>Skill qui calibre Claude pour minimiser le gaspillage de tokens sur les tâches itératives (rédaction, révision, résumé).</p></a>
+        <a href="../outils/ib-prompt-enhancer.html" class="tool-card"><div class="tool-tag">Skill · Chat</div><h4>IB Prompt Enhancer</h4><p>Améliore automatiquement vos prompts IB pour réduire les itérations correctives — moins d'allers-retours, moins de tokens.</p></a>
+        <a href="../outils/ib-prompt-architect.html" class="tool-card"><div class="tool-tag">Skill · Chat</div><h4>IB Prompt Architect</h4><p>Pour les tâches complexes : structure un prompt rigoureux à exécuter dans un nouveau chat — meilleur ratio qualité/tokens.</p></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Module 02 — Tokens</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../formations.html">Toutes les formations</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/wizard-tokens.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation — Maîtriser les Projects Claude · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link active">Formations</a>
+      <a href="../outils.html" class="nav-link">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../formations.html">Formations</a><span class="sep">›</span><span class="current">Projects</span>
+  </div>
+</div>
+
+<div class="page-wide">
+  <header class="hero">
+    <div class="eyebrow">Module pédagogique · Formation 05</div>
+    <h1>Maîtriser les <em>Projects</em><br>Claude.</h1>
+    <p class="lede">Les Projects transforment Claude d'un chatbot ponctuel en espace de travail structuré par mandat. C'est la couche qui rend l'usage collaboratif possible — et la plus sous-exploitée chez la plupart des équipes IB.</p>
+  </header>
+</div>
+
+<div class="page">
+  <nav class="toc" style="margin-top:48px">
+    <h2>Sommaire de la formation</h2>
+    <ol>
+      <li><a href="#ch1">Le concept — qu'est-ce qu'un Project</a></li>
+      <li><a href="#ch2">Les trois niveaux de maturité</a></li>
+      <li><a href="#ch3">Custom instructions Clearwater — template</a></li>
+      <li><a href="#ch4">Projects collaboratifs — rôles &amp; architecture</a></li>
+      <li><a href="#ch5">Quatre patterns de Projects chez Clearwater</a></li>
+      <li><a href="#ch6">Anti-patterns &amp; hygiène de maintenance</a></li>
+    </ol>
+  </nav>
+
+  <section class="chapter" id="ch1">
+    <div class="chapter-num">— Chapitre 1</div>
+    <h2 class="chapter-title">Le concept — qu'est-ce qu'un Project ?</h2>
+    <p class="intro">Un Project est un <strong>conteneur de travail</strong> dans Claude qui regroupe trois choses indissociables : une knowledge base, des custom instructions, et un fil de conversations isolé du reste.</p>
+    <h3>Les trois composantes</h3>
+    <ul>
+      <li><strong>Knowledge base</strong> — documents que tu uploades (PDF, Word, Excel, txt) accessibles à toutes les conversations du Project. Indexés via RAG : Claude ne charge que les passages pertinents à chaque message, pas tout le corpus.</li>
+      <li><strong>Custom instructions</strong> — un prompt système spécifique au Project. Tu y mets le contexte du mandat, le registre attendu, les conventions de format, les do/don't. C'est ce qui « brieffe » Claude à chaque nouvelle conversation.</li>
+      <li><strong>Fil de conversations</strong> — toutes les conversations démarrées dans ce Project sont regroupées et <strong>isolées</strong> du reste. Un chat dans le Project A ne voit pas les memories ni les conversations du Project B.</li>
+    </ul>
+    <h3>Pourquoi ça change tout</h3>
+    <p>Hors Project, chaque conversation démarre avec un context plat. Tu dois recontextualiser à chaque fois : « je travaille sur le mandat X, secteur Y, side sell, nom de code Z, l'IM dit ça, le client veut ça… ». Trois minutes perdues par conversation.</p>
+    <p>Dans un Project bien structuré, tu ouvres une nouvelle conversation et tu peux dire directement « rédige-moi un draft d'email pour le client » — Claude sait déjà tout. Le coût d'entrée d'une session passe de 3 minutes à 0.</p>
+    <div class="analogy">
+      <h3>Comme un dossier deal physique versus un bureau encombré</h3>
+      <p>Imagine deux VPs. Le premier a un bureau avec un seul dossier ouvert par mandat actif — IM, BP, calendrier, contacts, drafts en cours. Quand un associate vient le voir sur le mandat X, il ouvre le dossier X et trouve tout en 15 secondes.</p>
+      <p>Le second a son bureau couvert de papiers de tous les mandats mélangés. Quand l'associate arrive, il doit tout fouiller pour retrouver le bon contexte. Les deux ont les mêmes infos — mais l'un gagne 30 minutes par jour, l'autre les perd.</p>
+      <p><strong>Un Project Claude, c'est le dossier deal du premier VP.</strong></p>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch2">
+    <div class="chapter-num">— Chapitre 2</div>
+    <h2 class="chapter-title">Les trois niveaux de maturité</h2>
+    <p class="intro">La plupart des utilisateurs s'arrêtent au niveau 1. Le saut entre 1 et 3 représente la différence entre 20 % et 80 % de la valeur disponible.</p>
+    <h3>Niveau 1 — Project comme dossier</h3>
+    <p>Tu crées un Project, uploades quelques documents, et utilises ça comme un dossier qui regroupe tes conversations sur un sujet. Bénéfice : les conversations ne se mélangent plus avec celles d'autres mandats. C'est mieux que rien mais ça rate l'essentiel.</p>
+    <p><strong>Symptômes</strong> : custom instructions vides ou génériques, knowledge base vide ou avec un seul document, conversations qui démarrent quand même par « pour rappel, je travaille sur… ».</p>
+    <h3>Niveau 2 — Project comme contexte permanent</h3>
+    <p>Tu ajoutes des custom instructions structurées qui agissent comme un brief permanent. Sur un mandat sell-side, elles contiennent l'identité du deal, le stade du process, les conventions de format, les stakeholders, les sensibilités, les do/don't. À ce niveau, chaque nouvelle conversation démarre déjà calibrée. Tu gagnes un <strong>facteur 3-5 en qualité</strong> du premier output.</p>
+    <h3>Niveau 3 — Project comme système de travail</h3>
+    <p>Le niveau où le Project devient une infrastructure :</p>
+    <ul>
+      <li><strong>Knowledge base curée et maintenue</strong>. Pas un dump de tout ce qui traîne. Tu choisis activement : le BP final, l'IM committed, la Q&amp;A consolidée, l'univers d'acquéreurs en version Excel propre, les transcripts de management calls, une note de synthèse maintenue à jour. Tu jettes les vieilles versions.</li>
+      <li><strong>Workflows récurrents documentés</strong> dans les custom instructions : « Pour chaque update investisseur, génère un suivi au format X. Pour chaque draft email partner, applique le format Y. »</li>
+      <li><strong>Skills et MCP scopés</strong> : si le mandat a des conventions particulières, le Project peut embarquer des skills spécifiques. Les connecteurs MCP (Pappers, S&amp;P Global) sont configurés pour ce Project.</li>
+      <li><strong>Knowledge base maintenue chaque semaine</strong>. Comme un classeur deal : tu ne le laisses pas pourrir.</li>
+    </ul>
+    <div class="tip">
+      <strong>Le test pour savoir où tu en es</strong>
+      <span>Ouvre une nouvelle conversation dans ton Project mandat le plus actif. Tape juste « comment je peux t'aider sur ce mandat aujourd'hui ? ». Si Claude te répond avec une compréhension claire du deal et propose des choses pertinentes, tu es au niveau 2 ou 3. S'il te répond de manière générique, tu es au niveau 1.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch3">
+    <div class="chapter-num">— Chapitre 3</div>
+    <h2 class="chapter-title">Custom instructions Clearwater — template</h2>
+    <p class="intro">Les custom instructions sont le levier le plus rapide pour passer du niveau 1 au niveau 2. Voici un template structuré, à adapter à chaque mandat sell-side.</p>
+    <h3>Structure recommandée — 7 sections</h3>
+    <pre style="background:var(--surface-soft);padding:20px;border:1px solid var(--rule);border-radius:3px;font-family:var(--font-mono);font-size:12.5px;overflow-x:auto;color:var(--text-soft);line-height:1.55">
+## Identité du deal
+- Nom de code : Project Pegasus
+- Side : sell-side
+- Client : [nom de la société cédée]
+- Secteur : SaaS B2B / vertical RH
+- Géographie : France + filiales DACH
+- Taille EV indicative : EUR 80-120m
+- Équipe Clearwater : VP Antonin, Associate Thomas, Analyste Léa
+
+## Stade du process
+- Pre-launch (kickoff signé le 12 mars)
+- IM en cours de finalisation, target launch S+3
+- Univers acquéreurs : 45 stratégiques + 30 PE identifiés
+
+## Conventions de format
+- Langue par défaut : français
+- Pour les emails externes en EN, utiliser EN UK (pas US)
+- Multiples : « x » et non « X » (ex. 8,5x EBITDA)
+- Devises : EUR par défaut, GBP si UK, USD si US
+- « m » pour million (pas « M » ni « millions »)
+- « c. » pour les estimations (pas « ~ »)
+
+## Stakeholders
+- Côté client : Marc Dubois (CEO), Sophie Martin (CFO)
+- Conseil juridique client : [cabinet]
+- Conseil financier client : Clearwater (nous)
+- Côté Clearwater : Partner sponsor [nom]
+
+## Sensibilités
+- NDA strict — ne pas désactiver web search mais éviter les requêtes
+  qui pourraient citer le client
+- Sujet RH : la cible a des restructurations en cours, à ne pas
+  mentionner dans les premiers échanges avec acquéreurs
+- Concurrence : éviter de comparer publiquement avec [nom du
+  principal concurrent]
+
+## Do
+- Préfixer chaque draft externe avec [DRAFT - À VALIDER]
+- Pour les long-list, format markdown avec colonnes :
+  nom / géo / CA / EBITDA / signal M&A / source
+- Pour tout chiffre repris, citer la source en footnote
+
+## Don't
+- Pas de qualificatifs marketing (« leading », « innovative »,
+  « cornerstone »)
+- Pas de mention publique du nom du client tant qu'IM non envoyé
+- Pas de chiffres précis qui n'apparaissent pas dans l'IM committed
+</pre>
+    <h3>Ce qui change selon le type de mandat</h3>
+    <ul>
+      <li><strong>Buy-side advisory</strong> — remplace « Univers acquéreurs » par « Univers cibles ». Ajoute « Critères d'investissement » (taille, géographie, segment, financials minimum).</li>
+      <li><strong>Capital advisory / fundraising</strong> — section « Investisseurs ciblés » avec ticket size, géo, secteurs.</li>
+      <li><strong>Pre-mandate / pitch</strong> — section « Objectif du pitch », « Concurrence Clearwater », « Angles différenciants ».</li>
+    </ul>
+    <div class="warn">
+      <strong>Important — limite pratique</strong>
+      <span>Les custom instructions ont une limite de longueur. Au-delà de ~2 000 caractères elles deviennent moins effectives (Claude « lost in the middle »). Garde-les denses et organisées par sections claires. Si tu as besoin de plus, déplace les éléments verbeux dans la knowledge base.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch4">
+    <div class="chapter-num">— Chapitre 4</div>
+    <h2 class="chapter-title">Projects collaboratifs — rôles &amp; architecture</h2>
+    <p class="intro">Le passage du Project solo au Project partagé est ce qui transforme Claude d'un outil personnel en infrastructure de mandat équipe.</p>
+    <h3>Ce qui devient commun, ce qui reste personnel</h3>
+    <p><strong>Commun</strong> entre tous les membres du Project : la knowledge base, les custom instructions, les skills attachées, l'accès aux connecteurs MCP scopés au Project.</p>
+    <p><strong>Personnel</strong> : les conversations elles-mêmes, la mémoire utilisateur de chaque membre, les Artifacts générés (sauf stockage shared explicite), l'historique de recherche.</p>
+    <p>Concrètement : si l'associate démarre une conversation pour drafter un email à un acquéreur, le VP ne voit pas cette conversation. Mais ils partagent tous les deux le même contexte de mandat à travers les custom instructions et la knowledge base.</p>
+    <h3>Les trois rôles</h3>
+    <table class="types-table">
+      <thead><tr><th style="width:25%">Rôle</th><th>Permissions</th></tr></thead>
+      <tbody>
+        <tr><td class="ttype">Owner<small>1 seul</small></td><td>Peut tout faire : créer le Project, modifier la knowledge base, modifier les custom instructions, ajouter/retirer des membres, supprimer le Project. Par défaut : le créateur (typiquement le VP en charge du mandat).</td></tr>
+        <tr><td class="ttype">Editor<small>1-2 max</small></td><td>Peut modifier la knowledge base, les custom instructions, ajouter/retirer des skills. Ne peut pas changer les permissions. Bon niveau pour un co-VP ou un associate qui co-pilote le mandat.</td></tr>
+        <tr><td class="ttype">Viewer<small>reste de l'équipe</small></td><td>Peut ouvrir le Project, démarrer des conversations, lire la knowledge base, mais pas la modifier. Bon niveau pour les analystes, autres bankers de l'équipe deal, ou un partner sponsor qui doit consulter sans dérégler le setup.</td></tr>
+      </tbody>
+    </table>
+    <h3>Architecture-type d'un mandat Clearwater</h3>
+    <ul>
+      <li><strong>Owner unique</strong> — le VP en charge du mandat</li>
+      <li><strong>1-2 Editors maximum</strong> — l'associate principal et éventuellement un co-VP</li>
+      <li><strong>Reste en Viewers</strong> — analystes, autres bankers de l'équipe, partner sponsor</li>
+    </ul>
+    <h3>Organisation de la knowledge base — convention de naming</h3>
+    <p>Pour qu'une équipe partage un Project sans s'y perdre, la knowledge base doit être organisée par préfixe explicite :</p>
+    <ul>
+      <li><code>01_brief/</code> — IM committed, BP, executive summary, plaquette client</li>
+      <li><code>02_data/</code> — chiffres financiers, benchmarks, comparable transactions, multiples</li>
+      <li><code>03_process/</code> — calendrier process, univers acquéreurs en cours, Q&amp;A consolidée, NDAs reçus</li>
+      <li><code>04_outputs/</code> — drafts récents, version courante des livrables, emails envoyés</li>
+    </ul>
+    <p>Ce qui évite la jungle. À chaque mise à jour, tu remplaces la version dans la bonne catégorie au lieu d'empiler.</p>
+    <div class="warn">
+      <strong>Règle de confidentialité</strong>
+      <span>Si une information ne devrait pas être dans un email envoyé à tous les membres du Project, elle ne devrait pas être dans la knowledge base ni les custom instructions du Project. Tout ce qui est dans le Project est accessible à tous les membres, quel que soit leur rôle.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch5">
+    <div class="chapter-num">— Chapitre 5</div>
+    <h2 class="chapter-title">Quatre patterns de Projects chez Clearwater</h2>
+    <p class="intro">Pas tous les Projects ne servent à la même chose. Voici les quatre patterns qui couvrent l'essentiel des besoins d'une équipe IB.</p>
+    <div class="usecase-grid">
+      <div class="usecase">
+        <div class="utag">Pattern 1</div>
+        <h4>Le Project mandat</h4>
+        <p>Un Project par mandat actif. Vie courte (3-9 mois). Setup au kickoff, mis à jour aux moments clés (launch, Q&amp;A, NBO, signing), archivé à la signature. Owner = VP en charge, Editors = associate principal, Viewers = équipe deal.</p>
+      </div>
+      <div class="usecase">
+        <div class="utag">Pattern 2</div>
+        <h4>Le Project sectoriel persistant</h4>
+        <p>Un Project par secteur sur lequel l'équipe travaille régulièrement (Tech, Healthcare, Services, etc.). Vie longue. Maintenu en continu : base de transactions, cartographie des acteurs, comparable trading actualisés, notes thématiques. Owner = VP sectoriel référent.</p>
+      </div>
+      <div class="usecase">
+        <div class="utag">Pattern 3</div>
+        <h4>Le Project firme</h4>
+        <p>Templates, slide library, conventions firm-wide, charte écriture, exemples de livrables aboutis. Tout le monde en Viewer, 2-3 admins en Editors. Source of truth des conventions de production Clearwater.</p>
+      </div>
+      <div class="usecase">
+        <div class="utag">Pattern 4</div>
+        <h4>Le Project knowledge management</h4>
+        <p>Veille M&amp;A / market intelligence. Briefings hebdomadaires, transactions notables, changements de dirigeants, levées de fonds significatives. Maintenu par un junior dédié 30 minutes par semaine, consulté par toute l'équipe.</p>
+      </div>
+    </div>
+    <h3>Pyramide de gouvernance pour un déploiement firme</h3>
+    <p>Pour Clearwater, l'architecture cible une fois les usages stabilisés :</p>
+    <ul>
+      <li><strong>Niveau 1 — Standards firme</strong> (1 Project) : owner = responsable interne + partner sponsor, viewers = tout le monde, knowledge base = conventions, templates, do/don't.</li>
+      <li><strong>Niveau 2 — Projects sectoriels</strong> (4-6 Projects) : un VP par secteur en owner, autres VPs/associates du secteur en editors, reste en viewers.</li>
+      <li><strong>Niveau 3 — Projects mandats</strong> (autant que de mandats actifs) : VP en charge en owner, associate principal en editor, équipe deal en viewers.</li>
+    </ul>
+    <div class="tip">
+      <strong>Approche d'adoption</strong>
+      <span>Démarre <strong>ouvert pendant 2-3 mois</strong> pour laisser émerger les usages, puis introduis la gouvernance sur les zones où tu as vu des dérives. Pas l'inverse. La gouvernance imposée trop tôt tue l'adoption.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch6">
+    <div class="chapter-num">— Chapitre 6</div>
+    <h2 class="chapter-title">Anti-patterns &amp; hygiène de maintenance</h2>
+    <p class="intro">Un Project sans entretien dérive vite. Voici les pièges à éviter et la routine minimale pour garder l'environnement propre.</p>
+    <h3>Anti-patterns solo</h3>
+    <ul>
+      <li><strong>Trop de Projects.</strong> Si tu en as 30, tu ne sais plus lequel ouvrir. Limite-toi aux mandats actifs + 2-3 transverses.</li>
+      <li><strong>Knowledge base obèse.</strong> Plus tu uploades, plus le risque de mélange de versions. Discipline : 10-15 documents vivants maximum.</li>
+      <li><strong>Custom instructions floues.</strong> « Sois professionnel » ne sert à rien. Soit tu mets des règles concrètes, soit tu n'en mets pas.</li>
+      <li><strong>Project pour des sujets transverses.</strong> Les Projects sont pour les mandats / projets bornés dans le temps, pas pour les sujets permanents. Pour le permanent, c'est le Project sectoriel ou firme.</li>
+      <li><strong>Project qui survit au mandat.</strong> À la signature ou à l'abandon du mandat, archive le Project. Sinon il reste dans ta sidebar et pollue la navigation.</li>
+    </ul>
+    <h3>Anti-patterns collaboratifs</h3>
+    <ul>
+      <li>Le Project « catch-all équipe » où tout le monde peut écrire dans la knowledge base</li>
+      <li>Les Projects partagés avec trop de membres (au-delà de 10-12, la coordination tombe)</li>
+      <li>Les knowledge bases laissées en libre-édition sans owner clair</li>
+      <li>Les conventions de naming non respectées (pollution rapide)</li>
+    </ul>
+    <h3>Routine de maintenance — 15 minutes le vendredi</h3>
+    <p>Le plus gros risque d'un Project, c'est qu'il pourrisse silencieusement. Routine minimale recommandée, 15 minutes le vendredi après-midi :</p>
+    <ol>
+      <li>Pour chaque Project mandat actif, vérifier que la knowledge base reflète l'état du deal (IM committed, dernière Q&amp;A, univers à jour)</li>
+      <li>Mettre à jour la section « Stade du process » des custom instructions</li>
+      <li>Supprimer les drafts obsolètes dans <code>04_outputs/</code></li>
+      <li>Archiver les Projects dont le mandat est terminé depuis plus de 3 mois</li>
+    </ol>
+    <h3>Quand archiver</h3>
+    <p>Un Project doit être archivé quand :</p>
+    <ul>
+      <li>Le mandat est signé (closing exécuté) depuis 3+ mois</li>
+      <li>Le mandat est abandonné (process aborted)</li>
+      <li>Le sujet transverse n'a pas eu de conversation depuis 6 mois</li>
+    </ul>
+    <p>L'archivage ne supprime pas les conversations — elles restent accessibles pour référence. Mais le Project sort de la sidebar active et libère ton attention.</p>
+    <blockquote class="pull">Un Project qui n'est pas maintenu, c'est un classeur deal qui prend la poussière. Il finit par contenir des chiffres faux et des drafts obsolètes — c'est-à-dire pire qu'aucun Project.</blockquote>
+  </section>
+</div>
+
+<section class="related-tools">
+  <div class="page">
+    <div class="eyebrow">Pour aller plus loin</div>
+    <h2 class="chapter-title">Outils complémentaires</h2>
+    <p class="subtitle">Skills et formations qui amplifient la valeur des Projects.</p>
+    <div class="tools-grid">
+      <a href="connecteurs-mcp.html" class="tool-card"><div class="tool-tag">Formation 06</div><h4>Connecteurs &amp; MCP</h4><p>Apprends à câbler les bons connecteurs (Pappers, M365, S&amp;P) au niveau d'un Project pour amplifier ses capacités.</p></a>
+      <a href="skills.html" class="tool-card"><div class="tool-tag">Formation 03</div><h4>Skills</h4><p>Tu peux attacher des Skills spécifiques à un Project pour encoder des conventions particulières à un mandat ou un secteur.</p></a>
+      <a href="confidentialite.html" class="tool-card"><div class="tool-tag">Formation 07</div><h4>Confidentialité &amp; data handling</h4><p>Règles à respecter dans la knowledge base des Projects mandats — surtout pour les sujets sous NDA strict.</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Module 05 — Projects</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../formations.html">Toutes les formations</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

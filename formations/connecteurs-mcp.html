@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation — Connecteurs &amp; MCP · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link active">Formations</a>
+      <a href="../outils.html" class="nav-link">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../formations.html">Formations</a><span class="sep">›</span><span class="current">Connecteurs &amp; MCP</span>
+  </div>
+</div>
+
+<div class="page-wide">
+  <header class="hero">
+    <div class="eyebrow">Module pédagogique · Formation 06</div>
+    <h1>Connecteurs &amp; <em>MCP</em>.</h1>
+    <p class="lede">Comment câbler Claude à vos outils externes — Outlook, Pappers, S&amp;P Global, Grata, Atlassian, Notion, Asana, Linear. Le module qui transforme Claude en chef d'orchestre de votre stack de travail.</p>
+  </header>
+</div>
+
+<div class="page">
+  <nav class="toc" style="margin-top:48px">
+    <h2>Sommaire de la formation</h2>
+    <ol>
+      <li><a href="#ch1">Le concept — qu'est-ce qu'un MCP</a></li>
+      <li><a href="#ch2">Les connecteurs disponibles chez Clearwater</a></li>
+      <li><a href="#ch3">Comment les invoquer dans une conversation</a></li>
+      <li><a href="#ch4">Cas d'usage IB par connecteur</a></li>
+      <li><a href="#ch5">Sécurité, permissions, bonnes pratiques</a></li>
+      <li><a href="#ch6">Aller plus loin — MCP custom</a></li>
+    </ol>
+  </nav>
+
+  <section class="chapter" id="ch1">
+    <div class="chapter-num">— Chapitre 1</div>
+    <h2 class="chapter-title">Le concept — qu'est-ce qu'un MCP ?</h2>
+    <p class="intro">MCP signifie <strong>Model Context Protocol</strong>. C'est le standard ouvert qui permet à Claude de se connecter à des applications externes pour lire et écrire des données réelles — votre Outlook, votre Drive, une base corporate, un outil de project management.</p>
+    <h3>Le bon modèle mental</h3>
+    <p>Sans MCP, Claude est dans sa bulle : il sait ce que vous lui dites et ce qu'il trouve sur le web public. Avec un MCP connecté, Claude gagne <strong>accès à un outil tiers</strong> exactement comme s'il avait un compte utilisateur dessus. Il peut lire vos emails Outlook, requêter Pappers, vérifier le calendrier S&amp;P Global, créer une tâche Asana — au moment où vous lui demandez.</p>
+    <h3>MCP vs web search vs upload</h3>
+    <ul>
+      <li><strong>Web search</strong> — Claude cherche sur le web public via un moteur de recherche. Bon pour la news, le contenu publié, l'information générale.</li>
+      <li><strong>Upload de fichier</strong> — vous lui donnez un document précis, en pièce jointe ou dans la knowledge base d'un Project. Contenu statique.</li>
+      <li><strong>MCP</strong> — Claude requête en direct un outil tiers avec votre authentification. Données <em>vivantes</em>, à jour, parfois privées (votre inbox, votre drive).</li>
+    </ul>
+    <p>Les trois cohabitent. Pour un screening de cibles, vous pouvez avoir : web search (news récentes), Pappers (financiers FR), S&amp;P Global (données cotées), upload d'un brief client. Claude orchestre les sources pour vous.</p>
+    <h3>Permissions et authentification</h3>
+    <p>Chaque utilisateur s'authentifie indépendamment sur chaque connecteur. <strong>Les permissions sont les vôtres</strong> : si vous donnez à Claude l'accès à votre Outlook, il voit ce que vous voyez — pas plus. Si vous arrêtez le partage, l'accès est coupé.</p>
+    <div class="tip">
+      <strong>Point important — connexion par utilisateur</strong>
+      <span>Dans un Project partagé, chaque membre utilise ses propres connecteurs MCP avec ses propres authentifications. Si le VP a connecté son Outlook, l'associate doit connecter le sien. Claude ne « partage » pas votre accès Outlook avec le reste de l'équipe.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch2">
+    <div class="chapter-num">— Chapitre 2</div>
+    <h2 class="chapter-title">Les connecteurs disponibles chez Clearwater</h2>
+    <p class="intro">L'équipe Clearwater dispose de connecteurs structurants pour le M&amp;A. Tous ne sont pas activés par défaut — vous les activez par utilisateur dans les paramètres Claude.</p>
+    <h3>Connecteurs IB / données corporate</h3>
+    <table class="types-table">
+      <thead><tr><th style="width:25%">Connecteur</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td class="ttype">Pappers<small>Légal + financier FR</small></td><td>Base de données des sociétés françaises : SIREN, dirigeants, actionnariat, comptes annuels, bénéficiaires effectifs, cartographie d'entreprise, cartographie politique, décisions de justice, parcelles cadastrales. Source primaire pour tout sujet corporate FR.</td></tr>
+        <tr><td class="ttype">S&amp;P Global<small>Données cotées</small></td><td>Connecteur Kensho. Multiples cotés, peers, données financières internationales, transactions M&amp;A historiques. À privilégier pour les benchmarks et la valorisation de cibles cotées ou comparables cotés.</td></tr>
+        <tr><td class="ttype">Grata<small>Screener PE</small></td><td>Base de sociétés non cotées (Europe + US) avec filtres avancés : taille, secteur, géographie, signaux M&amp;A. Idéal pour les longlists d'acquéreurs PE ou la recherche de cibles selon critères stricts.</td></tr>
+      </tbody>
+    </table>
+    <h3>Connecteurs collaboration / productivité</h3>
+    <table class="types-table">
+      <thead><tr><th style="width:25%">Connecteur</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td class="ttype">Microsoft 365<small>Outlook, Teams, SharePoint</small></td><td>Emails Outlook (lecture + brouillon), calendrier (lecture + recherche de créneaux), Teams chat, SharePoint (documents et pages). Le connecteur le plus central pour le quotidien Clearwater.</td></tr>
+        <tr><td class="ttype">Notion<small>Wiki / docs</small></td><td>Pages Notion, bases de données, projects. Pertinent si une partie du knowledge management Clearwater vit sur Notion.</td></tr>
+        <tr><td class="ttype">Box<small>Cloud storage</small></td><td>Fichiers stockés sur Box. Lecture, recherche, organisation.</td></tr>
+        <tr><td class="ttype">Canva<small>Design</small></td><td>Création / modification de designs Canva. Marginal pour l'IB pur, plus pertinent pour le marketing firm-wide.</td></tr>
+      </tbody>
+    </table>
+    <h3>Connecteurs gestion de tâches et projets</h3>
+    <table class="types-table">
+      <thead><tr><th style="width:25%">Connecteur</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td class="ttype">Asana<small>Project management</small></td><td>Création et lecture de tâches, projets, échéances. Pertinent si l'équipe utilise Asana pour le suivi mandat.</td></tr>
+        <tr><td class="ttype">Atlassian<small>Jira + Confluence</small></td><td>Issues Jira, pages Confluence. Plus orienté équipe IT / dev, mais utile si knowledge management formel.</td></tr>
+        <tr><td class="ttype">Linear<small>Issue tracking</small></td><td>Tracking d'issues style ingénieur. Marginal pour le quotidien IB.</td></tr>
+        <tr><td class="ttype">monday.com<small>Tracking visuel</small></td><td>Tableaux de bord, tracking de pipeline, gestion d'équipe.</td></tr>
+        <tr><td class="ttype">Intercom<small>Customer support</small></td><td>Si l'équipe a une fonction client direct via Intercom. Marginal pour l'IB pur.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="chapter" id="ch3">
+    <div class="chapter-num">— Chapitre 3</div>
+    <h2 class="chapter-title">Comment les invoquer dans une conversation</h2>
+    <p class="intro">Trois modes d'invocation, par ordre de robustesse.</p>
+    <h3>Mode 1 — Citation explicite (le plus fiable)</h3>
+    <p>Vous nommez le connecteur dans votre message : « Vérifie sur <strong>Pappers</strong> l'actionnariat de [société] », « Cherche sur <strong>S&amp;P Global</strong> les multiples du secteur SaaS européen ». Claude appelle directement le bon outil, pas d'ambiguïté.</p>
+    <p>C'est le mode à préférer pour les tâches importantes ou critiques. La citation par nom élimine toute incertitude sur le choix de l'outil.</p>
+    <h3>Mode 2 — Description du besoin (automatique)</h3>
+    <p>Vous décrivez ce que vous cherchez sans nommer l'outil : « Trouve-moi les comptes annuels 2023 de [société française] », « Bloque-moi une heure mercredi matin ». Claude choisit le bon connecteur en fonction de votre demande. Marche bien dans 90 % des cas, mais peut se tromper si plusieurs connecteurs sont candidats.</p>
+    <h3>Mode 3 — Via une Skill (le plus puissant)</h3>
+    <p>Certaines Skills Clearwater orchestrent plusieurs connecteurs en une seule invocation. Exemples :</p>
+    <ul>
+      <li><strong>Daily Email Review</strong> — lit Outlook + croise avec votre calendrier + propose des actions</li>
+      <li><strong>Meeting Finder</strong> — interroge plusieurs calendriers via Microsoft 365 pour trouver un créneau commun</li>
+      <li><strong>Clearwater Research Sources</strong> — utilise les bons connecteurs (Pappers FR, S&amp;P pour les cotés) selon la nature de la requête</li>
+    </ul>
+    <p>Quand une Skill existe, elle est <strong>toujours préférable</strong> à l'invocation manuelle — elle encode les bons réflexes (cross-vérification, format de sortie, citation des sources).</p>
+    <div class="warn">
+      <strong>Vérification de l'authentification</strong>
+      <span>Avant d'utiliser un connecteur pour la première fois, allez dans Paramètres → Connectors et vérifiez qu'il est activé et connecté. Sinon, l'appel échoue silencieusement et Claude vous dit qu'il n'a pas trouvé l'information — alors qu'en réalité, il n'a pas pu requêter.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch4">
+    <div class="chapter-num">— Chapitre 4</div>
+    <h2 class="chapter-title">Cas d'usage IB par connecteur</h2>
+    <p class="intro">Les patterns à fort ROI selon le connecteur. À piocher selon vos workflows.</p>
+    <h3>Pappers — sociétés françaises</h3>
+    <ul>
+      <li><strong>Profil société FR</strong> — actionnariat, dirigeants, chiffres clés sur 3 ans</li>
+      <li><strong>Bénéficiaires effectifs</strong> — qui contrôle réellement une cible</li>
+      <li><strong>Cartographie groupe</strong> — filiales, participations, structure</li>
+      <li><strong>Sirenisateur</strong> — retrouver le SIREN exact d'une société à partir d'un nom partiel</li>
+      <li><strong>Décisions de justice</strong> — vérifier qu'une cible n'a pas de litige significatif</li>
+    </ul>
+    <h3>S&amp;P Global — données cotées et transactions</h3>
+    <ul>
+      <li><strong>Multiples sectoriels</strong> — EV/EBITDA, EV/Sales par secteur et géographie</li>
+      <li><strong>Peers cotés</strong> — sociétés comparables avec données financières alignées</li>
+      <li><strong>Transactions M&amp;A historiques</strong> — pour benchmarker multiples de transactions précédentes</li>
+      <li><strong>Données macro</strong> — taux, change, indices sectoriels</li>
+    </ul>
+    <h3>Grata — screener PE et non cotées</h3>
+    <ul>
+      <li><strong>Longlist cibles par critères</strong> — taille, géo, secteur, signaux M&amp;A</li>
+      <li><strong>Identification de PE actifs</strong> — quels fonds ont récemment investi dans un segment</li>
+      <li><strong>Recherche d'acquéreurs stratégiques</strong> — sociétés non cotées d'une certaine taille dans un segment donné</li>
+    </ul>
+    <h3>Microsoft 365 — quotidien Clearwater</h3>
+    <ul>
+      <li><strong>Briefing du matin</strong> — sweep des emails reçus, identification des items qui demandent action (via Skill daily-email-review)</li>
+      <li><strong>Suivi d'un fil mandat</strong> — retrouver tous les échanges avec un client / acquéreur sur les 30 derniers jours</li>
+      <li><strong>Recherche de créneau de réunion</strong> — trouver une heure commune à 5 personnes sur les 2 prochaines semaines (via Skill meeting-finder)</li>
+      <li><strong>Recherche documentaire SharePoint</strong> — retrouver le dernier IM d'un mandat ou les conventions firm-wide</li>
+      <li><strong>Préparation de call client</strong> — récupérer le fil d'emails passés avec ce client + agenda du jour</li>
+    </ul>
+    <h3>Stacking — combiner plusieurs connecteurs</h3>
+    <p>La vraie puissance vient du stacking. Exemples :</p>
+    <ul>
+      <li><strong>Préparation d'un IC interne</strong> : Microsoft 365 (notes du dernier IC) + Pappers (mise à jour corporate cible) + S&amp;P Global (multiples actualisés)</li>
+      <li><strong>Suivi univers acquéreurs</strong> : Microsoft 365 (fil d'emails par acquéreur) + base interne (statut process) + Grata (signaux récents M&amp;A de chaque acquéreur)</li>
+    </ul>
+  </section>
+
+  <section class="chapter" id="ch5">
+    <div class="chapter-num">— Chapitre 5</div>
+    <h2 class="chapter-title">Sécurité, permissions, bonnes pratiques</h2>
+    <p class="intro">Activer un connecteur, c'est donner à Claude l'accès à un outil avec vos permissions. Quelques règles à connaître avant d'aller plus loin.</p>
+    <h3>Le principe d'authentification</h3>
+    <p>Chaque connecteur fonctionne avec votre propre authentification (typiquement OAuth). Claude ne voit que ce que <strong>vous</strong> verriez en vous connectant manuellement. Si vous n'avez pas accès à un dossier SharePoint, Claude n'y aura pas accès non plus.</p>
+    <h3>Permissions par défaut — souvent en lecture seule</h3>
+    <p>La plupart des connecteurs s'installent en lecture seule au démarrage. Pour activer l'écriture (envoyer un email, créer une tâche), vous accordez explicitement la permission supplémentaire. <strong>Réflexe</strong> : si vous ne comptez pas faire écrire Claude, gardez-le en lecture seule. Moins de risques d'erreurs.</p>
+    <h3>Confidentialité des données qui transitent</h3>
+    <p>Sur Clearwater (compte Team / Enterprise) : les données échangées avec les connecteurs ne sont pas utilisées pour l'entraînement des modèles. Elles transitent par les serveurs Anthropic pour le traitement, puis sont oubliées (politique de rétention zéro pour Team / Enterprise sur demande, sinon courte).</p>
+    <p>Pour les sujets sous NDA strict, voir la formation <a href="confidentialite.html">Confidentialité &amp; data handling</a>.</p>
+    <h3>Désactiver ce qui ne sert pas</h3>
+    <p>Chaque connecteur activé consomme un peu de contexte (sa description est chargée dans le prompt système). Si vous travaillez sur une session sans besoin de connecteurs, désactivez-les pour gagner du quota et accélérer Claude. Réactivez quand vous en avez besoin.</p>
+    <div class="tip">
+      <strong>Bonnes pratiques générales</strong>
+      <span>(1) Vérifiez les paramètres de chaque connecteur avant la première utilisation. (2) Pour les actions sensibles (envoi d'email, modification de doc), Claude vous demande confirmation explicite. Ne validez pas en automatique. (3) Si Claude vous propose une action via un connecteur que vous ne maîtrisez pas, refusez et reformulez.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch6">
+    <div class="chapter-num">— Chapitre 6</div>
+    <h2 class="chapter-title">Aller plus loin — MCP custom</h2>
+    <p class="intro">Au-delà des connecteurs officiels, Clearwater pourrait à terme déployer ses propres MCP custom — c'est l'horizon stratégique du module.</p>
+    <h3>Pourquoi du MCP custom</h3>
+    <p>Les connecteurs officiels couvrent les outils standard du marché. Mais Clearwater a aussi des outils internes (CRM mandat, base interne d'investisseurs avec historique de contact, tracker de mandats). Un MCP custom permettrait à Claude d'y accéder comme à n'importe quel autre connecteur.</p>
+    <h3>Cas d'usage potentiels</h3>
+    <ul>
+      <li><strong>CRM mandat Clearwater</strong> — récupérer l'historique de contact avec un acquéreur, sa préférence sectorielle, ses tickets typiques</li>
+      <li><strong>Base interne d'investisseurs</strong> — qualifier rapidement un nouvel investisseur (fonds, ticket, mandats passés ensemble)</li>
+      <li><strong>Tracker de pipeline interne</strong> — récupérer le statut consolidé de tous les mandats actifs</li>
+    </ul>
+    <h3>Comment ça se construit</h3>
+    <p>Un MCP custom est un serveur que vous (ou votre IT) déployez, qui implémente le protocole MCP standard. Il expose des « tools » (actions que Claude peut appeler) et des « resources » (données que Claude peut lire). La documentation officielle Anthropic fournit le SDK et des exemples.</p>
+    <p>Pour Clearwater, ça suppose un projet IT dédié — pas un quick win individuel. Mais le ROI peut être très élevé si plusieurs membres de l'équipe interrogent les mêmes données internes plusieurs fois par jour.</p>
+    <h3>Resources pour creuser</h3>
+    <ul>
+      <li><a href="https://docs.claude.com/en/docs/agents-and-tools/mcp" target="_blank" rel="noopener">Documentation MCP officielle</a></li>
+      <li><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Spécification du protocole</a></li>
+    </ul>
+    <blockquote class="pull">Les connecteurs MCP démultiplient Claude. Un Claude bien câblé sur les bons outils ne fait plus 2 fois plus vite — il fait 10 fois plus vite, parce qu'il économise tous les allers-retours entre applications.</blockquote>
+  </section>
+</div>
+
+<section class="related-tools">
+  <div class="page">
+    <div class="eyebrow">Outils en lien</div>
+    <h2 class="chapter-title">Pour aller plus loin</h2>
+    <p class="subtitle">Skills et workflows qui exploitent les MCP.</p>
+    <div class="tools-grid">
+      <a href="../outils/daily-email-review.html" class="tool-card"><div class="tool-tag">Skill · M365</div><h4>Daily Email Review</h4><p>Sweep Outlook + cross avec calendrier pour produire un briefing matinal actionnable.</p></a>
+      <a href="../outils/meeting-finder.html" class="tool-card"><div class="tool-tag">Skill · M365</div><h4>Meeting Finder</h4><p>Trouve un créneau commun sur plusieurs calendriers Outlook.</p></a>
+      <a href="../outils/clearwater-research-sources.html" class="tool-card"><div class="tool-tag">Skill · Multi-MCP</div><h4>Clearwater Research Sources</h4><p>Oriente Claude vers les bons connecteurs selon la nature de la requête M&amp;A.</p></a>
+      <a href="confidentialite.html" class="tool-card"><div class="tool-tag">Formation 07</div><h4>Confidentialité</h4><p>Règles à respecter pour les connexions MCP sur des dossiers sensibles.</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Module 06 — Connecteurs &amp; MCP</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../formations.html">Toutes les formations</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

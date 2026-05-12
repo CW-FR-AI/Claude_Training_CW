@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation — Comprendre et créer des Skills Claude · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link active">Formations</a>
+      <a href="../outils.html" class="nav-link">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../formations.html">Formations</a><span class="sep">›</span><span class="current">Skills</span>
+  </div>
+</div>
+
+<div class="page-wide">
+  <header class="hero">
+    <div class="eyebrow">Module pédagogique · Formation 03</div>
+    <h1>Comprendre et créer<br>des <em>Skills</em> Claude.</h1>
+    <p class="lede">Les Skills capturent une compétence ou un standard de production et l'imposent à Claude automatiquement. Comprendre comment ils sont structurés, lesquels Clearwater a déjà déployés, et comment en créer de nouveaux qui se déclenchent au bon moment.</p>
+  </header>
+</div>
+
+<div class="page">
+  <nav class="toc" style="margin-top:48px">
+    <h2>Sommaire de la formation</h2>
+    <ol>
+      <li><a href="#ch1">Le concept — qu'est-ce qu'un Skill</a></li>
+      <li><a href="#ch2">Les Skills Clearwater déjà déployés</a></li>
+      <li><a href="#ch3">Anatomie d'un Skill</a></li>
+      <li><a href="#ch4">Les 5 erreurs classiques de conception</a></li>
+      <li><a href="#ch5">Créer et déployer un nouveau Skill</a></li>
+      <li><a href="#ch6">Cas d'usage à fort ROI</a></li>
+    </ol>
+  </nav>
+
+  <section class="chapter" id="ch1">
+    <div class="chapter-num">— Chapitre 1</div>
+    <h2 class="chapter-title">Le concept — qu'est-ce qu'un Skill ?</h2>
+    <p class="intro">Un Skill, c'est un <strong>module de compétence packagé</strong> qui dit à Claude « quand telle situation se présente, applique tel comportement ». Une fois installé, il se déclenche tout seul, sans que l'utilisateur ait à le savoir.</p>
+    <h3>Le bon modèle mental</h3>
+    <p>Pense à un Skill comme un collègue ultra-spécialisé qui se réveille quand sa spécialité est sollicitée. Quand quelqu'un dit « peux-tu améliorer ce mail ? », notre collègue « Email Enhancer » lève la main et prend la suite. Quand quelqu'un dit « fais-moi un profil société », c'est « Clearwater Profile » qui s'y colle. Tu n'as pas besoin de l'invoquer explicitement — la description du Skill contient les triggers, et Claude fait le reste.</p>
+    <h3>Skill ≠ prompt ≠ outil</h3>
+    <ul>
+      <li><strong>Prompt</strong> — ce que tu tapes dans le chat à chaque fois. Personnel, jetable.</li>
+      <li><strong>Skill</strong> — un comportement installé, déclenché par mots-clés ou contexte. Réutilisable par toute l'équipe, sans avoir besoin de connaître la formulation magique.</li>
+      <li><strong>Outil / MCP</strong> — une capacité externe (lire ton calendrier, requêter Pappers). Couvert dans la formation <a href="connecteurs-mcp.html">Connecteurs &amp; MCP</a>.</li>
+    </ul>
+    <h3>Deux types de Skills, deux ROI différents</h3>
+    <p><strong>Skills de production</strong> — encodent un standard d'écriture ou de mise en forme. Exemples Clearwater : Email Enhancer, Slide Text Enhancer, Clearwater Profile. Le ROI est mesurable : moins de temps de relecture, moins de variance entre rédacteurs.</p>
+    <p><strong>Skills de process</strong> — encodent un workflow complet, pas juste un livrable. Exemple : un Skill « Kickoff sell-side » qui, à chaque nouveau mandat, génère la checklist, les templates, et la structure de Project. Le ROI est démultiplié parce qu'on capture une routine entière, pas juste une étape.</p>
+    <div class="tip">
+      <strong>Le seuil de packaging</strong>
+      <span>Une bonne règle : si tu refais une routine à l'identique 3 fois par mois, c'est un candidat skill. Sinon, garde-la en prompt personnel — le coût de maintenance d'un Skill non utilisé est supérieur à son bénéfice.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch2">
+    <div class="chapter-num">— Chapitre 2</div>
+    <h2 class="chapter-title">Les Skills Clearwater déjà déployés</h2>
+    <p class="intro">Cinq Skills sont actuellement actifs dans l'environnement Clearwater. Quatre se déclenchent automatiquement, un s'invoque explicitement. Tu n'as pas besoin de les installer toi-même — ils sont déjà là.</p>
+    <h3>Vue d'ensemble</h3>
+    <table class="types-table">
+      <thead><tr><th style="width:30%">Skill</th><th>Déclenchement</th></tr></thead>
+      <tbody>
+        <tr><td class="ttype">Email Enhancer<small>Auto-trigger</small></td><td>Toute demande de correction, amélioration, polish d'un email — en FR ou EN. Préserve l'intention et le ton du brouillon.</td></tr>
+        <tr><td class="ttype">Slide Text Enhancer<small>Auto-trigger</small></td><td>Toute demande d'amélioration de texte de slide (titre, tagline, bullets). Applique les standards Clearwater : pas de qualificatifs marketing.</td></tr>
+        <tr><td class="ttype">IB Prompt Enhancer<small>Auto-trigger</small></td><td>Améliore silencieusement un prompt IB casual en prompt deal-ready, puis exécute. L'utilisateur n'a pas à reformuler.</td></tr>
+        <tr><td class="ttype">IB Prompt Architect<small>@architect</small></td><td>Sur invocation explicite (<code>@architect</code>), produit un prompt structuré paste-ready en 5 sections. N'exécute pas — il prépare.</td></tr>
+        <tr><td class="ttype">Clearwater Research Sources<small>Auto-trigger</small></td><td>Sur toute recherche M&amp;A / IB, oriente Claude vers la liste curée de sources Clearwater (consultants, fédérations, presse spécialisée).</td></tr>
+      </tbody>
+    </table>
+    <h3>Quand chaque Skill se déclenche</h3>
+    <h4>Email Enhancer</h4>
+    <p>Phrases qui déclenchent : « peux-tu améliorer cet email », « polish ce mail », « corrige le ton », « rends-le plus pro », « réécris en plus formel ». Aussi sur des verbes seuls : « fix this email », « clean up ». Marche en FR et EN. Préserve toujours l'intention et le degré de formalité du brouillon — il n'invente pas un nouveau ton.</p>
+    <h4>Slide Text Enhancer</h4>
+    <p>Phrases qui déclenchent : « améliore ce slide », « polish ces bullets », « corrige ce titre », « tagline meilleure ». Applique les règles Clearwater dures : pas de « leading », « cornerstone », « innovative », « strong growth », « best-in-class ». Si le brouillon en contient, ils sont reformulés en langage factuel.</p>
+    <h4>IB Prompt Enhancer</h4>
+    <p>Skill silencieuse. Sur toute demande IB casuelle (« fais-moi un panorama du secteur X », « long list pour cible Y »), elle réécrit en interne le prompt en version rigoureuse (cadrage, sources, format de sortie, contraintes) puis exécute. L'utilisateur ne voit pas le prompt enhancé — il voit le résultat de qualité supérieure.</p>
+    <h4>IB Prompt Architect</h4>
+    <p>S'invoque explicitement avec <code>@architect</code>. Quand tu travailles sur une tâche IB complexe et que tu veux un prompt rigoureux réutilisable, l'architect produit 5 sections : <em>Quick Diagnosis</em>, <em>Questions to clarify</em>, <em>Recommended Setup</em>, <em>Paste-ready Prompt</em>, <em>Runbook</em>. Tu copies le prompt produit dans un nouveau chat et tu obtiens un livrable de qualité élevée. C'est un méta-skill : il prépare, il n'exécute pas.</p>
+    <h4>Clearwater Research Sources</h4>
+    <p>Skill silencieuse. Sur toute recherche M&amp;A / IB (cible, fonds, deal, sectoriel, news), elle dirige Claude vers la liste curée de sources Clearwater organisée en 7 catégories : advisory firms, strategy consultants, macro/regulatory bodies, business press, trade press, federations, PE/debt/investor ecosystem. Citations en footnote + bibliography conformes au format banque d'affaires.</p>
+    <div class="warn">
+      <strong>Important — les Skills sont déjà installés</strong>
+      <span>Tu n'as pas à les invoquer, les installer, ou les configurer. Tu écris naturellement ta requête, ils se déclenchent automatiquement (sauf Architect qui nécessite <code>@architect</code>). Si un Skill ne se déclenche pas alors que tu pensais qu'il devrait, c'est probablement que ta formulation n'a pas matché les triggers — reformule plus explicitement.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch3">
+    <div class="chapter-num">— Chapitre 3</div>
+    <h2 class="chapter-title">Anatomie d'un Skill</h2>
+    <p class="intro">Un Skill, c'est un dossier avec un fichier <code>SKILL.md</code> à la racine et, optionnellement, des ressources annexes. Le <code>SKILL.md</code> est divisé en deux parties qui jouent des rôles très différents.</p>
+    <h3>Le frontmatter YAML — le déclencheur</h3>
+    <p>Au début du <code>SKILL.md</code>, entre deux séparateurs <code>---</code>, on trouve le frontmatter. Deux champs critiques :</p>
+    <ul>
+      <li><strong><code>name</code></strong> — identifiant lisible (ex. « Email Enhancer »). Sert à l'affichage et au logging.</li>
+      <li><strong><code>description</code></strong> — c'est ici que tout se joue. C'est <strong>la seule chose</strong> que Claude lit à chaque conversation pour décider si le Skill est pertinent. <strong>Limite stricte de 1024 caractères.</strong></li>
+    </ul>
+    <p>Si la description est mal écrite, le Skill peut être parfait dans son corps mais ne jamais se déclencher. À l'inverse, une description trop large fait que le Skill se déclenche partout, y compris quand ce n'est pas pertinent.</p>
+    <h3>Le corps en markdown — l'instruction opérationnelle</h3>
+    <p>Sous le frontmatter, le corps du <code>SKILL.md</code> contient les instructions que Claude reçoit <em>une fois le Skill déclenché</em>. C'est là que tu mets :</p>
+    <ul>
+      <li>La structure exacte attendue de l'output</li>
+      <li>Les conventions de format (ton, registre, longueur)</li>
+      <li>Les sections obligatoires vs optionnelles</li>
+      <li>Des exemples positifs courts et un anti-exemple</li>
+      <li>Les références à des ressources externes (templates, scripts)</li>
+    </ul>
+    <p>Heuristique : <strong>200 lignes maximum</strong> pour une skill de drafting. Au-delà, il y a du gras.</p>
+    <h3>Ressources annexes</h3>
+    <p>Pour les Skills qui ont besoin de templates, scripts ou références, le pattern propre c'est de séparer :</p>
+    <ul>
+      <li><code>SKILL.md</code> — la logique principale, courte et lisible</li>
+      <li><code>templates/</code> — fichiers exemples ou structures cibles</li>
+      <li><code>references/</code> — documentation, glossaires, exemples</li>
+      <li><code>scripts/</code> — code helper (Python, bash) que le Skill peut exécuter</li>
+    </ul>
+    <p>Le <code>SKILL.md</code> fait référence à ces fichiers (« utilise le template dans <code>templates/profile.docx</code> ») plutôt que de les inliner. Ça garde la logique séparée des ressources.</p>
+    <h3>Le format <code>.skill</code></h3>
+    <p>Un Skill packagé est livré en archive <code>.skill</code> — techniquement un ZIP qui contient le dossier du Skill. C'est ce format qui s'installe dans l'environnement Claude. Sur Clearwater, l'IT installe les Skills officiels pour toute l'équipe à partir des fichiers <code>.skill</code>.</p>
+  </section>
+
+  <section class="chapter" id="ch4">
+    <div class="chapter-num">— Chapitre 4</div>
+    <h2 class="chapter-title">Les 5 erreurs classiques de conception</h2>
+    <p class="intro">Une grande partie des Skills mal conçues échouent pour les mêmes raisons. Connaître ces pièges fait gagner des heures.</p>
+    <h3>Erreur 1 — Description trop générique</h3>
+    <p>Une description qui dit « Use when the user wants to write something » se déclenche partout et perd sa valeur. Une bonne description est <strong>dense en triggers spécifiques</strong> : phrases-trigger exactes (entre guillemets), langues couvertes, contextes typiques. Plus c'est concret, mieux le Skill se déclenche au bon moment.</p>
+    <h3>Erreur 2 — Description en mode notice plutôt que trigger</h3>
+    <p>Beaucoup de <code>SKILL.md</code> commencent par décrire <em>ce que fait</em> le Skill (« This skill creates company profiles… »). Ça n'aide pas Claude à décider <em>quand</em> l'utiliser. Ce qui aide, c'est <strong>les conditions de déclenchement</strong>.</p>
+    <p>Pattern qui fonctionne :</p>
+    <blockquote class="pull">[Une phrase sur ce que produit le Skill]. Use this skill whenever [trigger 1], [trigger 2], [trigger 3]. Triggers also on: "[exact phrase 1]", "[exact phrase 2]". Use even if the user just says [casual phrase] — any request to [intent] should use this skill.</blockquote>
+    <h3>Erreur 3 — Pas de signaux négatifs</h3>
+    <p>Un Skill mature inclut <strong>ce qu'il n'est PAS</strong>. Sans ça, des faux positifs apparaissent : le Skill se déclenche sur des requêtes qui ressemblent mais ne sont pas pertinentes. Ajoute systématiquement une ligne « Do NOT use when… ».</p>
+    <p>Exemple : Email Enhancer devrait avoir « Do NOT use for drafting an email from scratch — only for improving an existing draft ». Sinon il se déclenche sur « écris-moi un email à X », ce qui n'est pas son rôle.</p>
+    <h3>Erreur 4 — Corps de skill trop bavard</h3>
+    <p>Le corps du <code>SKILL.md</code> doit être <strong>opérationnel, pas pédagogique</strong>. Pas besoin de l'historique du Skill, du « pourquoi » il existe, ou de motivation générale. Claude a besoin de savoir <em>quoi produire et comment</em>, pas <em>pourquoi tu as créé ce Skill</em>.</p>
+    <h3>Erreur 5 — Pas de séparation skill / ressources</h3>
+    <p>Tout inliner dans le <code>SKILL.md</code> rend le fichier illisible et fragilise les mises à jour. Pour toute ressource volumineuse (template, exemple long, glossaire), un fichier séparé est la bonne approche. Le <code>SKILL.md</code> reste sous 200 lignes, les ressources vivent à côté.</p>
+    <div class="warn">
+      <strong>Le test décisif d'une description</strong>
+      <span>Avant de finaliser un Skill, écris 10 phrases que tu pourrais taper dans Claude. Combien <strong>devraient</strong> déclencher le Skill ? Combien sont effectivement couvertes par la description ? Si le ratio est faible, enrichis les triggers. Si trop large, ajoute des signaux négatifs.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch5">
+    <div class="chapter-num">— Chapitre 5</div>
+    <h2 class="chapter-title">Créer et déployer un nouveau Skill</h2>
+    <p class="intro">Pour un VP ou un associate Clearwater qui veut packager une routine personnelle en Skill équipe, voici le parcours pas à pas.</p>
+    <h3>Étape 1 — Valider que c'est bien un Skill</h3>
+    <p>Avant tout, vérifie que ta routine remplit les trois critères :</p>
+    <ul>
+      <li>Tu la refais à l'identique <strong>plusieurs fois par mois</strong> (sinon ce n'est qu'un prompt)</li>
+      <li>D'autres personnes de l'équipe en bénéficieraient (sinon garde-la en prompt personnel)</li>
+      <li>Tu as une <strong>norme claire</strong> de ce qu'est un bon output (sinon il faut d'abord cadrer la norme)</li>
+    </ul>
+    <h3>Étape 2 — Écrire le brouillon</h3>
+    <p>Le moyen le plus rapide : ouvre une conversation avec Claude, décris la routine que tu veux packager (avec exemples d'input et d'output attendus), et demande à Claude de te générer un <code>SKILL.md</code> draft. Tu obtiens en 2 minutes une base solide à itérer dessus.</p>
+    <h3>Étape 3 — Tester</h3>
+    <p>Avant de packager officiellement, teste en mode « custom instruction » ou en collant le contenu en début de chat. Vérifie que :</p>
+    <ul>
+      <li>Le Skill produit le bon output sur 3 cas réels différents</li>
+      <li>Il ne dérive pas (variance de format ou de ton entre runs)</li>
+      <li>Il refuse correctement de se déclencher sur des cas hors scope</li>
+    </ul>
+    <h3>Étape 4 — Packager</h3>
+    <p>Structure le dossier proprement :</p>
+    <pre style="background:var(--surface-soft);padding:16px;border:1px solid var(--rule);border-radius:3px;font-family:var(--font-mono);font-size:13px;overflow-x:auto;color:var(--text-soft)">
+mon-skill/
+├── SKILL.md          (frontmatter + corps, &lt;200 lignes)
+├── templates/        (optionnel, exemples de sortie)
+├── references/       (optionnel, glossaires)
+└── scripts/          (optionnel, helpers)
+</pre>
+    <p>Zippe le dossier et renomme l'extension en <code>.skill</code>. C'est le fichier que tu transmets à l'IT pour installation.</p>
+    <h3>Étape 5 — Déployer à l'équipe</h3>
+    <p>Trois options selon la portée :</p>
+    <ul>
+      <li><strong>Skill personnel</strong> — installé sur ton compte uniquement, pour test</li>
+      <li><strong>Skill Project</strong> — installé sur un Project spécifique, partagé avec les membres du Project</li>
+      <li><strong>Skill équipe Clearwater</strong> — installé au niveau de l'organisation, disponible pour tous</li>
+    </ul>
+    <p>Pour les Skills équipe, l'installation passe par l'IT (administrateur du compte Team / Enterprise). Documentation à fournir : nom, description courte, exemples d'usage, mainteneur.</p>
+    <div class="tip">
+      <strong>Astuce — contrainte technique du frontmatter</strong>
+      <span>Le champ <code>description</code> du <code>SKILL.md</code> a une limite stricte de <strong>1024 caractères</strong>. Au-delà, le Skill ne charge pas. Tiens-t'en à ça, et fais tenir tous tes triggers + signaux négatifs dans cet espace.</span>
+    </div>
+  </section>
+
+  <section class="chapter" id="ch6">
+    <div class="chapter-num">— Chapitre 6</div>
+    <h2 class="chapter-title">Cas d'usage à fort ROI</h2>
+    <p class="intro">Au-delà des 5 Skills déjà déployés, voici les zones où l'investissement dans un nouveau Skill rapporte le plus chez Clearwater.</p>
+    <h3>Skills de process pour les routines mandat</h3>
+    <div class="usecase-grid">
+      <div class="usecase"><div class="utag">Idée 1</div><h4>Sell-side mandate kickoff</h4><p>À chaque nouveau mandat, génère la checklist structurée (NDA, IM brief, calendrier process, univers initial, kickoff team), produit les templates initiaux, met en place le Project Claude.</p></div>
+      <div class="usecase"><div class="utag">Idée 2</div><h4>Q&amp;A consolidation</h4><p>Agrège des questions de plusieurs investisseurs, déduplique, classe par thème, priorise, drafte les réponses dans le ton attendu. Routine très récurrente en phase de Q&amp;A.</p></div>
+      <div class="usecase"><div class="utag">Idée 3</div><h4>Buyer outreach drafting</h4><p>Pour un univers d'acquéreurs, produit les emails first-touch dans la bonne langue, le bon registre, avec la bonne mention du process et des prochaines étapes.</p></div>
+      <div class="usecase"><div class="utag">Idée 4</div><h4>Investor update</h4><p>Update hebdo standardisé à envoyer au client sell-side : statut process, courbe d'engagement, prochaines milestones, sujets d'attention. Format identique semaine après semaine.</p></div>
+    </div>
+    <h3>Skills de production complémentaires</h3>
+    <ul>
+      <li><strong>Teaser drafting</strong> — première version de teaser au format Clearwater, à partir d'un brief client de 2-3 pages</li>
+      <li><strong>Management presentation outline</strong> — squelette type d'une management presentation, segmenté par secteur</li>
+      <li><strong>NBO analysis</strong> — grille d'analyse d'une offre reçue (prix, structure, conditions, financements, calendrier) en format banker</li>
+      <li><strong>Pitch postmortem</strong> — debrief structuré après un pitch perdu pour capitaliser sur les retours</li>
+    </ul>
+    <h3>Skills d'orchestration (les plus puissants)</h3>
+    <p>Une Skill peut aussi orchestrer un workflow complet. Exemples ambitieux :</p>
+    <ul>
+      <li><strong>Weekly mandate review</strong> — pour chaque mandat actif, lit l'inbox + le calendrier + le Project Claude, produit une synthèse hebdo des points ouverts, des risques émergents, des décisions à prendre</li>
+      <li><strong>Pipeline tracker auto-update</strong> — récupère les statuts de tous les mandats, met à jour un tableau consolidé, identifie les écarts de capacité</li>
+    </ul>
+    <p>Ces Skills d'orchestration combinent plusieurs MCP (Outlook, Calendrier, Project knowledge) et délivrent une valeur très supérieure aux Skills atomiques.</p>
+    <blockquote class="pull">Un bon Skill se reconnaît à ce qu'on ne le remarque plus. Quand tout le monde dans l'équipe produit des emails impeccables sans plus penser à l'« Email Enhancer », c'est qu'il a réussi.</blockquote>
+  </section>
+</div>
+
+<section class="related-tools">
+  <div class="page">
+    <div class="eyebrow">Skills disponibles</div>
+    <h2 class="chapter-title">Les 5 Skills déployés</h2>
+    <p class="subtitle">Fiches détaillées des Skills actuellement actifs dans l'environnement Clearwater.</p>
+    <div class="tools-grid">
+      <a href="../outils/email-enhancer.html" class="tool-card"><div class="tool-tag">Skill · Auto-trigger</div><h4>Email Enhancer</h4><p>Améliore les emails (FR &amp; EN) en préservant l'intention et le ton du brouillon.</p></a>
+      <a href="../outils/slide-text-enhancer.html" class="tool-card"><div class="tool-tag">Skill · Auto-trigger</div><h4>Slide Text Enhancer</h4><p>Améliore les textes de slide aux standards Clearwater (pas de qualificatifs marketing).</p></a>
+      <a href="../outils/ib-prompt-enhancer.html" class="tool-card"><div class="tool-tag">Skill · Auto-trigger</div><h4>IB Prompt Enhancer</h4><p>Améliore silencieusement les prompts IB casual et exécute la version deal-ready.</p></a>
+      <a href="../outils/ib-prompt-architect.html" class="tool-card"><div class="tool-tag">Skill · @architect</div><h4>IB Prompt Architect</h4><p>Sur invocation explicite, produit un prompt structuré en 5 sections (paste-ready).</p></a>
+      <a href="../outils/clearwater-research-sources.html" class="tool-card"><div class="tool-tag">Skill · Auto-trigger</div><h4>Clearwater Research Sources</h4><p>Oriente Claude vers la liste curée de sources Clearwater (7 catégories).</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Module 03 — Skills</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../formations.html">Toutes les formations</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>

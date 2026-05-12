@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive To-Do · Clearwater</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <div class="nav-brand-mark">C</div>
+      <div><span class="nav-brand-text">Clearwater</span><span class="nav-brand-sub">Outils &amp; Personnalisation Claude</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">Accueil</a>
+      <a href="../quick-start.html" class="nav-link">Quick start</a>
+      <a href="../formations.html" class="nav-link">Formations</a>
+      <a href="../outils.html" class="nav-link active">Outils</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Accueil</a><span class="sep">›</span><a href="../outils.html">Outils</a><span class="sep">›</span><span class="current">Interactive To-Do</span>
+  </div>
+</div>
+
+<div class="page">
+  <header class="hero">
+    <div class="eyebrow">Skill · Artifact React</div>
+    <h1><em>Interactive</em> To-Do.</h1>
+    <p class="lede">Génère un dashboard React visuel de tâches, où vous pouvez marquer chaque item « done », « to-do » ou « removed », puis exporter vos choix vers Claude pour un suivi ou des actions complémentaires.</p>
+  </header>
+
+  <div class="factsheet-meta">
+    <div class="factsheet-meta-item"><div class="factsheet-meta-label">Type</div><div class="factsheet-meta-value">Skill · Auto-trigger</div></div>
+    <div class="factsheet-meta-item"><div class="factsheet-meta-label">Environnement</div><div class="factsheet-meta-value">Chat (web, desktop)</div></div>
+    <div class="factsheet-meta-item"><div class="factsheet-meta-label">Format de sortie</div><div class="factsheet-meta-value">Artifact React (.jsx)</div></div>
+    <div class="factsheet-meta-item"><div class="factsheet-meta-label">Modèle conseillé</div><div class="factsheet-meta-value">Sonnet 4.6</div></div>
+  </div>
+
+  <section class="chapter" style="padding-top:24px">
+    <div class="chapter-num">— Ce qu'il fait</div>
+    <h2 class="chapter-title">Une checklist vivante dans le chat</h2>
+    <p>À partir d'une liste de tâches (que vous donnez en clair, ou qui résulte d'un Daily Email Review), le Skill produit un artifact React interactif : un dashboard où chaque tâche apparaît comme une carte cliquable. Vous cochez « done » au fur et à mesure, ou « removed » pour ce qui n'est plus pertinent.</p>
+    <h3>Fonctionnalités du dashboard</h3>
+    <ul>
+      <li><strong>Trois statuts par tâche</strong> — to-do, done, removed</li>
+      <li><strong>Catégorisation</strong> par mandat / projet / contexte (héritée de la liste source)</li>
+      <li><strong>Priorisation</strong> par criticité (urgent / important / routine)</li>
+      <li><strong>Filtres</strong> par statut, par mandat, par priorité</li>
+      <li><strong>Export</strong> de vos choix vers Claude pour un suivi (« voici ce que j'ai fait aujourd'hui »)</li>
+    </ul>
+    <h3>Persistance</h3>
+    <p>L'artifact peut utiliser le <strong>persistent storage</strong> de Claude (voir formation <a href="../formations/artifacts.html">Artifacts</a>). Vos choix sont sauvegardés et vous pouvez retrouver votre to-do à la prochaine ouverture. Idéal pour une checklist qui se construit sur plusieurs jours.</p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-num">— Déclenchement</div>
+    <h2 class="chapter-title">Comment l'invoquer</h2>
+    <p>Le Skill se déclenche automatiquement quand vous demandez une organisation de tâches ou une checklist interactive.</p>
+    <h3>Formulations qui déclenchent</h3>
+    <ul>
+      <li>« Fais ma to-do »</li>
+      <li>« Organise mes tâches »</li>
+      <li>« Montre-moi ce que j'ai à faire »</li>
+      <li>« Interactive checklist »</li>
+      <li>« Task tracker »</li>
+      <li>« Quoi faire aujourd'hui »</li>
+      <li>« Priorise tout ça » — après un Daily Email Review</li>
+      <li>« Action items » à partir d'une liste donnée</li>
+    </ul>
+    <h3>Pattern le plus efficace : chaîné après Daily Email Review</h3>
+    <ol>
+      <li>Lancez le Daily Email Review du matin (« lis mes emails depuis hier »)</li>
+      <li>Une fois la synthèse produite, dites « maintenant priorise tout ça en checklist interactive »</li>
+      <li>Le Skill produit l'artifact React, prêt à cocher au fur et à mesure</li>
+    </ol>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-num">— Cas d'usage</div>
+    <h2 class="chapter-title">Quand l'utiliser</h2>
+    <div class="usecase-grid">
+      <div class="usecase"><div class="utag">Cas 1</div><h4>To-do du jour après briefing email</h4><p>Suite naturelle du Daily Email Review. Vous obtenez une vue claire de ce que vous devez faire, avec status en temps réel pendant la journée.</p></div>
+      <div class="usecase"><div class="utag">Cas 2</div><h4>Checklist de kickoff mandat</h4><p>À partir d'une checklist standard (NDA signé, IM brief, calendrier, univers initial, kickoff team), l'artifact React track l'avancement.</p></div>
+      <div class="usecase"><div class="utag">Cas 3</div><h4>Suivi Q&amp;A diligence</h4><p>Pour un mandat en phase Q&amp;A active, transformer la liste consolidée des questions en checklist suivie par statut (drafted, reviewed, sent).</p></div>
+      <div class="usecase"><div class="utag">Cas 4</div><h4>Suivi d'un long process</h4><p>Pour un mandat sur plusieurs mois, garder visible le statut de chaque livrable à produire — avec persistent storage, l'état persiste entre sessions.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-num">— Pièges &amp; limites</div>
+    <h2 class="chapter-title">À garder en tête</h2>
+    <div class="warn">
+      <strong>Pas accessible depuis l'app mobile pour édition</strong>
+      <span>L'artifact React s'affiche correctement sur mobile mais l'interaction (cocher, drag, filter) est dégradée. Pour un usage régulier, utiliser le chat web ou desktop. Sur mobile, lecture seule recommandée.</span>
+    </div>
+    <ul>
+      <li><strong>Pas d'intégration native avec Outlook / Asana / Linear.</strong> L'artifact vit dans Claude. Pour synchroniser avec un outil externe, il faut le faire manuellement.</li>
+      <li><strong>Persistence par utilisateur</strong> — vos choix dans l'artifact ne sont pas partagés avec votre équipe par défaut. Pour un tracker collectif, demander le mode « shared » dans le persistent storage.</li>
+      <li><strong>Pour un suivi de pipeline complet</strong> (plusieurs mandats, plusieurs personnes, vraiment structuré), envisager plutôt un Project dédié avec une knowledge base — ou un outil externe comme Asana / monday.</li>
+    </ul>
+  </section>
+</div>
+
+<section class="related-tools">
+  <div class="page">
+    <div class="eyebrow">Pour aller plus loin</div>
+    <h2 class="chapter-title">Outils &amp; formations en lien</h2>
+    <div class="tools-grid">
+      <a href="daily-email-review.html" class="tool-card"><div class="tool-tag">Skill · M365</div><h4>Daily Email Review</h4><p>Le combo gagnant : revue email du matin + checklist interactive de la journée.</p></a>
+      <a href="../formations/artifacts.html" class="tool-card"><div class="tool-tag">Formation 04</div><h4>Artifacts</h4><p>Comprendre les artifacts React avec persistent storage — exactement ce qu'utilise ce Skill.</p></a>
+      <a href="meeting-finder.html" class="tool-card"><div class="tool-tag">Skill · M365</div><h4>Meeting Finder</h4><p>Pour les items « caler un meeting » qui sortent du briefing matinal.</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ornament">⁂</div>
+  <div>Clearwater &middot; Outils &amp; Personnalisation Claude</div>
+  <div style="margin-top:6px">Outil — Interactive To-Do</div>
+  <div class="footer-links"><a href="../index.html">Accueil</a><a href="../outils.html">Tous les outils</a></div>
+</footer>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
