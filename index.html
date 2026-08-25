@@ -35,6 +35,61 @@
 </div>
 
 <div class="page">
+  <section class="chapter" style="padding-top:40px">
+    <div class="chapter-num">— Repères</div>
+    <h2 class="chapter-title">Quel modèle, pour quel usage</h2>
+    <p class="intro">Avant de lancer une tâche, vous choisissez deux choses dans le menu modèle, à côté du bouton d'envoi : le modèle, puis son niveau d'effort. Quatre modèles couvrent l'essentiel des usages, du plus profond au plus rapide.</p>
+
+    <table class="pricing-table">
+      <thead>
+        <tr><th>Modèle</th><th>Pour quoi faire</th><th>Exemple M&amp;A</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="model">Fable 5<small>Latence lente</small></td>
+          <td>Chantiers de plusieurs heures en autonomie : le run travaille pendant que vous faites autre chose, vous vérifiez en fin de course.</td>
+          <td>Monter un dossier d'analyse complet en run autonome Cowork</td>
+        </tr>
+        <tr>
+          <td class="model">Opus 5<small>Latence modérée</small></td>
+          <td>Documents très longs et livrables Office : tient vos consignes sur toute sa fenêtre de 1M tokens, produit classeurs multi-onglets et decks — gabarit à fournir.</td>
+          <td>Lire une data room de plusieurs centaines de pages en une seule passe</td>
+        </tr>
+        <tr>
+          <td class="model">Sonnet 5<small>Rapide</small></td>
+          <td>Extraction et production au format imposé : applique la consigne à la lettre, sans généraliser ni improviser.</td>
+          <td>Extraction chiffrée répétitive sur un format stable, screening en masse</td>
+        </tr>
+        <tr class="row-haiku">
+          <td class="model">Haiku 4.5<small>Le plus rapide</small></td>
+          <td>Volume et vitesse sur des tâches simples, souvent en sous-tâches d'un modèle plus large.</td>
+          <td>Qualifier 500 lignes de longlist, classer des emails</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--text-muted);max-width:740px">Correspondances inférées par Clearwater à partir de la documentation Anthropic. Fable 5 est inclus jusqu'à 50 % de la limite hebdomadaire sur les plans Max et les sièges Premium ; sur Pro et les sièges Standard, il est facturé en usage credits dès la première requête. Pour un sujet postérieur à la coupure de connaissances du modèle, fournissez vos documents ou demandez une recherche web.</p>
+
+    <h3>Le niveau d'effort</h3>
+    <p>Le modèle vous paraît lent sur une question simple, ou trop expéditif sur une analyse : le sélecteur d'effort règle la profondeur de réflexion avant la réponse. Chaque modèle porte un palier recommandé, marqué « Default » dans le menu — c'est le bon réglage tant que vous n'avez pas de raison d'en changer. Haiku 4.5 ne propose pas ce réglage.</p>
+    <table class="types-table">
+      <thead>
+        <tr><th>Palier</th><th>Comportement</th><th>Quand le choisir</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="ttype">max</td><td>Réfléchit toujours, sans contrainte de profondeur</td><td>Analyse où la qualité prime sur tout, temps de réponse accepté</td></tr>
+        <tr><td class="ttype">xhigh</td><td>Réfléchit toujours, en profondeur</td><td>Travail complexe : valorisation multi-méthodes, revue de structure</td></tr>
+        <tr><td class="ttype">high</td><td>Réfléchit presque toujours</td><td>Le réglage courant pour le travail de fond</td></tr>
+        <tr><td class="ttype">medium</td><td>Peut sauter la réflexion sur les requêtes simples</td><td>Itérations rapides, reformulations, questions courtes</td></tr>
+        <tr><td class="ttype">low</td><td>Saute la réflexion là où la vitesse prime</td><td>Tâches simples en volume, quand chaque seconde compte</td></tr>
+      </tbody>
+    </table>
+    <div class="tip">
+      <strong>Deux repères d'usage</strong>
+      L'effort règle la profondeur de réflexion, pas la longueur de la réponse — si vous voulez une réponse courte, demandez-la dans le prompt. Et aux paliers élevés, un tour Fable 5 peut durer plusieurs minutes : c'est le comportement attendu, pas un blocage.
+    </div>
+    <p style="font-size:14px">Pour aller plus loin : le choix de modèle est détaillé au module 1 de la formation <a href="formations/maitrise-ib.html">Maîtrise complète IB</a>, le sélecteur d'effort au module 8.</p>
+  </section>
+
   <section class="chapter" style="border-bottom:0;padding-top:32px">
     <div class="chapter-num">— Premier pas</div>
     <h2 class="chapter-title">Par où commencer</h2>
